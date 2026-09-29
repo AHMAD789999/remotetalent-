@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 const tools = [
   { name: "Shopify", icon: "shopify" },
@@ -20,6 +19,7 @@ const tools = [
   { name: "Claude", icon: "claude" },
   { name: "Zapier", icon: "zapier" },
   { name: "Stripe", icon: "stripe" },
+  { name: "Google", icon: "google" },
 ];
 
 export default function TrustedPartners() {
@@ -43,44 +43,29 @@ export default function TrustedPartners() {
           </p>
         </div>
 
-        {/* Tools Marquee */}
-        <div className="relative w-full overflow-hidden">
+        {/* Tools Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 border border-white/15 rounded-[10px] overflow-hidden bg-white/5">
 
-          {/* Left Fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#FA5B16] to-transparent z-10 pointer-events-none" />
-
-          {/* Right Fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#FA5B16] to-transparent z-10 pointer-events-none" />
-
-          <motion.div
-            className="flex w-max items-center"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              duration: 35,
-              ease: "linear",
-              repeat: Infinity,
-            }}
-          >
-            {[...tools, ...tools].map((tool, index) => (
-              <div
-                key={`${tool.name}-${index}`}
-                className="flex items-center gap-3 mx-5 sm:mx-7 group"
-              >
-                <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-[7px] bg-white/10 border border-white/15 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/20">
-                  <img
-                    src={`https://cdn.simpleicons.org/${tool.icon}/ffffff`}
-                    alt={`${tool.name} logo`}
-                    className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
-                    loading="lazy"
-                  />
-                </div>
-
-                <span className="text-sm sm:text-[15px] font-medium text-white/90 group-hover:text-white transition-colors duration-300 whitespace-nowrap">
-                  {tool.name}
-                </span>
+          {tools.map((tool) => (
+            <div
+              key={tool.name}
+              className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 px-3 py-5 border-r border-b border-white/10 hover:bg-white/10 transition-colors duration-300"
+            >
+              <div className="flex items-center justify-center w-9 h-9 rounded-[7px] bg-white/10 border border-white/15">
+                <img
+                  src={`https://cdn.simpleicons.org/${tool.icon}/ffffff`}
+                  alt={`${tool.name} logo`}
+                  className="w-5 h-5 object-contain"
+                  loading="lazy"
+                />
               </div>
-            ))}
-          </motion.div>
+
+              <span className="text-xs sm:text-sm font-medium text-white/90 text-center whitespace-nowrap">
+                {tool.name}
+              </span>
+            </div>
+          ))}
+
         </div>
 
       </div>
