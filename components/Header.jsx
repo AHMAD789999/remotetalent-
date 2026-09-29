@@ -328,15 +328,13 @@ export default function Header() {
               Contact Us
             </Link>
 
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow-md mt-2"
-            >
-              <span>Hire Dedicated Talent</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+          <a
+  href="mailto:business@talentharbor.net?subject=Hire%20Dedicated%20Talent&body=Hello%20Talent%20Harbor%2C%0A%0AI%20am%20interested%20in%20hiring%20dedicated%20talent.%0A%0AThank%20you."
+  className="flex items-center justify-center gap-2 w-full py-3 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow-md mt-2"
+>
+  <span>Hire Dedicated Talent</span>
+  <ArrowRight className="w-3.5 h-3.5" />
+</a>
           </div>
         )}
       </div>
