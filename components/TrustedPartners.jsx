@@ -16,10 +16,9 @@ const tools = [
   { name: "Microsoft Teams", icon: "microsoftteams" },
   { name: "ClickUp", icon: "clickup" },
   { name: "ChatGPT", icon: "openai" },
-  { name: "Claude", icon: "claude" },
+  { name: "Claude", icon: "anthropic" },
   { name: "Zapier", icon: "zapier" },
   { name: "Stripe", icon: "stripe" },
-  { name: "Google", icon: "google" },
 ];
 
 export default function TrustedPartners() {
@@ -28,7 +27,7 @@ export default function TrustedPartners() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Section Heading */}
-        <div className="max-w-3xl mx-auto text-center mb-10">
+        <div className="max-w-3xl mb-10 text-left">
           <span className="inline-block px-3 py-1 rounded-[7px] bg-white/15 border border-white/10 text-white text-[10px] font-semibold uppercase tracking-[0.18em]">
             Tools We Work With
           </span>
@@ -37,35 +36,51 @@ export default function TrustedPartners() {
             Your Tools. Our Talent.
           </h3>
 
-          <p className="mt-4 text-sm sm:text-base text-white/80 font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-4 text-sm sm:text-base text-white/80 font-normal leading-relaxed max-w-2xl">
             Dedicated professionals ready to work with the platforms your
             business uses every day.
           </p>
         </div>
 
-        {/* Tools Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 border border-white/15 rounded-[10px] overflow-hidden bg-white/5">
+        {/* Tools Container */}
+        <div className="w-full rounded-[10px] bg-white/5 border border-white/15 overflow-hidden">
 
-          {tools.map((tool) => (
-            <div
-              key={tool.name}
-              className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 px-3 py-5 border-r border-b border-white/10 hover:bg-white/10 transition-colors duration-300"
-            >
-              <div className="flex items-center justify-center w-9 h-9 rounded-[7px] bg-white/10 border border-white/15">
-                <img
-                  src={`https://cdn.simpleicons.org/${tool.icon}/ffffff`}
-                  alt={`${tool.name} logo`}
-                  className="w-5 h-5 object-contain"
-                  loading="lazy"
-                />
+          {/* Tools Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8">
+
+            {tools.map((tool) => (
+              <div
+                key={tool.name}
+                className="
+                  flex items-center justify-start gap-3
+                  px-4 sm:px-5
+                  py-5
+                  border-r border-b border-white/10
+                  hover:bg-white/10
+                  transition-all duration-300
+                  min-h-[76px]
+                "
+              >
+                {/* Logo */}
+                <div className="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-[7px] bg-white/10 border border-white/15">
+                  <img
+                    src={`https://cdn.simpleicons.org/${tool.icon}/ffffff`}
+                    alt={`${tool.name} logo`}
+                    className="w-5 h-5 object-contain"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                </div>
+
+                {/* Tool Name */}
+                <span className="text-xs sm:text-sm font-medium text-white/90 leading-tight">
+                  {tool.name}
+                </span>
               </div>
+            ))}
 
-              <span className="text-xs sm:text-sm font-medium text-white/90 text-center whitespace-nowrap">
-                {tool.name}
-              </span>
-            </div>
-          ))}
-
+          </div>
         </div>
 
       </div>
