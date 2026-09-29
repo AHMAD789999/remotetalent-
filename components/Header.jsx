@@ -122,12 +122,14 @@ export default function Header() {
       >
         <div className="flex items-center justify-between">
           
-          {/* Brand Name Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold tracking-tight text-[#0F0C09]">
-              REMOTE<span className="text-[#FA5B16]">TALENT</span>
-            </span>
-          </Link>
+        {/* Brand Logo */}
+<Link href="/" className="flex items-center">
+  <img
+    src="/talentlogo.png"
+    alt="Remote Talent"
+    className="h-10 w-auto object-contain"
+  />
+</Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
