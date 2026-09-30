@@ -23,7 +23,7 @@ const allServices = [
     category: "Development",
     title: "Website Engineering & Dev",
     desc: "Custom Next.js, PHP, WordPress & WooCommerce web app architectures.",
-    link: "/services/website-development-maintenance",
+    link: "/services/web-development",
     icon: Code,
   },
   {
@@ -31,7 +31,7 @@ const allServices = [
     category: "Development",
     title: "E-Commerce Store Operations",
     desc: "Full Shopify and WooCommerce catalog and workflow management.",
-    link: "/services/ecommerce-store-management",
+    link: "/services/web-development",
     icon: ShoppingBag,
   },
   {
@@ -47,7 +47,7 @@ const allServices = [
     category: "Customer Support",
     title: "Inbound Call Support",
     desc: "Voice assistance for client inquiries, orders, and technical support.",
-    link: "/services/call-support",
+    link: "/services/customer-call-support",
     icon: PhoneCall,
   },
   {
@@ -55,7 +55,7 @@ const allServices = [
     category: "Customer Support",
     title: "Email Ticket Management",
     desc: "Zendesk & Freshdesk ticketing queue handling with fast SLA times.",
-    link: "/services/email-support",
+    link: "/services/customer-email-support",
     icon: Mail,
   },
   {
@@ -63,7 +63,7 @@ const allServices = [
     category: "Operations & Logistics",
     title: "Driver Fleet Dispatch",
     desc: "Real-time route support and live dispatch for delivery personnel.",
-    link: "/services/driver-support",
+    link: "/services/driver-dispatch-support",
     icon: Truck,
   },
   {
@@ -71,7 +71,7 @@ const allServices = [
     category: "Operations & Logistics",
     title: "Warehouse & Inventory",
     desc: "Order processing powered by ShipStation and custom ERP setups.",
-    link: "/services/warehouse-management",
+    link: "/services/warehouse-order-management",
     icon: Boxes,
   },
   {
@@ -79,7 +79,7 @@ const allServices = [
     category: "Operations & Logistics",
     title: "Virtual Executive Assistant",
     desc: "Dedicated C-suite support for calendar management and emails.",
-    link: "/services/executive-assistant",
+    link: "/services/executive-assistant-c-suite",
     icon: UserCheck,
   },
   {
@@ -87,7 +87,7 @@ const allServices = [
     category: "Operations & Logistics",
     title: "RMA & Returns Processing",
     desc: "Hassle-free return authorizations and replacement workflows.",
-    link: "/services/shipping-rma-handling",
+    link: "/services/order-shipping-rma",
     icon: RotateCcw,
   },
 ];
