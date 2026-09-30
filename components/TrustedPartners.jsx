@@ -5,67 +5,67 @@ import React from "react";
 const tools = [
   {
     name: "Shopify",
-    icon: "shopify",
+    icon: "/shopify.png",
   },
   {
     name: "WordPress",
-    icon: "wordpress",
+    icon: "/wordpress.png",
   },
   {
     name: "WooCommerce",
-    icon: "woocommerce",
+    icon: "/woocommerce.png",
   },
   {
     name: "Magento",
-    icon: "magento",
+    icon: "/magento.png",
   },
   {
     name: "ShipStation",
-    icon: "shipstation",
+    icon: "/shipstation.png",
   },
   {
     name: "Zendesk",
-    icon: "zendesk",
+    icon: "/zendesk.png",
   },
   {
     name: "Freshdesk",
-    icon: "freshdesk",
+    icon: "/freshdesk.png",
   },
   {
     name: "HubSpot",
-    icon: "hubspot",
+    icon: "/hubspot.png",
   },
   {
     name: "Slack",
-    icon: "slack",
+    icon: "/slack.png",
   },
   {
     name: "Google Workspace",
-    icon: "google",
+    icon: "/google-workspace.png",
   },
   {
     name: "Microsoft Teams",
-    icon: "microsoftteams",
+    icon: "/microsoft-teams.png",
   },
   {
     name: "ClickUp",
-    icon: "clickup",
+    icon: "/clickup.png",
   },
   {
     name: "ChatGPT",
-    icon: "openai",
+    icon: "/chatgpt.png",
   },
   {
     name: "Claude",
-    icon: "anthropic",
+    icon: "/claude.png",
   },
   {
     name: "Zapier",
-    icon: "zapier",
+    icon: "/zapier.png",
   },
   {
     name: "Stripe",
-    icon: "stripe",
+    icon: "/stripe.png",
   },
 ];
 
@@ -74,7 +74,6 @@ export default function TrustedPartners() {
     <section className="bg-[#FA5B16] mt-[60px] py-14 sm:py-16 text-white overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* Section Heading */}
         <div className="max-w-3xl mb-10 text-left">
           <span className="inline-block px-3 py-1 rounded-[7px] bg-white/15 border border-white/10 text-white text-[10px] font-semibold uppercase tracking-[0.18em]">
             Tools We Work With
@@ -90,12 +89,9 @@ export default function TrustedPartners() {
           </p>
         </div>
 
-        {/* Tools Container */}
         <div className="w-full rounded-[10px] bg-white/5 border border-white/15 overflow-hidden">
 
-          {/* Tools Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8">
-
             {tools.map((tool) => (
               <div
                 key={tool.name}
@@ -109,28 +105,22 @@ export default function TrustedPartners() {
                   min-h-[68px]
                 "
               >
-                {/* Logo */}
-                <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-[6px] bg-white/10 border border-white/15">
+                <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-[6px] bg-white/10 border border-white/15 overflow-hidden">
                   <img
-                    src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${tool.icon}.svg`}
+                    src={tool.icon}
                     alt={`${tool.name} logo`}
-                    className="w-4.5 h-4.5 object-contain"
-                    style={{
-                      filter: "brightness(0) invert(1)",
-                    }}
+                    className="w-5 h-5 object-contain"
                   />
                 </div>
 
-                {/* Tool Name */}
                 <span className="text-[11px] sm:text-xs font-medium text-white/90 leading-tight">
                   {tool.name}
                 </span>
               </div>
             ))}
-
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );
