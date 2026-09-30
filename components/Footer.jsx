@@ -83,9 +83,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#FA5B16] text-white pt-14 pb-8 px-6 lg:px-12 select-none border-t border-[#FA5B16] overflow-hidden">
+    <footer className="relative bg-[#FA5B16] text-white pt-16 pb-10 px-6 sm:px-10 lg:px-16 select-none border-t border-[#FA5B16] overflow-hidden">
       {/* Background Ambient Depth Patterns */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Background Small Square Grid Pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-15 flex justify-center items-center">
@@ -121,96 +121,120 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto space-y-12 relative z-10">
-        {/* TOP SECTION: 3 COLUMNS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 items-start">
+        {/* MAIN 3-COLUMN GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
           
-          {/* COLUMN 1: BRAND & ABOUT */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* COLUMN 1: BRAND & ABOUT (4 Cols) */}
+          <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-block">
               <Image
                 src="/footerlogo.png"
                 alt="RemoteTalent"
                 width={220}
                 height={70}
-                className="h-14 w-auto object-contain"
+                className="h-12 sm:h-14 w-auto object-contain"
                 priority
               />
             </Link>
 
             <div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-[6px] bg-white/15 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/15 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider">
                 Offshore Talent Partners
               </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-white/90 font-normal leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-sm">
               Connecting global businesses with dedicated, pre-vetted remote
               talent and full-scale operational support managed directly from
               our office in Pakistan.
             </p>
           </div>
 
-          {/* COLUMN 2: CONTACT INFO */}
-          <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-base font-bold tracking-wide uppercase text-white border-b border-white/20 pb-2 inline-block">
-              Contact Info
-            </h3>
+          {/* COLUMN 2: CONTACT INFO (3 Cols) */}
+          <div className="lg:col-span-3 space-y-5">
+            <div className="border-b border-white/20 pb-2">
+              <h3 className="text-sm font-bold tracking-wider uppercase text-white">
+                Contact Info
+              </h3>
+            </div>
 
-            <ul className="space-y-3.5 text-xs sm:text-sm text-white/90">
-              <li className="flex items-start gap-3 group">
-                <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <span>Lahore, Pakistan</span>
+            <ul className="space-y-4 text-xs sm:text-sm">
+              <li className="flex items-start gap-3">
+                <div className="p-2 rounded-md bg-white/10 border border-white/15 shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-white/70 uppercase tracking-wider font-semibold">
+                    Address
+                  </span>
+                  <span className="text-white/90 font-medium">Lahore, Pakistan</span>
+                </div>
               </li>
 
-              <li>
-                <a
-                  href="mailto:business@talentharbor.net"
-                  className="flex items-center gap-3 hover:text-white/80 transition-colors group"
-                >
-                  <Mail className="w-4 h-4 text-white shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="break-all">business@talentharbor.net</span>
-                </a>
+              <li className="flex items-start gap-3">
+                <div className="p-2 rounded-md bg-white/10 border border-white/15 shrink-0 mt-0.5">
+                  <Mail className="w-4 h-4 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-white/70 uppercase tracking-wider font-semibold">
+                    Email
+                  </span>
+                  <a
+                    href="mailto:business@talentharbor.net"
+                    className="text-white/90 hover:text-white font-medium hover:underline transition-colors break-all"
+                  >
+                    business@talentharbor.net
+                  </a>
+                </div>
               </li>
 
-              <li>
-                <a
-                  href="tel:+13322224593"
-                  className="flex items-center gap-3 hover:text-white/80 transition-colors group"
-                >
-                  <Phone className="w-4 h-4 text-white shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="font-semibold">+1 (332) 222-4593</span>
-                </a>
+              <li className="flex items-start gap-3">
+                <div className="p-2 rounded-md bg-white/10 border border-white/15 shrink-0 mt-0.5">
+                  <Phone className="w-4 h-4 text-white" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-white/70 uppercase tracking-wider font-semibold">
+                    Phone
+                  </span>
+                  <a
+                    href="tel:+13322224593"
+                    className="text-white/90 hover:text-white font-semibold hover:underline transition-colors"
+                  >
+                    +1 (332) 222-4593
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
 
-          {/* COLUMN 3: QUICK SERVICES LINK */}
-          <div className="lg:col-span-5 space-y-4">
-            <h3 className="text-base font-bold tracking-wide uppercase text-white border-b border-white/20 pb-2 inline-block">
-              Quick Services
-            </h3>
+          {/* COLUMN 3: QUICK SERVICES LINK (5 Cols) */}
+          <div className="lg:col-span-5 space-y-5">
+            <div className="border-b border-white/20 pb-2">
+              <h3 className="text-sm font-bold tracking-wider uppercase text-white">
+                Quick Services
+              </h3>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
               {serviceCategories.map((cat, idx) => (
-                <div key={idx} className="space-y-2">
-                  <h4 className="text-[11px] font-bold text-white/70 uppercase tracking-wider">
+                <div key={idx} className="space-y-2.5">
+                  <span className="text-[11px] font-bold text-white/70 uppercase tracking-wider block">
                     {cat.category}
-                  </h4>
-                  <ul className="space-y-1.5">
-                    {cat.items.map((item, itemIdx) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <li key={itemIdx}>
-                          <Link
-                            href={item.link}
-                            className="text-xs text-white/90 hover:text-white flex items-center gap-1.5 transition-all group hover:translate-x-1"
-                          >
-                            <ChevronRight className="w-3 h-3 text-white/60 group-hover:text-white shrink-0" />
-                            <span className="line-clamp-1">{item.title}</span>
-                          </Link>
-                        </li>
-                      );
-                    })}
+                  </span>
+                  <ul className="space-y-2">
+                    {cat.items.map((item, itemIdx) => (
+                      <li key={itemIdx}>
+                        <Link
+                          href={item.link}
+                          className="text-xs text-white/90 hover:text-white flex items-center gap-1.5 transition-all group"
+                        >
+                          <ChevronRight className="w-3 h-3 text-white/60 group-hover:text-white group-hover:translate-x-0.5 transition-transform shrink-0" />
+                          <span className="hover:underline line-clamp-1">
+                            {item.title}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               ))}
@@ -219,18 +243,16 @@ export default function Footer() {
 
         </div>
 
-        {/* DIVIDER LINE */}
+        {/* BOTTOM DIVIDER */}
         <div className="border-t border-white/20" />
 
-        {/* BOTTOM ROW */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium">
-          {/* Copyright */}
+        {/* BOTTOM COPYRIGHT & LEGAL LINKS */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p className="text-[11px] text-white/80 font-normal text-center sm:text-left">
             © {new Date().getFullYear()} RemoteTalent. All rights reserved.
           </p>
 
-          {/* Policy Pages */}
-          <div className="flex items-center gap-5 text-xs font-semibold text-white/90">
+          <div className="flex items-center gap-5 font-semibold text-white/90">
             <Link
               href="/terms"
               className="hover:underline hover:text-white transition-all"
