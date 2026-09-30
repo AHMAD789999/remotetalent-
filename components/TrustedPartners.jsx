@@ -7,7 +7,7 @@ const tools = [
   { name: "WordPress", icon: "wordpress" },
   { name: "WooCommerce", icon: "woocommerce" },
   { name: "Magento", icon: "magento" },
-  { name: "ShipStation", icon: "shipstation" },
+  { name: "ShipStation", icon: "shipstation.png" },
   { name: "Zendesk", icon: "zendesk" },
   { name: "Freshdesk", icon: "freshdesk" },
   { name: "HubSpot", icon: "hubspot" },
