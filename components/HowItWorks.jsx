@@ -33,7 +33,7 @@ const steps = [
   {
     num: "06",
     title: "They Start",
-    desc: "Your dedicated professional starts working with you.",
+    desc: "Your dedicated professional starts working for you.",
   },
 ];
 
