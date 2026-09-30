@@ -25,7 +25,7 @@ const tools = [
   },
   {
     name: "Zendesk",
-    icon: "/zendesk.png",
+    icon: "https://www.google.com/search?q=zendesk+logo&sca_esv=9194de78227b9d0c&udm=2&biw=1280&bih=585&sxsrf=APpeQnvenbPd4HPz36eC8uxs95yi1f5YWA%3A1790760699563&ei=-9a8apbgId6Nxc8P54GkiQU&ved=2ahUKEwjWyf-6_5WXAxXeRvEDHecAKVEQ4dUDegQIBhAN&uact=5&oq=zendesk+logo&gs_lp=Egtnd3Mtd2l6LWltZyIMemVuZGVzayBsb2dvMgoQABiABBiKBRhDMgUQABiABDIKEAAYgAQYigUYQzIKEAAYgAQYigUYQzIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjBClB0WLIIcAF4AJABAJgB7AKgAdgHqgEFMi0xLjK4AQPIAQD4AQGYAgSgAvkHwgIGEAAYBxgewgIPEAAYgAQYChgLGLEDGIMBmAMAiAYBkgcHMS4wLjEuMqAH2A6yBwUyLTEuMrgH7AfCBwUyLTMuMcgHFoAIAQ&sclient=gws-wiz-img#sv=CAMSURoyKhBlLVlKM25SdEZLNWJPeUlNMg5ZSjNuUnRGSzViT3lJTToON2I2TDNKTUtHblB1R00gBCoXCgFzEhBlLVlKM25SdEZLNWJPeUlNGAEwARgHIPmE0qIFSggQAhgBIAIoAQ",
   },
   {
     name: "Freshdesk",
@@ -41,11 +41,11 @@ const tools = [
   },
   {
     name: "Google Workspace",
-    icon: "/google-workspace.png",
+    icon: "/googleworkspace.png",
   },
   {
     name: "Microsoft Teams",
-    icon: "/microsoft-teams.png",
+    icon: "/microsoftteams.png",
   },
   {
     name: "ClickUp",
@@ -53,7 +53,7 @@ const tools = [
   },
   {
     name: "ChatGPT",
-    icon: "/chatgpt.png",
+    icon: "/openai.png",
   },
   {
     name: "Claude",
