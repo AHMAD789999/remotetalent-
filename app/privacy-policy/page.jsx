@@ -7,7 +7,7 @@ import { Mail, MapPin, ShieldCheck } from "lucide-react";
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-[#FAF6F2] text-[#0F0C09]">
+    <main className="min-h-screen mt-[-100px] pt-[20px] bg-[#FAF6F2] text-[#0F0C09]">
       <section className="pt-32 pb-16 px-6 sm:px-12 lg:px-24">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10">
