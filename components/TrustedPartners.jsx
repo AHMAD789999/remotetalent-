@@ -3,22 +3,70 @@
 import React from "react";
 
 const tools = [
-  { name: "Shopify", icon: "shopify" },
-  { name: "WordPress", icon: "wordpress" },
-  { name: "WooCommerce", icon: "woocommerce" },
-  { name: "Magento", icon: "magento" },
-  { name: "ShipStation", icon: "shipstation.png" },
-  { name: "Zendesk", icon: "zendesk" },
-  { name: "Freshdesk", icon: "freshdesk" },
-  { name: "HubSpot", icon: "hubspot" },
-  { name: "Slack", icon: "slack" },
-  { name: "Google Workspace", icon: "googleworkspace" },
-  { name: "Microsoft Teams", icon: "microsoftteams" },
-  { name: "ClickUp", icon: "clickup" },
-  { name: "ChatGPT", icon: "openai" },
-  { name: "Claude", icon: "anthropic" },
-  { name: "Zapier", icon: "zapier" },
-  { name: "Stripe", icon: "stripe" },
+  {
+    name: "Shopify",
+    icon: "shopify",
+  },
+  {
+    name: "WordPress",
+    icon: "wordpress",
+  },
+  {
+    name: "WooCommerce",
+    icon: "woocommerce",
+  },
+  {
+    name: "Magento",
+    icon: "magento",
+  },
+  {
+    name: "ShipStation",
+    icon: "shipstation",
+  },
+  {
+    name: "Zendesk",
+    icon: "zendesk",
+  },
+  {
+    name: "Freshdesk",
+    icon: "freshdesk",
+  },
+  {
+    name: "HubSpot",
+    icon: "hubspot",
+  },
+  {
+    name: "Slack",
+    icon: "slack",
+  },
+  {
+    name: "Google Workspace",
+    icon: "google",
+  },
+  {
+    name: "Microsoft Teams",
+    icon: "microsoftteams",
+  },
+  {
+    name: "ClickUp",
+    icon: "clickup",
+  },
+  {
+    name: "ChatGPT",
+    icon: "openai",
+  },
+  {
+    name: "Claude",
+    icon: "anthropic",
+  },
+  {
+    name: "Zapier",
+    icon: "zapier",
+  },
+  {
+    name: "Stripe",
+    icon: "stripe",
+  },
 ];
 
 export default function TrustedPartners() {
@@ -52,29 +100,29 @@ export default function TrustedPartners() {
               <div
                 key={tool.name}
                 className="
-                  flex items-center justify-start gap-3
-                  px-4 sm:px-5
-                  py-5
+                  flex items-center justify-start gap-2.5
+                  px-3 sm:px-4
+                  py-4
                   border-r border-b border-white/10
                   hover:bg-white/10
                   transition-all duration-300
-                  min-h-[76px]
+                  min-h-[68px]
                 "
               >
                 {/* Logo */}
-                <div className="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-[7px] bg-white/10 border border-white/15">
+                <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-[6px] bg-white/10 border border-white/15">
                   <img
-                    src={`https://cdn.simpleicons.org/${tool.icon}/ffffff`}
+                    src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${tool.icon}.svg`}
                     alt={`${tool.name} logo`}
-                    className="w-5 h-5 object-contain"
-                    onError={(e) => {
-                      e.currentTarget.style.display = "none";
+                    className="w-4.5 h-4.5 object-contain"
+                    style={{
+                      filter: "brightness(0) invert(1)",
                     }}
                   />
                 </div>
 
                 {/* Tool Name */}
-                <span className="text-xs sm:text-sm font-medium text-white/90 leading-tight">
+                <span className="text-[11px] sm:text-xs font-medium text-white/90 leading-tight">
                   {tool.name}
                 </span>
               </div>
