@@ -6,7 +6,7 @@ import { ArrowLeft, FileText } from "lucide-react";
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-[#FAF6F2] text-[#0F0C09]">
+    <main className="min-h-screen mt-[-100px] pt-[20px] bg-[#FAF6F2] text-[#0F0C09]">
       <section className="pt-32 pb-16 px-6 sm:px-10 lg:px-24 border-b border-[#EBE6E0]">
         <div className="max-w-5xl mx-auto">
           <Link
