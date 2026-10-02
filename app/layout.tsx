@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "remotetalent | Dedicated Remote Talent & Offshore Teams",
+  title: "TalentHarbor | Dedicated Remote Talent & Offshore Teams",
   description:
     "Scale your business with pre-screened developers, 24/7 customer support agents, and logistics managers hosted in our office in Pakistan.",
 };
