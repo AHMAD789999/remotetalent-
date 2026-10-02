@@ -87,39 +87,6 @@ export default function Footer() {
       {/* Background Ambient Depth Patterns */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Background Small Square Grid Pattern */}
-      <div className="absolute inset-0 pointer-events-none opacity-15 flex justify-center items-center">
-        <svg
-          className="w-full h-full object-cover"
-          width="100%"
-          height="100%"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="footer-small-boxes-grid"
-              width="36"
-              height="36"
-              patternUnits="userSpaceOnUse"
-            >
-              <rect
-                width="36"
-                height="36"
-                fill="none"
-                stroke="#FFFFFF"
-                strokeWidth="1"
-                strokeDasharray="2 2"
-              />
-            </pattern>
-          </defs>
-          <rect
-            width="100%"
-            height="100%"
-            fill="url(#footer-small-boxes-grid)"
-          />
-        </svg>
-      </div>
-
       <div className="max-w-7xl mx-auto space-y-10 relative z-10">
         
         {/* 5-COLUMN SINGLE ROW GRID AT DESKTOP */}
@@ -188,10 +155,29 @@ export default function Footer() {
                   </div>
                   <div className="flex flex-col min-w-0">
                     <span className="text-[9px] text-white/70 uppercase tracking-wider font-semibold">
-                      Email
+                      Business Email
                     </span>
                     <span className="text-white/90 font-medium truncate group-hover:underline">
                       business@talentharbor.net
+                    </span>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="mailto:support@talentharbor.net"
+                  className="flex items-start gap-2.5 group"
+                >
+                  <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[9px] text-white/70 uppercase tracking-wider font-semibold">
+                      Support Email
+                    </span>
+                    <span className="text-white/90 font-medium truncate group-hover:underline">
+                      support@talentharbor.net
                     </span>
                   </div>
                 </a>
