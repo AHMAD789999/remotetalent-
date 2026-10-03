@@ -602,28 +602,34 @@ export default function OrderShippingRMAServicePage() {
 
                   <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
                     <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider flex items-center gap-1.5">
-                      <Users className="w-4 h-4 text-[#FA5B16]" />
-                      <span>Supervised In-Office Execution</span>
+                      <ShieldCheck className="w-4 h-4 text-[#FA5B16]" />
+                      <span>Carrier Claim Recovery & Overcharge Audits</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike home-based freelancers who risk missing daily carrier manifest cutoffs, our team works inside a physical office equipped with redundant fiber connections, backup generator power, and floor supervisor oversight.
+                      Instead of letting lost packages and carrier billing errors eat your margins, our specialists file formal claims and recover funds directly into your account.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-          
+            {/* HOW WE WORK SECTION */}
+            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
+              <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
+                  07. Seamless Onboarding
+                </span>
+                <h2 className="text-2xl font-bold text-[#0F0C09]">
+                  How We Work
+                </h2>
+              </div>
+              <HowItWorks />
+            </div>
 
           </div>
 
         </div>
       </section>
-
-      {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
-        <HowItWorks />
-      </div>
 
     </main>
   );
