@@ -13,7 +13,6 @@ import {
   ShieldCheck, 
   RefreshCw, 
   TrendingUp, 
-  FileCheck2, 
   Zap, 
   Users, 
   Mail, 
@@ -21,13 +20,8 @@ import {
   Briefcase, 
   Lock, 
   CalendarCheck, 
-  Globe, 
-  PhoneCall, 
   Plane, 
-  CreditCard, 
-  ClipboardList, 
-  Sparkles,
-  PieChart
+  CreditCard 
 } from "lucide-react";
 
 // Imported requested components ONLY
@@ -70,7 +64,6 @@ export default function ExecutiveAssistantCSuiteServicePage() {
     }
   ];
 
-  // COMPREHENSIVE EXECUTIVE ASSISTANT WORKFLOW TYPES
   const eaSupportTypes = [
     {
       icon: Calendar,
@@ -607,23 +600,31 @@ export default function ExecutiveAssistantCSuiteServicePage() {
                       <span>In-Office Supervision & Data Security</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike remote freelancers working from home who risk internet drops or data leaks, our executive assistants work inside a physical facility under strict NDA contracts, floor supervision, and generator backup power.
+                      Unlike remote freelancers working from unsupervised home connections, our team works within a secure physical office facility with mandatory compliance policies, monitored attendance, and reliable power infrastructure.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-         
-          </div>
+            {/* SECTION 7: HOW WE WORK */}
+            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
+              <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
+                  07. Engagement Process
+                </span>
+                <h2 className="text-2xl font-bold text-[#0F0C09]">
+                  How We Work With Your Leadership Team
+                </h2>
+              </div>
 
+              {/* Imported Component Execution */}
+              <HowItWorks />
+            </div>
+
+          </div>
         </div>
       </section>
-
-      {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
-        <HowItWorks />
-      </div>
 
     </main>
   );
