@@ -72,7 +72,6 @@ export default function LiveChatSupportServicePage() {
     }
   ];
 
-  // COMPREHENSIVE LIST OF ALL CHAT SUPPORT TYPES
   const supportCategories = [
     {
       icon: PackageCheck,
@@ -226,20 +225,20 @@ export default function LiveChatSupportServicePage() {
   };
 
   return (
-    <main className="bg-[#FAF6F2] text-[#0F0C09] pt-15 mt-[-100px] select-none min-h-[80vh">
+    <main className="bg-[#FAF6F2] text-[#0F0C09] pt-15 mt-[-100px] select-none min-h-[80vh]">
       
       {/* 1. HERO SECTION */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
         <div className="max-w-5xl mx-auto space-y-4 text-left">
           
           <div className="flex items-center gap-2 text-xs font-bold text-[#0F0C09]/60 uppercase tracking-wider">
-            <Link href="/" className="hover:text-[#FA5B16] transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <Link className="hover:text-[#FA5B16] transition-colors" href="/">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5"/>
             <span className="text-[#FA5B16]">Full Spectrum Live Chat Support Services</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#FA5B16]/10 text-[#FA5B16] text-xs font-bold uppercase tracking-wider border border-[#FA5B16]/20">
-            <Headphones className="w-3.5 h-3.5" />
+            <Headphones className="w-3.5 h-3.5"/>
             <span>Dedicated In-Office Live Chat & Helpdesk Agents</span>
           </div>
 
@@ -252,12 +251,9 @@ export default function LiveChatSupportServicePage() {
           </p>
 
           <div className="pt-2 flex items-center gap-4">
-            <Link
-              href="/contact"
-              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
-            >
+            <Link className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95" href="/contact">
               <span>Hire Your Dedicated Chat Specialist</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4"/>
             </Link>
           </div>
 
@@ -265,7 +261,7 @@ export default function LiveChatSupportServicePage() {
       </section>
 
       {/* MARQUEE SECTION */}
-      <TalentShowcaseMarquee />
+      <TalentShowcaseMarquee/>
 
       {/* 2. MAIN SPLIT SECTION */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12">
@@ -294,7 +290,7 @@ export default function LiveChatSupportServicePage() {
                     }`}
                   >
                     <span>{item.label}</span>
-                    <ChevronRight className={`w-3.5 h-3.5 transition-transform ${activeSection === item.id ? "rotate-90 text-[#FA5B16]" : "opacity-50"}`} />
+                    <ChevronRight "opacity-50"}`} "rotate-90 ${activeSection="==" : ? className="{`w-3.5" h-3.5 item.id text-[#FA5B16]" transition-transform/>
                   </button>
                 ))}
               </nav>
@@ -307,10 +303,7 @@ export default function LiveChatSupportServicePage() {
                   </p>
                 </div>
 
-                <Link
-                  href="/contact"
-                  className="w-full py-2.5 rounded-[6px] bg-[#0F0C09] hover:bg-[#0F0C09]/90 text-white text-xs font-bold uppercase tracking-wider text-center block transition-all"
-                >
+                <Link className="w-full py-2.5 rounded-[6px] bg-[#0F0C09] hover:bg-[#0F0C09]/90 text-white text-xs font-bold uppercase tracking-wider text-center block transition-all" href="/contact">
                   Consult With Our Operations Manager
                 </Link>
               </div>
@@ -344,7 +337,7 @@ export default function LiveChatSupportServicePage() {
                       className="bg-white rounded-[10px] p-5 border border-[#0F0C09]/10 shadow-sm hover:border-[#FA5B16] transition-all space-y-3"
                     >
                       <div className="w-10 h-10 rounded-[7px] bg-[#FAF6F2] text-[#FA5B16] border border-[#0F0C09]/10 flex items-center justify-center">
-                        <IconComp className="w-5 h-5" />
+                        <IconComp className="w-5 h-5"/>
                       </div>
                       <h3 className="text-sm font-bold text-[#0F0C09]">{pillar.title}</h3>
                       <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
@@ -356,7 +349,7 @@ export default function LiveChatSupportServicePage() {
               </div>
             </div>
 
-            {/* NEW EXPLICIT SECTION: WORKING HOURS & AVAILABILITY */}
+            {/* SECTION 2: WORKING HOURS & AVAILABILITY */}
             <div id="working-hours-dedication" className="space-y-6 scroll-mt-8">
               <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
@@ -366,7 +359,7 @@ export default function LiveChatSupportServicePage() {
                   100% Dedicated Alignment To Your Exact Working Hours
                 </h2>
                 <p className="text-xs sm:text-sm text-[#0F0C09]/70 font-medium leading-relaxed">
-                  Aap hamari team se **koi bi level ya plan select karein (Junior, Mid-Level, ya Senior)**, aapka hire kiya gaya chat representative aapke specify kiye gaye business shift timing mein **live available hoga aur aapke working hours ke mutabiq hi kaam karega**.
+                  Whether you choose a Junior, Mid-Level, or Senior plan, your dedicated chat representative operates live during your specified shift timing and matches your operational working hours seamlessly.
                 </p>
               </div>
 
@@ -375,7 +368,7 @@ export default function LiveChatSupportServicePage() {
                   
                   <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
                     <div className="flex items-center gap-2 text-[#FA5B16]">
-                      <Clock className="w-5 h-5 shrink-0" />
+                      <Clock className="w-5 h-5 shrink-0"/>
                       <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider">
                         Matched Shift Timings
                       </h3>
@@ -387,7 +380,7 @@ export default function LiveChatSupportServicePage() {
 
                   <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
                     <div className="flex items-center gap-2 text-[#FA5B16]">
-                      <UserCheck className="w-5 h-5 shrink-0" />
+                      <UserCheck className="w-5 h-5 shrink-0"/>
                       <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider">
                         100% Dedicated Resource
                       </h3>
@@ -399,7 +392,7 @@ export default function LiveChatSupportServicePage() {
 
                   <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
                     <div className="flex items-center gap-2 text-[#FA5B16]">
-                      <Building2 className="w-5 h-5 shrink-0" />
+                      <Building2 className="w-5 h-5 shrink-0"/>
                       <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider">
                         Physical Office Attendance
                       </h3>
@@ -411,7 +404,7 @@ export default function LiveChatSupportServicePage() {
 
                   <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
                     <div className="flex items-center gap-2 text-[#FA5B16]">
-                      <CalendarCheck className="w-5 h-5 shrink-0" />
+                      <CalendarCheck className="w-5 h-5 shrink-0"/>
                       <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider">
                         24/7 or Custom Shift Flexibility
                       </h3>
@@ -449,7 +442,7 @@ export default function LiveChatSupportServicePage() {
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-[7px] bg-[#FAF6F2] text-[#FA5B16] border border-[#0F0C09]/10 flex items-center justify-center shrink-0">
-                          <IconComp className="w-5 h-5" />
+                          <IconComp className="w-5 h-5"/>
                         </div>
                         <div>
                           <h3 className="text-base font-bold text-[#0F0C09]">{cat.title}</h3>
@@ -460,7 +453,7 @@ export default function LiveChatSupportServicePage() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-[#0F0C09]/10">
                         {cat.details.map((detail, dIdx) => (
                           <div key={dIdx} className="flex items-start gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#FA5B16] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#FA5B16] shrink-0 mt-0.5"/>
                             <span className="text-[11px] font-semibold text-[#0F0C09]/80 leading-tight">
                               {detail}
                             </span>
@@ -490,10 +483,10 @@ export default function LiveChatSupportServicePage() {
               <div className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm space-y-6">
                 <div className="space-y-3">
                   <h3 className="text-sm font-bold text-[#0F0C09] flex items-center gap-2">
-                    <TrendingUp className="w-4 h-4 text-[#FA5B16]" />
+                    <TrendingUp className="w-4 h-4 text-[#FA5B16]"/>
                     <span>Daily, Weekly, Monthly & Yearly Performance Audits</span>
                   </h3>
-                  
+                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                     <div className="p-3 bg-[#FAF6F2] rounded-[6px] border border-[#0F0C09]/10 space-y-1">
                       <span className="text-xs font-bold text-[#FA5B16]">Daily Shift Logs</span>
@@ -519,7 +512,7 @@ export default function LiveChatSupportServicePage() {
 
                 <div className="p-4 bg-[#FA5B16]/10 rounded-[8px] border border-[#FA5B16]/30 space-y-2">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#FA5B16] uppercase tracking-wider">
-                    <ShieldCheck className="w-4 h-4" />
+                    <ShieldCheck className="w-4 h-4"/>
                     <span>Immediate Action & Replacement Guarantee</span>
                   </div>
                   <p className="text-xs text-[#0F0C09]/80 font-medium leading-relaxed">
@@ -576,21 +569,14 @@ export default function LiveChatSupportServicePage() {
                       <div className="space-y-2 border-t border-[#0F0C09]/10 pt-3 mt-3">
                         {plan.features.map((feat, fIdx) => (
                           <div key={fIdx} className="flex items-center gap-1.5 text-[11px] font-bold text-[#0F0C09]/80">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#FA5B16] shrink-0" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#FA5B16] shrink-0"/>
                             <span>{feat}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <Link
-                      href="/contact"
-                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 ${
-                        plan.popular
-                          ? "bg-[#FA5B16] text-white hover:bg-[#FA5B16]/90"
-                          : "bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/10 hover:border-[#FA5B16]"
-                      }`}
-                    >
+                    <Link "bg-[#FA5B16] "bg-[#FAF6F2] ${ : ? block border border-[#0F0C09]/10 className="{`w-full" font-bold hover:bg-[#FA5B16]/90" hover:border-[#FA5B16]" href="/contact" mt-4 plan.popular py-2 rounded-[6px] text-[#0F0C09] text-center text-white text-xs tracking-wider transition-all uppercase }`}>
                       Hire {plan.level}
                     </Link>
                   </div>
@@ -613,7 +599,7 @@ export default function LiveChatSupportServicePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
                     <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider flex items-center gap-1.5">
-                      <Zap className="w-4 h-4 text-[#FA5B16]" />
+                      <Zap className="w-4 h-4 text-[#FA5B16]"/>
                       <span>60-70% Cost Reduction</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
@@ -623,28 +609,25 @@ export default function LiveChatSupportServicePage() {
 
                   <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
                     <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider flex items-center gap-1.5">
-                      <Users className="w-4 h-4 text-[#FA5B16]" />
+                      <Users className="w-4 h-4 text-[#FA5B16]"/>
                       <span>In-Office Quality Control</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike remote freelancers who experience power outages or communication delays, our team operates inside a physical facility with fiber lines, backup generators, and team lead oversight.
+                      Unlike remote freelancers who manage multiple unmonitored chats from home, our agents work under direct floor supervision with strict attendance and performance benchmarks.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-           
+            {/* SECTION 7: HOW WE WORK */}
+            <div id="how-we-work-section" className="scroll-mt-8">
+              <HowItWorks/>
+            </div>
 
           </div>
-
         </div>
       </section>
-
-      {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
-        <HowItWorks />
-      </div>
 
     </main>
   );
