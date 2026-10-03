@@ -606,6 +606,18 @@ export default function GeneralVirtualAssistanceServicePage() {
               </div>
             </div>
 
+            {/* SECTION 7: HOW WE WORK (Added to fix missing anchor ID) */}
+            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
+              <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
+                  07. Onboarding Process
+                </span>
+                <h2 className="text-2xl font-bold text-[#0F0C09]">
+                  How We Work & Get You Started
+                </h2>
+              </div>
+            </div>
+
           </div>
 
         </div>
