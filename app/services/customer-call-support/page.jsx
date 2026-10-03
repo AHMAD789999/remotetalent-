@@ -77,7 +77,7 @@ export default function CustomerCallSupportServicePage() {
       title: "1. Inbound Customer Service & VIP Helpline",
       desc: "Frontline voice assistance for phone inquiries, store help, and order assistance.",
       details: [
-        "Real-time customer helpline handling with clear, friendly English fluency.",
+        "Real-time customer helpline handling with clear, friendly American English fluency.",
         "Aircall, RingCentral, Zendesk Talk, Gorgias Voice, and Dialpad integration.",
         "Store policy guidance, pricing inquiries, and product recommendation calls.",
         "Call transfer and escalation management to internal store managers."
@@ -226,7 +226,7 @@ export default function CustomerCallSupportServicePage() {
           </h1>
 
           <p className="text-xs sm:text-sm text-[#0F0C09]/75 font-medium max-w-2xl leading-relaxed">
-            Whichever plan or calling agent you select, they will physically sit inside our noise-controlled call center floor in Lahore, Pakistan, operating live during your exact business shift—handling customer helplines, outbound sales calls, order confirmations, and abandoned cart recovery.
+            Whichever plan or calling agent you select, they will physically sit inside our noise-controlled call center floor in Lahore, Pakistan, operating live during your exact business shift—handling customer helplines, outbound sales calls, order confirmations, and abandoned cart recovery with professional American English fluency.
           </p>
 
           <div className="pt-2 flex items-center gap-4">
@@ -344,7 +344,7 @@ export default function CustomerCallSupportServicePage() {
                   100% Dedicated Availability In Your Working Hours
                 </h2>
                 <p className="text-xs sm:text-sm text-[#0F0C09]/70 font-medium leading-relaxed">
-                  Aap hamari calling team se **Junior, Mid-Level, ya Senior level** jo bhi select karenge, wo aapke local working hours ke mutabiq hamesha **live available honga aur aapke shift schedule ke mutabiq operate karega**.
+                  Whichever tier you select—Junior, Mid-Level, or Senior—your calling agent will remain fully live and dedicated during your exact shift schedule and local working hours.
                 </p>
               </div>
 
@@ -413,7 +413,7 @@ export default function CustomerCallSupportServicePage() {
                   All Inbound & Outbound Calling Types We Handle
                 </h2>
                 <p className="text-xs sm:text-sm text-[#0F0C09]/70 font-medium leading-relaxed">
-                  Our voice representatives are trained in active listening, objection handling, accent neutralization, and CRM logging across all phone channels.
+                  Our voice representatives are trained in active listening, professional objection handling, neutral American English accents, and CRM logging across all phone channels.
                 </p>
               </div>
 
@@ -501,7 +501,7 @@ export default function CustomerCallSupportServicePage() {
                     <span>Immediate Action & Agent Replacement Policy</span>
                   </div>
                   <p className="text-xs text-[#0F0C09]/80 font-medium leading-relaxed">
-                    If an assigned caller fails to match your brand tone, struggles with English fluency, or does not hit agreed-upon calling targets, inform your Account Manager. We will immediately replace them with an equally qualified in-office caller at zero extra cost.
+                    If an assigned caller fails to match your brand tone, struggles with American English fluency, or does not hit agreed-upon calling targets, inform your Account Manager. We will immediately replace them with an equally qualified in-office caller at zero extra cost.
                   </p>
                 </div>
               </div>
@@ -595,7 +595,7 @@ export default function CustomerCallSupportServicePage() {
                       <span>60-70% Call Center Savings</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      US/UK call center agents cost $3,800–$5,500/month per seat. Our in-office agents provide native-level English fluency, high phone uptime, and professional call management for a fraction of that cost.
+                      US/UK call center agents cost $3,800–$5,500/month per seat. Our in-office agents provide native American English fluency, high phone uptime, and professional call management for a fraction of that cost.
                     </p>
                   </div>
 
@@ -612,15 +612,13 @@ export default function CustomerCallSupportServicePage() {
               </div>
             </div>
 
-           
-
           </div>
 
         </div>
       </section>
 
       {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
+      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10">
         <HowItWorks />
       </div>
 
