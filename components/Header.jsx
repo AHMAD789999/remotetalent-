@@ -16,11 +16,12 @@ import {
   UserCheck,
   RotateCcw,
   ArrowRight,
+  FileText,
 } from "lucide-react";
 
 const serviceCategories = [
   {
-    category: "Development",
+    category: "Development & Technology",
     items: [
       {
         title: "Website Development & Maintenance",
@@ -29,9 +30,9 @@ const serviceCategories = [
         icon: Code,
       },
       {
-        title: "E-Commerce Store Setup",
-        desc: "Shopify & WooCommerce management.",
-        link: "/services/web-development",
+        title: "E-Commerce Store Development",
+        desc: "Shopify & WooCommerce build & setup.",
+        link: "/services/store-development",
         icon: ShoppingBag,
       },
     ],
@@ -40,58 +41,75 @@ const serviceCategories = [
     category: "Customer Support",
     items: [
       {
-        title: "Customer Live Chat Support",
-        desc: "24/7 web chat conversion & query resolution.",
+        title: "Live Chat & Social Inbox Support",
+        desc: "Web chat, Instagram, Facebook & WhatsApp.",
         link: "/services/live-chat-support",
         icon: MessageSquare,
       },
       {
-        title: "Customer Call Support",
+        title: "Customer Phone Support",
         desc: "Inbound & outbound voice customer agents.",
         link: "/services/customer-call-support",
         icon: PhoneCall,
       },
       {
-        title: "Customer Email Support",
-        desc: "Structured email & ticketing management.",
+        title: "Email & Helpdesk Support",
+        desc: "Structured ticketing, email & refund workflows.",
         link: "/services/customer-email-support",
         icon: Mail,
       },
     ],
   },
   {
-    category: "Operations & Logistics",
+    category: "E-Commerce Operations & Logistics",
     items: [
       {
-        title: "Driver Chat & Call Support",
-        desc: "Real-time dispatch & fleet assistance.",
-        link: "/services/driver-dispatch-support",
-        icon: Truck,
+        title: "E-Commerce Store & Catalog Management",
+        desc: "Products, variants, collections & pricing updates.",
+        link: "/services/store-catalog-management",
+        icon: ShoppingBag,
       },
       {
-        title: "Order & Warehouse Management",
-        desc: "ShipStation & SkuVault fulfillment workflows.",
+        title: "Order Processing & Inventory Coordination",
+        desc: "ShipStation, stock records & 3PL synchronization.",
         link: "/services/warehouse-order-management",
         icon: Boxes,
       },
       {
-        title: "C-Suite Executive Assistance",
-        desc: "Virtual assistants for appointments & tasks.",
+        title: "Shipping, Returns & RMA Support",
+        desc: "Labels, return authorizations & logistics claims.",
+        link: "/services/order-shipping-rma",
+        icon: RotateCcw,
+      },
+      {
+        title: "Driver Support & Dispatch Coordination",
+        desc: "Real-time fleet tracking & status updates.",
+        link: "/services/driver-dispatch-support",
+        icon: Truck,
+      },
+    ],
+  },
+  {
+    category: "Executive & Administrative Support",
+    items: [
+      {
+        title: "Executive Assistant Services",
+        desc: "Calendar, inbox, meetings & travel management.",
         link: "/services/executive-assistant-c-suite",
         icon: UserCheck,
       },
       {
-        title: "Order Shipping & RMA Handling",
-        desc: "Returns, replacements & logistics tracking.",
-        link: "/services/order-shipping-rma",
-        icon: RotateCcw,
+        title: "General Virtual Assistance",
+        desc: "Routine docs, research, CRM updates & data entry.",
+        link: "/services/general-virtual-assistance",
+        icon: FileText,
       },
     ],
   },
 ];
 
 const hireEmail =
-  "mailto:business@talentharbor.net?subject=Hire%20Dedicated%20Talent&body=Hello%20Talent%20Harbor%2C%0A%0AI%20am%20interested%20in%20hiring%20dedicated%20talent.%0A%0AThank%20you.";
+  "mailto:business@talentharbor.net?subject=Hire%20Dedicated%20Talent&body=Hello%20TalentHarbor%2C%0A%0AI%20am%20interested%20in%20hiring%20dedicated%20talent.%0A%0AThank%20you.";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,14 +123,13 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header className="sticky top-0 z-50 py-4 px-4 sm:px-6 lg:px-8 select-none transition-all duration-300">
       <div
-        className={`max-w-5xl mx-auto rounded-[7px] relative transition-all duration-300 border ${
+        className={`max-w-6xl mx-auto rounded-[7px] relative transition-all duration-300 border ${
           isScrolled
             ? "bg-[#FAF6F2]/90 backdrop-blur-md border-[#0F0C09]/15 shadow-md py-3.5 px-6"
             : "bg-white border-[#0F0C09]/10 shadow-sm py-4 px-6 sm:px-8"
@@ -122,7 +139,7 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             <img
               src="/talentlogo.png"
-              alt="Remote Talent"
+              alt="TalentHarbor"
               className="h-10 w-auto object-contain"
             />
           </Link>
@@ -142,7 +159,6 @@ export default function Header() {
             >
               <button className="flex items-center gap-1.5 text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors">
                 <span>Services</span>
-
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-200 ${
                     isMegaMenuOpen ? "rotate-180 text-[#FA5B16]" : ""
@@ -153,7 +169,7 @@ export default function Header() {
               {isMegaMenuOpen && (
                 <div className="absolute top-full left-0 right-0 pt-3 w-full z-50">
                   <div className="bg-white rounded-[7px] border border-[#0F0C09]/10 shadow-2xl p-8 grid grid-cols-12 gap-8 animate-in fade-in slide-in-from-top-2 duration-150">
-                    <div className="col-span-9 grid grid-cols-3 gap-8">
+                    <div className="col-span-9 grid grid-cols-2 gap-8">
                       {serviceCategories.map((cat, idx) => (
                         <div key={idx} className="space-y-4">
                           <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#FA5B16] border-b border-[#0F0C09]/10 pb-2">
@@ -163,22 +179,19 @@ export default function Header() {
                           <div className="space-y-2">
                             {cat.items.map((item, itemIdx) => {
                               const Icon = item.icon;
-
                               return (
                                 <Link
                                   key={itemIdx}
                                   href={item.link}
-                                  className="group/item flex items-start gap-3 p-2.5 rounded-[7px] hover:bg-[#FAF6F2] transition-colors min-w-0"
+                                  className="group/item flex items-start gap-3 p-2 rounded-[7px] hover:bg-[#FAF6F2] transition-colors min-w-0"
                                 >
-                                  <div className="w-8 h-8 rounded-[7px] bg-[#FAF6F2] text-[#0F0C09] flex items-center justify-center shrink-0 group-hover/item:bg-[#FA5B16] group-hover/item:text-white transition-colors mt-0.5">
-                                    <Icon className="w-4 h-4" />
+                                  <div className="w-7 h-7 rounded-[7px] bg-[#FAF6F2] text-[#0F0C09] flex items-center justify-center shrink-0 group-hover/item:bg-[#FA5B16] group-hover/item:text-white transition-colors mt-0.5">
+                                    <Icon className="w-3.5 h-3.5" />
                                   </div>
-
                                   <div className="min-w-0 flex-1">
                                     <div className="text-xs font-bold text-[#0F0C09] group-hover/item:text-[#FA5B16] transition-colors whitespace-normal leading-snug">
                                       {item.title}
                                     </div>
-
                                     <div className="text-[11px] text-[#0F0C09]/60 line-clamp-1 mt-0.5">
                                       {item.desc}
                                     </div>
@@ -196,11 +209,9 @@ export default function Header() {
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[#FA5B16]">
                           Dedicated Hiring
                         </span>
-
                         <h5 className="text-sm font-bold text-[#0F0C09] leading-snug">
                           Scale Operations in 48 Hours
                         </h5>
-
                         <p className="text-xs text-[#0F0C09]/70 leading-relaxed pt-1">
                           Vetted remote experts working directly from our office
                           in Pakistan on your time zone.
@@ -250,11 +261,7 @@ export default function Header() {
             className="lg:hidden p-2 rounded-[7px] bg-white border border-[#0F0C09]/10 text-[#0F0C09]"
             aria-label="Toggle Menu"
           >
-            {isMobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
@@ -274,12 +281,9 @@ export default function Header() {
                 className="flex items-center justify-between w-full text-sm font-bold text-[#0F0C09] py-1 border-b border-[#0F0C09]/5 text-left"
               >
                 <span>Services</span>
-
                 <ChevronDown
                   className={`w-4 h-4 transition-transform ${
-                    mobileServicesOpen
-                      ? "rotate-180 text-[#FA5B16]"
-                      : ""
+                    mobileServicesOpen ? "rotate-180 text-[#FA5B16]" : ""
                   }`}
                 />
               </button>
@@ -291,7 +295,6 @@ export default function Header() {
                       <div className="text-[10px] font-bold uppercase tracking-wider text-[#FA5B16]">
                         {cat.category}
                       </div>
-
                       {cat.items.map((item, itemIdx) => (
                         <Link
                           key={itemIdx}
