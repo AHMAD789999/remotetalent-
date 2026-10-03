@@ -70,7 +70,6 @@ export default function CustomerEmailSupportServicePage() {
     }
   ];
 
-  // COMPREHENSIVE EMAIL & HELPDESK WORKFLOW TYPES
   const emailSupportTypes = [
     {
       icon: Inbox,
@@ -612,18 +611,16 @@ export default function CustomerEmailSupportServicePage() {
               </div>
             </div>
 
-            
-
           </div>
 
         </div>
       </section>
 
       {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
+      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10 scroll-mt-8">
         <HowItWorks />
       </div>
-
+      
     </main>
   );
 }
