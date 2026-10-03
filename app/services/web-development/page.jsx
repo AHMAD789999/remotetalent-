@@ -8,22 +8,15 @@ import {
   Wrench, 
   CheckCircle2, 
   ArrowRight, 
-  ChevronRight,
+  ChevronRight, 
   Globe,
   Clock,
   ShieldCheck,
-  UserCheck,
   Building2,
-  Lock,
-  Search,
-  Laptop,
-  Check,
-  Briefcase,
   Bot,
   MessageSquareCode,
   RefreshCw,
   TrendingUp,
-  Award,
   FileCheck2,
   Zap,
   Users
@@ -166,7 +159,7 @@ export default function WebDevelopmentServicePage() {
     <main className="bg-[#FAF6F2] text-[#0F0C09] mt-[-100px] pt-14 select-none min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className=" sm:py-20 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
         <div className="max-w-5xl mx-auto space-y-4 text-left">
           
           <div className="flex items-center gap-2 text-xs font-bold text-[#0F0C09]/60 uppercase tracking-wider">
@@ -494,17 +487,15 @@ export default function WebDevelopmentServicePage() {
               </div>
             </div>
 
-          
+            {/* SECTION 6: HOW WE WORK */}
+            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
+              <HowItWorks />
+            </div>
 
           </div>
 
         </div>
       </section>
-
-      {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
-        <HowItWorks />
-      </div>
 
     </main>
   );
