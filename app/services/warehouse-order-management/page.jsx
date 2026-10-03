@@ -607,24 +607,48 @@ export default function WarehouseOrderManagementServicePage() {
                       <span>In-Office System Supervision</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike remote freelancers who may experience power loss or miss cutoff times, our team works inside a physical office facility equipped with dual fiber connections, generator power, and floor leads.
+                      Unlike remote freelancers who work unsupervised from home, our team operates under physical floor managers in Lahore with secure fiber internet and strict operational protocols.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-           
+            {/* SECTION 7: HOW WE WORK */}
+            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
+              <HowItWorks />
+            </div>
 
           </div>
 
         </div>
       </section>
 
-      {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
-        <HowItWorks />
-      </div>
+      {/* FINAL CTA BANNER */}
+      <section className="py-16 px-4 sm:px-6 lg:px-12 bg-[#0F0C09] text-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16] bg-[#FA5B16]/10 px-3 py-1 rounded-[6px] border border-[#FA5B16]/20 inline-block">
+            Start Your WMS Operations Today
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+            Ready To Eliminate Fulfillment Backlogs & Stock Discrepancies?
+          </h2>
+
+          <p className="text-xs sm:text-sm text-white/70 max-w-2xl mx-auto leading-relaxed">
+            Book a discovery call with our operations team. We will match you with a dedicated in-office WMS specialist trained in your exact software stack and shift schedule.
+          </p>
+
+          <div className="pt-2 flex items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="px-8 py-3.5 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
+            >
+              <span>Get Started Now</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
     </main>
   );
