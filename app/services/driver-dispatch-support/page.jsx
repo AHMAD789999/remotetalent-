@@ -607,24 +607,33 @@ export default function DriverDispatchSupportServicePage() {
                       <span>In-Office Operational Oversight</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike remote home freelancers who experience power outages or delayed driver responses, our team operates inside a physical facility equipped with fiber connections, backup generators, and floor leads.
+                      Unlike unmonitored home-based freelancers who might miss calls or experience connectivity issues, our agents work in our Lahore headquarters under direct supervisor attendance and performance management.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-           
+            {/* SECTION 7: HOW WE WORK */}
+            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
+              <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
+                  07. Onboarding Process
+                </span>
+                <h2 className="text-2xl font-bold text-[#0F0C09]">
+                  How We Get Your Dispatcher Up & Running
+                </h2>
+              </div>
+
+              <div className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm">
+                <HowItWorks />
+              </div>
+            </div>
 
           </div>
 
         </div>
       </section>
-
-      {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
-        <HowItWorks />
-      </div>
 
     </main>
   );
