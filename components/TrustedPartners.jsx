@@ -25,7 +25,7 @@ const tools = [
   },
   {
     name: "Zendesk",
-    icon: "https://img.logo.dev/zendesk.com?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=128&retina=true&format=png",
+    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsi1O8Cvj5bs-31FRpHZKQ737gC-uN87oasf1LIvKaYg&s=10",
   },
   {
     name: "Freshdesk",
