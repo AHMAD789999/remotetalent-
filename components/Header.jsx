@@ -18,6 +18,10 @@ import {
   Truck,
   Calculator,
   ArrowRight,
+  Home,
+  Layers,
+  Info,
+  Mail,
 } from "lucide-react";
 
 const serviceCategories = [
@@ -176,12 +180,13 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-6">
             <Link
               href="/"
-              className="text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors"
+              className="text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors flex items-center gap-1.5"
             >
-              Home
+              <Home className="w-4 h-4 text-[#FA5B16]" />
+              <span>Home</span>
             </Link>
 
             <div className="py-2 relative" ref={dropdownRef}>
@@ -189,6 +194,7 @@ export default function Header() {
                 onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
                 className="flex items-center gap-1.5 text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors focus:outline-none"
               >
+                <Layers className="w-4 h-4 text-[#FA5B16]" />
                 <span>Services</span>
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-300 ${
@@ -277,16 +283,18 @@ export default function Header() {
 
             <Link
               href="/about"
-              className="text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors"
+              className="text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors flex items-center gap-1.5"
             >
-              About Us
+              <Info className="w-4 h-4 text-[#FA5B16]" />
+              <span>About Us</span>
             </Link>
 
             <Link
               href="/contact"
-              className="text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors"
+              className="text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors flex items-center gap-1.5"
             >
-              Contact Us
+              <Mail className="w-4 h-4 text-[#FA5B16]" />
+              <span>Contact Us</span>
             </Link>
           </nav>
 
@@ -314,9 +322,10 @@ export default function Header() {
             <Link
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-sm font-bold text-[#0F0C09] py-1 border-b border-[#0F0C09]/5"
+              className="flex items-center gap-2 text-sm font-bold text-[#0F0C09] py-1 border-b border-[#0F0C09]/5"
             >
-              Home
+              <Home className="w-4 h-4 text-[#FA5B16]" />
+              <span>Home</span>
             </Link>
 
             <div>
@@ -324,7 +333,10 @@ export default function Header() {
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                 className="flex items-center justify-between w-full text-sm font-bold text-[#0F0C09] py-1 border-b border-[#0F0C09]/5 text-left"
               >
-                <span>Services</span>
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-[#FA5B16]" />
+                  <span>Services</span>
+                </div>
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-300 ${
                     mobileServicesOpen ? "rotate-180 text-[#FA5B16]" : ""
@@ -380,17 +392,19 @@ export default function Header() {
             <Link
               href="/about"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-sm font-bold text-[#0F0C09] py-1 border-b border-[#0F0C09]/5"
+              className="flex items-center gap-2 text-sm font-bold text-[#0F0C09] py-1 border-b border-[#0F0C09]/5"
             >
-              About Us
+              <Info className="w-4 h-4 text-[#FA5B16]" />
+              <span>About Us</span>
             </Link>
 
             <Link
               href="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-sm font-bold text-[#0F0C09] py-1"
+              className="flex items-center gap-2 text-sm font-bold text-[#0F0C09] py-1"
             >
-              Contact Us
+              <Mail className="w-4 h-4 text-[#FA5B16]" />
+              <span>Contact Us</span>
             </Link>
 
             <Link
