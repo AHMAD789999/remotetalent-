@@ -26,6 +26,14 @@ const sections = [
 export default function LiveChatSupportPage() {
   const [activeSection, setActiveSection] = useState("overview");
 
+  const scrollToSection = (id) => {
+    setActiveSection(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FAF6F2] text-[#0F0C09] flex flex-col font-sans select-none">
       <Header />
@@ -47,7 +55,7 @@ export default function LiveChatSupportPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Sidebar Navigation */}
-          <aside className="lg:col-span-3 lg:sticky lg:top-28 space-y-2">
+          <aside className="lg:col-span-3 lg:sticky lg:top-28 space-y-4">
             <div className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-4 shadow-sm space-y-2">
               <h3 className="text-xs font-bold uppercase tracking-wider text-[#FA5B16] px-2 pb-2 border-b border-[#0F0C09]/10">
                 Navigation
@@ -56,8 +64,8 @@ export default function LiveChatSupportPage() {
                 {sections.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => setActiveSection(item.id)}
-                    className={`w-full flex items-center justify-between px-4 py-3 rounded-[7px] text-xs font-bold transition-all ${
+                    onClick={() => scrollToSection(item.id)}
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-[7px] text-xs font-bold transition-all cursor-pointer ${
                       activeSection === item.id
                         ? "bg-[#FA5B16] text-white shadow-sm"
                         : "bg-[#FAF6F2] text-[#0F0C09]/80 hover:bg-[#0F0C09]/5"
@@ -86,8 +94,8 @@ export default function LiveChatSupportPage() {
                 Estimate exact costs and scale your remote support department effortlessly.
               </p>
               <Link
-                href="/team-building-calculator"
-                className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-[7px] bg-[#0F0C09] text-white text-xs font-bold hover:bg-[#FA5B16] transition-colors"
+                href="/calculator"
+                className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-[7px] bg-[#0F0C09] text-white text-xs font-bold hover:bg-[#FA5B16] transition-colors cursor-pointer"
               >
                 <span>Calculate Team Cost</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -98,7 +106,7 @@ export default function LiveChatSupportPage() {
           {/* Main Content Area */}
           <div className="lg:col-span-9 space-y-10">
             {/* Overview Section */}
-            <section id="overview" className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-6 sm:p-8 shadow-sm space-y-6">
+            <section id="overview" className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-6 sm:p-8 shadow-sm space-y-6 scroll-mt-28">
               <h2 className="text-xl font-extrabold text-[#0F0C09] flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-[#FA5B16]" />
                 <span>Service Overview</span>
@@ -130,7 +138,7 @@ export default function LiveChatSupportPage() {
             </section>
 
             {/* Experience Levels Section */}
-            <section id="experience" className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-6 sm:p-8 shadow-sm space-y-6">
+            <section id="experience" className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-6 sm:p-8 shadow-sm space-y-6 scroll-mt-28">
               <h2 className="text-xl font-extrabold text-[#0F0C09] flex items-center gap-2">
                 <Users className="w-5 h-5 text-[#FA5B16]" />
                 <span>Experience Levels & Tiers</span>
@@ -141,31 +149,31 @@ export default function LiveChatSupportPage() {
 
               <div className="space-y-4">
                 <div className="p-5 rounded-[7px] border border-[#0F0C09]/10 bg-[#FAF6F2]/50 space-y-2">
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center flex-wrap gap-2">
                     <h3 className="text-sm font-bold text-[#0F0C09]">Junior Level</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-[7px] bg-[#FA5B16]/10 text-[#FA5B16]">
                       At least 6 months to 1 year experience
                     </span>
                   </div>
                   <p className="text-xs text-[#0F0C09]/70 leading-relaxed">
-                    Ideal for standard ticketing, chat queries, social media inbox management, and junior enter-level CEO/C-suite executive and director assistance.
+                    Ideal for standard ticketing, chat queries, social media inbox management, and junior level support assistance.
                   </p>
                 </div>
 
                 <div className="p-5 rounded-[7px] border border-[#0F0C09]/10 bg-[#FAF6F2]/50 space-y-2">
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center flex-wrap gap-2">
                     <h3 className="text-sm font-bold text-[#0F0C09]">Mid Level</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-[7px] bg-[#FA5B16]/10 text-[#FA5B16]">
                       2+ years experience
                     </span>
                   </div>
                   <p className="text-xs text-[#0F0C09]/70 leading-relaxed">
-                    Handles complex customer escalations, billing inquiries, refund processing, and mid-level executive support workflows.
+                    Handles complex customer escalations, billing inquiries, refund processing, and mid-level customer support workflows.
                   </p>
                 </div>
 
                 <div className="p-5 rounded-[7px] border border-[#0F0C09]/10 bg-[#FAF6F2]/50 space-y-2">
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center flex-wrap gap-2">
                     <h3 className="text-sm font-bold text-[#0F0C09]">Senior Level</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-[7px] bg-[#FA5B16]/10 text-[#FA5B16]">
                       At least 5+ years experience
@@ -179,7 +187,7 @@ export default function LiveChatSupportPage() {
             </section>
 
             {/* Key Responsibilities Section */}
-            <section id="responsibilities" className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-6 sm:p-8 shadow-sm space-y-6">
+            <section id="responsibilities" className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-6 sm:p-8 shadow-sm space-y-6 scroll-mt-28">
               <h2 className="text-xl font-extrabold text-[#0F0C09] flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-[#FA5B16]" />
                 <span>Key Responsibilities</span>
@@ -203,7 +211,7 @@ export default function LiveChatSupportPage() {
             </section>
 
             {/* FAQs Section */}
-            <section id="faq" className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-6 sm:p-8 shadow-sm space-y-6">
+            <section id="faq" className="bg-white rounded-[7px] border border-[#0F0C09]/10 p-6 sm:p-8 shadow-sm space-y-6 scroll-mt-28">
               <h2 className="text-xl font-extrabold text-[#0F0C09]">Frequently Asked Questions</h2>
               
               <div className="space-y-4">
@@ -231,7 +239,7 @@ export default function LiveChatSupportPage() {
               <div className="pt-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[7px] bg-white text-[#FA5B16] text-xs font-bold shadow hover:bg-[#FAF6F2] transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[7px] bg-white text-[#FA5B16] text-xs font-bold shadow hover:bg-[#FAF6F2] transition-colors cursor-pointer"
                 >
                   <span>Hire Dedicated Talent</span>
                   <ArrowRight className="w-3.5 h-3.5" />
