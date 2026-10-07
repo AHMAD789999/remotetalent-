@@ -9,17 +9,15 @@ import {
   Code,
   ShoppingBag,
   MessageSquare,
-  PhoneCall,
-  Mail,
-  Truck,
-  Boxes,
-  UserCheck,
-  RotateCcw,
-  ArrowRight,
-  FileText,
   TrendingUp,
+  UserCheck,
   Share2,
+  FileText,
+  Boxes,
+  RotateCcw,
+  Truck,
   Calculator,
+  ArrowRight,
 } from "lucide-react";
 
 const serviceCategories = [
