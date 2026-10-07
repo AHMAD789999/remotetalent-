@@ -137,11 +137,12 @@ export default function GeneralVirtualAssistanceServicePage() {
   const tierPricingPlans = [
     {
       level: "Junior Virtual Assistant",
-      badge: "Data Entry & Admin",
+      badge: "6M - 1 Year Experience",
       price: "$599",
       period: "/ month",
       desc: "Ideal for routine data entry, email sorting, basic calendar management, and straightforward administrative tasks.",
       features: [
+        "Experience: At least 6 months to 1 year",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Operations HQ",
@@ -154,11 +155,12 @@ export default function GeneralVirtualAssistanceServicePage() {
     },
     {
       level: "Mid-Level Executive Assistant",
-      badge: "Most Popular Choice",
+      badge: "2+ Years (CEO & Director Support)",
       price: "$899",
       period: "/ month",
       desc: "Best for executive calendar coordination, customer support, lead generation, and complex multi-tool workflow management.",
       features: [
+        "Experience: 2+ years (includes CEO/C-suite & director support)",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Operations HQ",
@@ -172,11 +174,12 @@ export default function GeneralVirtualAssistanceServicePage() {
     },
     {
       level: "Senior Operations Coordinator",
-      badge: "Project Lead & Ops",
+      badge: "5+ Years Experience",
       price: "$1,299",
       period: "/ month",
       desc: "Seasoned administrative lead responsible for managing complex operational workflows, vendor coordination, and team oversight.",
       features: [
+        "Experience: At least 5+ years",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Operations HQ",
@@ -223,13 +226,21 @@ export default function GeneralVirtualAssistanceServicePage() {
             Whichever plan or assistant tier you select for <strong className="text-[#FA5B16]">talentharbor</strong>, your virtual assistant will physically sit inside our high-security operations facility in Lahore, Pakistan, managing your emails, calendars, data entry, and customer support live during your exact business shift.
           </p>
 
-          <div className="pt-2 flex items-center gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
+              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
             >
               <span>Hire Your Virtual Assistant</span>
               <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/calculator"
+              className="px-6 py-3 rounded-[7px] bg-white hover:bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/15 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
+            >
+              <span>Calculate Custom Pricing</span>
+              <ArrowRight className="w-4 h-4 text-[#FA5B16]" />
             </Link>
           </div>
 
@@ -259,7 +270,7 @@ export default function GeneralVirtualAssistanceServicePage() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
                       activeSection === item.id
                         ? "bg-white text-[#FA5B16] shadow-sm"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
@@ -557,7 +568,7 @@ export default function GeneralVirtualAssistanceServicePage() {
 
                     <Link
                       href="/contact"
-                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 ${
+                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 cursor-pointer ${
                         plan.popular
                           ? "bg-[#FA5B16] text-white hover:bg-[#FA5B16]/90"
                           : "bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/10 hover:border-[#FA5B16]"
@@ -606,28 +617,16 @@ export default function GeneralVirtualAssistanceServicePage() {
               </div>
             </div>
 
-            {/* SECTION 7: HOW WE WORK (Added to fix missing anchor ID) */}
-            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
-              <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
-                  07. Onboarding Process
-                </span>
-                <h2 className="text-2xl font-bold text-[#0F0C09]">
-                  How We Work & Get You Started
-                </h2>
-              </div>
-            </div>
-
           </div>
 
         </div>
       </section>
 
       {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div className="border-t border-[#0F0C09]/10">
+      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10 scroll-mt-8">
         <HowItWorks />
       </div>
-
+      
     </main>
   );
 }
