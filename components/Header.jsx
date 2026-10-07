@@ -22,7 +22,7 @@ import {
 
 const serviceCategories = [
   {
-    category: "Development & Technology",
+    category: "Development & Tech",
     items: [
       {
         title: "Website Development & Maintenance",
@@ -84,7 +84,7 @@ const serviceCategories = [
     ],
   },
   {
-    category: "E-Commerce Operations & Logistics",
+    category: "E-Commerce Operations",
     items: [
       {
         title: "E-Commerce Store & Catalog Management",
@@ -98,6 +98,11 @@ const serviceCategories = [
         link: "/services/warehouse-order-management",
         icon: Boxes,
       },
+    ],
+  },
+  {
+    category: "Logistics & Fulfillment",
+    items: [
       {
         title: "Shipping, Returns & RMA Support",
         desc: "Labels, return authorizations & logistics claims.",
@@ -181,18 +186,18 @@ export default function Header() {
               </button>
 
               {isMegaMenuOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[1100px] z-50">
-                  <div className="bg-white rounded-[7px] border border-[#0F0C09]/10 shadow-2xl p-8 grid grid-cols-12 gap-8 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[1150px] z-50">
+                  <div className="bg-white rounded-[7px] border border-[#0F0C09]/10 shadow-2xl p-8 grid grid-cols-12 gap-6 animate-in fade-in slide-in-from-top-2 duration-150">
                     
-                    {/* Categories Section arranged in 3 columns for proper row flow */}
-                    <div className="col-span-9 grid grid-cols-3 gap-6">
+                    {/* Categories Section arranged in 4 columns for perfect row alignment */}
+                    <div className="col-span-10 grid grid-cols-4 gap-5">
                       {serviceCategories.map((cat, idx) => (
                         <div key={idx} className="space-y-3">
                           <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#FA5B16] border-b border-[#0F0C09]/10 pb-2">
                             {cat.category}
                           </h4>
 
-                          <div className="space-y-1.5">
+                          <div className="space-y-2">
                             {cat.items.map((item, itemIdx) => {
                               const Icon = item.icon;
                               return (
@@ -222,26 +227,26 @@ export default function Header() {
                     </div>
 
                     {/* Right side CTA card */}
-                    <div className="col-span-3 bg-[#FAF6F2] rounded-[7px] p-6 border border-[#0F0C09]/5 flex flex-col justify-between">
+                    <div className="col-span-2 bg-[#FAF6F2] rounded-[7px] p-5 border border-[#0F0C09]/5 flex flex-col justify-between">
                       <div className="space-y-2">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[#FA5B16]">
-                          Dedicated Hiring
+                          Hiring
                         </span>
-                        <h5 className="text-sm font-bold text-[#0F0C09] leading-snug">
-                          Scale Operations in 48 Hours
+                        <h5 className="text-xs font-bold text-[#0F0C09] leading-snug">
+                          Scale in 48 Hours
                         </h5>
-                        <p className="text-xs text-[#0F0C09]/70 leading-relaxed pt-1">
-                          Vetted remote experts working directly from our office in Pakistan on your time zone.
+                        <p className="text-[11px] text-[#0F0C09]/70 leading-relaxed">
+                          Vetted remote experts working on your time zone.
                         </p>
                       </div>
 
                       <Link
                         href="/contact"
                         onClick={() => setIsMegaMenuOpen(false)}
-                        className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow-sm hover:bg-[#e04f0f] transition-all mt-4"
+                        className="inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-[7px] bg-[#FA5B16] text-white text-[11px] font-bold shadow-sm hover:bg-[#e04f0f] transition-all mt-3"
                       >
                         <span>Talk to Specialist</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className="w-3 h-3" />
                       </Link>
                     </div>
 
