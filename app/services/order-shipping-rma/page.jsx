@@ -142,11 +142,12 @@ export default function OrderShippingRMAServicePage() {
   const tierPricingPlans = [
     {
       level: "Junior Shipping & RMA Associate",
-      badge: "Routine Label Desk",
+      badge: "6M - 1 Year Experience",
       price: "$749",
       period: "/ month",
       desc: "Ideal for daily shipping label generation, address validation, basic RMA label issuance, Return-To-Sender tracking, and routine customer dispatch updates.",
       features: [
+        "Experience: At least 6 months to 1 year",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Operational Shift",
         "Seated in Our Physical Operations HQ Floor",
@@ -159,11 +160,12 @@ export default function OrderShippingRMAServicePage() {
     },
     {
       level: "Mid-Level Logistics & RMA Coordinator",
-      badge: "Most Popular Choice",
+      badge: "2+ Years Experience",
       price: "$1,299",
       period: "/ month",
       desc: "Best for full return lifecycle management, warehouse inspection grading, carrier claim filing, rate shopping optimization, and Loop/Returnly workflow administration.",
       features: [
+        "Experience: 2+ years experience",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Operational Shift",
         "Seated in Our Physical Operations HQ Floor",
@@ -171,18 +173,18 @@ export default function OrderShippingRMAServicePage() {
         "Warehouse Condition Logging & Auto-Restock",
         "Carrier Loss & Damage Claim Management",
         "Multi-Carrier Rate Shopping & International Customs",
-        "Daily, Weekly & Monthly Return SLA Reports",
-        "Immediate Agent Replacement Protection"
+        "Daily, Weekly & Monthly Return SLA Reports"
       ],
       popular: true,
     },
     {
       level: "Senior Supply Chain & Logistics Operations Lead",
-      badge: "Logistics Operations Lead",
+      badge: "5+ Years Experience",
       price: "$1,799",
       period: "/ month",
       desc: "Experienced logistics lead capable of auditing carrier billings, setting up automated multi-node fulfillment routing, negotiating 3PL SLAs, and reducing total return friction.",
       features: [
+        "Experience: At least 5+ years",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Operational Shift",
         "Seated in Our Physical Operations HQ Floor",
@@ -230,13 +232,21 @@ export default function OrderShippingRMAServicePage() {
             Whichever plan or candidate you select, your dedicated shipping and RMA handling specialist will physically sit inside our supervised office in Lahore, Pakistan—managing carrier dispatches, return label queues, warehouse inspection logs, and carrier claims live during your exact hours.
           </p>
 
-          <div className="pt-2 flex items-center gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
+              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
             >
               <span>Hire Your Shipping & RMA Specialist</span>
               <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/calculator"
+              className="px-6 py-3 rounded-[7px] bg-white hover:bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/15 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
+            >
+              <span>Calculate Custom Pricing</span>
+              <ArrowRight className="w-4 h-4 text-[#FA5B16]" />
             </Link>
           </div>
 
@@ -266,7 +276,7 @@ export default function OrderShippingRMAServicePage() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
                       activeSection === item.id
                         ? "bg-white text-[#FA5B16] shadow-sm"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
@@ -288,7 +298,7 @@ export default function OrderShippingRMAServicePage() {
 
                 <Link
                   href="/contact"
-                  className="w-full py-2.5 rounded-[6px] bg-[#0F0C09] hover:bg-[#0F0C09]/90 text-white text-xs font-bold uppercase tracking-wider text-center block transition-all"
+                  className="w-full py-2.5 rounded-[6px] bg-[#0F0C09] hover:bg-[#0F0C09]/90 text-white text-xs font-bold uppercase tracking-wider text-center block transition-all cursor-pointer"
                 >
                   Consult With Our Operations Manager
                 </Link>
@@ -564,7 +574,7 @@ export default function OrderShippingRMAServicePage() {
 
                     <Link
                       href="/contact"
-                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 ${
+                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 cursor-pointer ${
                         plan.popular
                           ? "bg-[#FA5B16] text-white hover:bg-[#FA5B16]/90"
                           : "bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/10 hover:border-[#FA5B16]"
@@ -603,27 +613,14 @@ export default function OrderShippingRMAServicePage() {
                   <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
                     <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider flex items-center gap-1.5">
                       <ShieldCheck className="w-4 h-4 text-[#FA5B16]" />
-                      <span>Carrier Claim Recovery & Overcharge Audits</span>
+                      <span>In-Office Supervision & Data Security</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Instead of letting lost packages and carrier billing errors eat your margins, our specialists file formal claims and recover funds directly into your account.
+                      Unlike unmanaged remote workers, our shipping coordinators operate in a secure facility with continuous monitoring, strict NDAs, and reliable infrastructure.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* HOW WE WORK SECTION */}
-            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
-              <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
-                  07. Seamless Onboarding
-                </span>
-                <h2 className="text-2xl font-bold text-[#0F0C09]">
-                  How We Work
-                </h2>
-              </div>
-              <HowItWorks />
             </div>
 
           </div>
@@ -631,6 +628,11 @@ export default function OrderShippingRMAServicePage() {
         </div>
       </section>
 
+      {/* HOW IT WORKS IMPORTED COMPONENT */}
+      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10 scroll-mt-8">
+        <HowItWorks />
+      </div>
+      
     </main>
   );
 }
