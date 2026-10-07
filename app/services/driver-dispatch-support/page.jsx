@@ -72,7 +72,6 @@ export default function DriverDispatchSupportServicePage() {
     }
   ];
 
-  // COMPREHENSIVE DRIVER CHAT, CALL & DISPATCH SUPPORT TYPES
   const dispatchSupportTypes = [
     {
       icon: Radio,
@@ -145,11 +144,12 @@ export default function DriverDispatchSupportServicePage() {
   const tierPricingPlans = [
     {
       level: "Junior Driver Support Agent",
-      badge: "Inbound Driver Desk",
+      badge: "6M - 1 Year Experience",
       price: "$799",
       period: "/ month",
       desc: "Ideal for handling routine driver check-in calls, WhatsApp load status chats, basic gate directions, and logging POD paperwork into your software.",
       features: [
+        "Experience: At least 6 months to 1 year",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Shift Schedule",
         "Seated in Our Physical Dispatch Floor HQ",
@@ -162,29 +162,30 @@ export default function DriverDispatchSupportServicePage() {
     },
     {
       level: "Mid-Level Dispatch Coordinator",
-      badge: "Most Popular Choice",
+      badge: "2+ Years (CEO & Director Support)",
       price: "$1,399",
       period: "/ month",
-      desc: "Best for active freight dispatching, broker rate negotiation, ELD/HOS monitoring, emergency breakdown rerouting, and last-mile exception handling.",
+      desc: "Best for active freight dispatching, broker rate negotiation, ELD/HOS monitoring, emergency breakdown rerouting, and executive/director assistance.",
       features: [
+        "Experience: 2+ years (includes CEO/C-suite & director support)",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Shift Schedule",
         "Seated in Our Physical Dispatch Floor HQ",
         "DAT / Truckstop Load Booking & Broker Calls",
         "Samsara / Motive ELD & Live Route Tracking",
         "Detention Claims & OS&D Exception Resolution",
-        "Daily, Weekly & Monthly On-Time Fleet Reports",
-        "Immediate Dispatcher Replacement Protection"
+        "Daily, Weekly & Monthly On-Time Fleet Reports"
       ],
       popular: true,
     },
     {
       level: "Senior Dispatch Operations Lead",
-      badge: "Fleet Dispatch Manager",
+      badge: "5+ Years Experience",
       price: "$1,899",
       period: "/ month",
       desc: "Experienced fleet dispatch manager capable of running multi-truck operations, optimizing lane profitability, managing dispatchers, and handling complex claims.",
       features: [
+        "Experience: At least 5+ years",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Shift Schedule",
         "Seated in Our Physical Dispatch Floor HQ",
@@ -234,7 +235,7 @@ export default function DriverDispatchSupportServicePage() {
           <div className="pt-2 flex items-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
+              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
             >
               <span>Hire Your Dispatch Specialist</span>
               <ArrowRight className="w-4 h-4" />
@@ -267,7 +268,7 @@ export default function DriverDispatchSupportServicePage() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
                       activeSection === item.id
                         ? "bg-white text-[#FA5B16] shadow-sm"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
@@ -607,26 +608,10 @@ export default function DriverDispatchSupportServicePage() {
                       <span>In-Office Operational Oversight</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike unmonitored home-based freelancers who might miss calls or experience connectivity issues, our agents work in our Lahore headquarters under direct supervisor attendance and performance management.
+                      Unlike remote freelancers working from home with potential connection drops, our dispatchers operate inside a managed facility with redundant fiber links and floor supervisors.
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* SECTION 7: HOW WE WORK */}
-            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
-              <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
-                  07. Onboarding Process
-                </span>
-                <h2 className="text-2xl font-bold text-[#0F0C09]">
-                  How We Get Your Dispatcher Up & Running
-                </h2>
-              </div>
-
-              <div className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm">
-                <HowItWorks />
               </div>
             </div>
 
@@ -635,6 +620,11 @@ export default function DriverDispatchSupportServicePage() {
         </div>
       </section>
 
+      {/* HOW IT WORKS IMPORTED COMPONENT */}
+      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10 scroll-mt-8">
+        <HowItWorks />
+      </div>
+      
     </main>
   );
 }
