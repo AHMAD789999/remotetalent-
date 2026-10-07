@@ -142,11 +142,12 @@ export default function CustomerEmailSupportServicePage() {
   const tierPricingPlans = [
     {
       level: "Junior Email Agent",
-      badge: "Routine Ticket Desk",
+      badge: "6M - 1 Year Experience",
       price: "$699",
       period: "/ month",
       desc: "Ideal for handling high-volume routine order tracking emails, simple FAQs, basic ticket tagging, and template-based customer replies.",
       features: [
+        "Experience: At least 6 months to 1 year",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Office HQ",
@@ -159,29 +160,30 @@ export default function CustomerEmailSupportServicePage() {
     },
     {
       level: "Mid-Level Ticket Specialist",
-      badge: "Most Popular Choice",
+      badge: "2+ Years (CEO & Director Support)",
       price: "$1,199",
       period: "/ month",
-      desc: "Best for complex refund approvals, order modifications, chargeback dispute prevention, pre-sale sales emails, and macro writing.",
+      desc: "Best for complex refund approvals, order modifications, chargeback dispute prevention, pre-sale sales emails, and director assistance.",
       features: [
+        "Experience: 2+ years (includes CEO/C-suite & director support)",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Office HQ",
         "Full Refund, Exchange & Order Edits Desk",
         "Pre-Purchase Conversion & Discount Vouchers",
         "Multi-Inbox Routing & VIP Escalations",
-        "Daily, Weekly & Monthly CSAT Reports",
-        "Immediate Agent Replacement Protection"
+        "Daily, Weekly & Monthly CSAT Reports"
       ],
       popular: true,
     },
     {
       level: "Senior Helpdesk Operations Lead",
-      badge: "Helpdesk Manager",
+      badge: "5+ Years Experience",
       price: "$1,699",
       period: "/ month",
       desc: "Experienced support manager responsible for building helpdesk architectures, auditing agent replies, managing complex SLAs, and team leadership.",
       features: [
+        "Experience: At least 5+ years",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Office HQ",
@@ -231,7 +233,7 @@ export default function CustomerEmailSupportServicePage() {
           <div className="pt-2 flex items-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
+              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
             >
               <span>Hire Your Email Specialist</span>
               <ArrowRight className="w-4 h-4" />
@@ -264,7 +266,7 @@ export default function CustomerEmailSupportServicePage() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
                       activeSection === item.id
                         ? "bg-white text-[#FA5B16] shadow-sm"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
