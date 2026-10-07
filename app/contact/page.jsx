@@ -8,6 +8,8 @@ import {
   CheckCircle2,
   Building2,
   MessageSquare,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 
 export default function ContactHero() {
@@ -18,42 +20,36 @@ export default function ContactHero() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setErrorMsg("");
 
-    const recipient = "business@talentharbor.net";
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const subject = `New Inquiry - ${formData.service} - ${formData.fullName}`;
+      const result = await response.json();
 
-    const body = `Hello Talent Harbor Team,
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message.");
+      }
 
-I would like to discuss a project with your team.
-
-CONTACT DETAILS
-------------------------------
-Full Name: ${formData.fullName}
-Email: ${formData.email}
-Service Required: ${formData.service}
-
-PROJECT DETAILS
-------------------------------
-${formData.message}
-
-Please contact me at your earliest convenience.
-
-Best regards,
-${formData.fullName}
-`;
-
-    const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoUrl;
-
-    setSubmitted(true);
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMsg(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -62,12 +58,10 @@ ${formData.fullName}
 
         {/* LEFT COLUMN */}
         <div className="lg:col-span-5 space-y-7">
-
-          {/* Header */}
           <div className="space-y-3">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#FA5B16]/10 text-[#FA5B16] text-xs font-bold uppercase tracking-wider border border-[#FA5B16]/20">
               <Building2 className="w-3.5 h-3.5" />
-              Direct Communication
+              <span>Direct Communication</span>
             </span>
 
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F0C09] leading-tight">
@@ -81,10 +75,7 @@ ${formData.fullName}
             </p>
           </div>
 
-          {/* Contact Details */}
           <div className="space-y-3">
-
-            {/* Email */}
             <a
               href="mailto:business@talentharbor.net"
               className="group flex items-center justify-between p-4 rounded-[7px] bg-white border border-[#0F0C09]/10 hover:border-[#FA5B16] transition-all shadow-sm"
@@ -93,57 +84,44 @@ ${formData.fullName}
                 <div className="w-10 h-10 rounded-[6px] bg-[#FAF6F2] text-[#FA5B16] flex items-center justify-center shrink-0 border border-[#0F0C09]/5 group-hover:bg-[#FA5B16] group-hover:text-white transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
-
                 <div>
                   <span className="text-[10px] font-bold text-[#0F0C09]/50 uppercase tracking-wider block">
-                    Email Us
+                    For business inquiries
                   </span>
-
                   <span className="text-xs sm:text-sm font-bold text-[#0F0C09] group-hover:text-[#FA5B16] transition-colors">
                     business@talentharbor.net
                   </span>
                 </div>
               </div>
-
               <ArrowRight className="w-4 h-4 text-[#0F0C09]/30 group-hover:text-[#FA5B16] group-hover:translate-x-1 transition-all" />
             </a>
 
-            {/* Location */}
             <div className="flex items-center gap-3.5 p-4 rounded-[7px] bg-white border border-[#0F0C09]/10 shadow-sm">
               <div className="w-10 h-10 rounded-[6px] bg-[#FAF6F2] text-[#FA5B16] flex items-center justify-center shrink-0 border border-[#0F0C09]/5">
                 <MapPin className="w-5 h-5" />
               </div>
-
               <div>
                 <span className="text-[10px] font-bold text-[#0F0C09]/50 uppercase tracking-wider block">
                   Headquarters
                 </span>
-
                 <span className="text-xs sm:text-sm font-bold text-[#0F0C09]">
                   Lahore, Punjab, Pakistan
                 </span>
               </div>
             </div>
-
           </div>
         </div>
 
         {/* RIGHT COLUMN */}
         <div className="lg:col-span-7">
           <div className="bg-white rounded-[10px] p-6 sm:p-8 border border-[#0F0C09]/10 shadow-lg relative">
-
-            {/* Form Header */}
             <div className="mb-6 pb-4 border-b border-[#0F0C09]/10 flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-bold text-[#0F0C09]">
-                  Send Inquiry
-                </h2>
-
+                <h2 className="text-lg font-bold text-[#0F0C09]">Send Inquiry</h2>
                 <p className="text-xs text-[#0F0C09]/60 font-medium">
                   Fill in your requirements below.
                 </p>
               </div>
-
               <div className="w-8 h-8 rounded-full bg-[#FAF6F2] border border-[#0F0C09]/10 text-[#FA5B16] flex items-center justify-center">
                 <MessageSquare className="w-4 h-4" />
               </div>
@@ -151,85 +129,78 @@ ${formData.fullName}
 
             {submitted ? (
               <div className="py-12 text-center space-y-3">
-
                 <CheckCircle2 className="w-12 h-12 text-[#FA5B16] mx-auto" />
-
                 <h3 className="text-lg font-bold text-[#0F0C09]">
-                  Inquiry Prepared
+                  Inquiry Sent Successfully!
                 </h3>
-
                 <p className="text-xs text-[#0F0C09]/70 max-w-xs mx-auto font-medium leading-relaxed">
-                  Your email client has been opened with your inquiry details.
-                  Please review and send the email to complete your inquiry.
+                  Thank you for reaching out. Your message has been successfully delivered to business@talentharbor.net.
                 </p>
-
                 <button
                   type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="mt-3 text-xs font-bold text-[#FA5B16] hover:underline"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({
+                      fullName: "",
+                      email: "",
+                      service: "Web Development & Maintenance",
+                      message: "",
+                    });
+                  }}
+                  className="mt-3 text-xs font-bold text-[#FA5B16] hover:underline cursor-pointer"
                 >
                   Send Another Inquiry
                 </button>
-
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {errorMsg && (
+                  <div className="p-3 rounded-[7px] bg-red-50 border border-red-200 text-red-600 text-xs font-semibold flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{errorMsg}</span>
+                  </div>
+                )}
 
-                {/* Full Name */}
                 <div className="space-y-1">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-[#0F0C09]/80 block">
                     Full Name *
                   </label>
-
                   <input
                     type="text"
                     required
                     placeholder="John Doe"
                     value={formData.fullName}
                     onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        fullName: e.target.value,
-                      })
+                      setFormData({ ...formData, fullName: e.target.value })
                     }
                     className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all"
                   />
                 </div>
 
-                {/* Email */}
                 <div className="space-y-1">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-[#0F0C09]/80 block">
                     Email Address *
                   </label>
-
                   <input
                     type="email"
                     required
                     placeholder="john@company.com"
                     value={formData.email}
                     onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        email: e.target.value,
-                      })
+                      setFormData({ ...formData, email: e.target.value })
                     }
                     className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all"
                   />
                 </div>
 
-                {/* Service */}
                 <div className="space-y-1">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-[#0F0C09]/80 block">
                     Service Required
                   </label>
-
                   <select
                     value={formData.service}
                     onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        service: e.target.value,
-                      })
+                      setFormData({ ...formData, service: e.target.value })
                     }
                     className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all cursor-pointer"
                   >
@@ -244,39 +215,41 @@ ${formData.fullName}
                   </select>
                 </div>
 
-                {/* Project Details */}
                 <div className="space-y-1">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-[#0F0C09]/80 block">
                     Project Details *
                   </label>
-
                   <textarea
                     rows={4}
                     required
                     placeholder="Briefly describe your requirements or technical goals..."
                     value={formData.message}
                     onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        message: e.target.value,
-                      })
+                      setFormData({ ...formData, message: e.target.value })
                     }
                     className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all resize-none"
                   />
                 </div>
 
-                {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-6 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99]"
+                  disabled={loading}
+                  className="w-full py-3.5 px-6 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99] disabled:opacity-70 cursor-pointer"
                 >
-                  <span>Submit Inquiry</span>
-                  <ArrowRight className="w-4 h-4" />
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Sending Inquiry...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit Inquiry</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
-
               </form>
             )}
-
           </div>
         </div>
 
