@@ -124,7 +124,7 @@ export default function ServicesSection() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleScroll("left")}
-              className="w-11 h-11 rounded-[7px] bg-white border border-[#0F0C09]/15 text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white hover:border-[#FA5B16] flex items-center justify-center transition-all shadow-sm active:scale-95"
+              className="w-11 h-11 rounded-[7px] bg-white border border-[#0F0C09]/15 text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white hover:border-[#FA5B16] flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
               aria-label="Scroll Left"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -132,7 +132,7 @@ export default function ServicesSection() {
 
             <button
               onClick={() => handleScroll("right")}
-              className="w-11 h-11 rounded-[7px] bg-white border border-[#0F0C09]/15 text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white hover:border-[#FA5B16] flex items-center justify-center transition-all shadow-sm active:scale-95"
+              className="w-11 h-11 rounded-[7px] bg-white border border-[#0F0C09]/15 text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white hover:border-[#FA5B16] flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
               aria-label="Scroll Right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -155,30 +155,30 @@ export default function ServicesSection() {
                 href={service.link}
                 className="group relative flex-shrink-0 w-[280px] sm:w-[310px] h-[390px] rounded-t-[140px] rounded-b-[16px] bg-white border border-[#0F0C09]/10 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden snap-start flex flex-col justify-between"
               >
-                {/* CARD INNER CONTAINER */}
-                <div className="relative w-full h-full flex flex-col justify-between p-7 z-10">
-                  
-                  {/* RIGHT SIDE VERTICAL BRAND COLOR STRIP */}
-                  <div className="absolute top-0 right-0 w-[15%] h-full bg-[#FA5B16] transition-all duration-500 group-hover:w-full group-hover:opacity-95" />
+                {/* RIGHT SIDE EXPANDING BRAND COLOR STRIP OVERLAY */}
+                <div className="absolute top-0 right-0 w-[15%] h-full bg-[#FA5B16] transition-all duration-500 ease-out group-hover:w-full z-10 pointer-events-none" />
 
+                {/* CARD INNER CONTENT CONTAINER */}
+                <div className="relative w-full h-full flex flex-col justify-between p-7 z-20">
+                  
                   {/* CENTER EMBEDDED ICON CIRCLE GRAPHIC */}
-                  <div className="relative z-20 pt-8 pb-4">
+                  <div className="pt-8 pb-4">
                     <div className="w-16 h-16 rounded-full bg-[#FAF6F2] border border-[#0F0C09]/10 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all shadow-sm">
                       <IconComponent className="w-8 h-8 text-[#FA5B16] transition-colors" />
                     </div>
                   </div>
 
                   {/* BOTTOM CONTENT AREA */}
-                  <div className="relative z-20 space-y-3 pb-1">
-                    <h3 className="text-xl font-bold text-[#0F0C09] tracking-tight leading-snug group-hover:text-white transition-colors">
+                  <div className="space-y-3 pb-1">
+                    <h3 className="text-xl font-bold text-[#0F0C09] tracking-tight leading-snug group-hover:text-white transition-colors duration-300">
                       {service.title}
                     </h3>
 
-                    <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed group-hover:text-white/90 transition-colors line-clamp-2">
+                    <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed group-hover:text-white/90 transition-colors duration-300 line-clamp-2">
                       {service.desc}
                     </p>
 
-                    <div className="pt-3 flex items-center justify-between text-xs font-bold text-[#FA5B16] group-hover:text-white transition-colors border-t border-[#0F0C09]/10 group-hover:border-white/30">
+                    <div className="pt-3 flex items-center justify-between text-xs font-bold text-[#FA5B16] group-hover:text-white transition-colors duration-300 border-t border-[#0F0C09]/10 group-hover:border-white/30">
                       <span>Explore Capability</span>
                       <div className="w-7 h-7 rounded-full bg-[#FAF6F2] text-[#0F0C09] group-hover:bg-white group-hover:text-[#FA5B16] flex items-center justify-center transition-all group-hover:rotate-45">
                         <ArrowUpRight className="w-4 h-4" />
@@ -196,4 +196,4 @@ export default function ServicesSection() {
       </div>
     </section>
   );
-}   
+}
