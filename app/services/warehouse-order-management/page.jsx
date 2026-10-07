@@ -143,11 +143,12 @@ export default function WarehouseOrderManagementServicePage() {
   const tierPricingPlans = [
     {
       level: "Junior Order Processing Specialist",
-      badge: "Routine Order Desk",
+      badge: "6M - 1 Year Experience",
       price: "$749",
       period: "/ month",
       desc: "Ideal for daily order entry, address verification, basic ShipStation/Shopify tag management, basic inventory logging, and routine label generation.",
       features: [
+        "Experience: At least 6 months to 1 year",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Operational Shift",
         "Seated in Our Physical Operations HQ Floor",
@@ -160,11 +161,12 @@ export default function WarehouseOrderManagementServicePage() {
     },
     {
       level: "Mid-Level WMS & Inventory Coordinator",
-      badge: "Most Popular Choice",
+      badge: "2+ Years Experience",
       price: "$1,299",
       period: "/ month",
       desc: "Best for full WMS administration, multi-warehouse routing, inventory cycle reconciliation, inbound supplier PO tracking, and 3PL communication.",
       features: [
+        "Experience: 2+ years experience",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Operational Shift",
         "Seated in Our Physical Operations HQ Floor",
@@ -172,18 +174,18 @@ export default function WarehouseOrderManagementServicePage() {
         "Inventory Reconciliation & Safety Stock Alerts",
         "3PL Dock Scheduling & Inbound PO Audits",
         "RMA & Reverse Logistics Condition Logging",
-        "Daily, Weekly & Monthly Stock Accuracy Audits",
-        "Immediate Agent Replacement Protection"
+        "Daily, Weekly & Monthly Stock Accuracy Audits"
       ],
       popular: true,
     },
     {
       level: "Senior Supply Chain & Fulfillment Operations Lead",
-      badge: "WMS Operations Manager",
+      badge: "5+ Years Experience",
       price: "$1,799",
       period: "/ month",
       desc: "Experienced warehouse operations manager capable of building multi-warehouse workflows, managing EDI retail orders, auditing 3PL SLAs, and optimizing fulfillment costs.",
       features: [
+        "Experience: At least 5+ years",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Operational Shift",
         "Seated in Our Physical Operations HQ Floor",
@@ -231,13 +233,21 @@ export default function WarehouseOrderManagementServicePage() {
             Whichever plan or candidate you select, your dedicated order processing and warehouse management system (WMS) coordinator will physically sit inside our supervised office in Lahore, Pakistan—managing multi-channel orders, stock reconciliation, 3PL communication, and inbound supply logs live during your exact hours.
           </p>
 
-          <div className="pt-2 flex items-center gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
+              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
             >
               <span>Hire Your WMS Specialist</span>
               <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/calculator"
+              className="px-6 py-3 rounded-[7px] bg-white hover:bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/15 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
+            >
+              <span>Calculate Custom Pricing</span>
+              <ArrowRight className="w-4 h-4 text-[#FA5B16]" />
             </Link>
           </div>
 
@@ -267,7 +277,7 @@ export default function WarehouseOrderManagementServicePage() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
                       activeSection === item.id
                         ? "bg-white text-[#FA5B16] shadow-sm"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
@@ -289,7 +299,7 @@ export default function WarehouseOrderManagementServicePage() {
 
                 <Link
                   href="/contact"
-                  className="w-full py-2.5 rounded-[6px] bg-[#0F0C09] hover:bg-[#0F0C09]/90 text-white text-xs font-bold uppercase tracking-wider text-center block transition-all"
+                  className="w-full py-2.5 rounded-[6px] bg-[#0F0C09] hover:bg-[#0F0C09]/90 text-white text-xs font-bold uppercase tracking-wider text-center block transition-all cursor-pointer"
                 >
                   Consult With Our Operations Manager
                 </Link>
@@ -565,7 +575,7 @@ export default function WarehouseOrderManagementServicePage() {
 
                     <Link
                       href="/contact"
-                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 ${
+                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 cursor-pointer ${
                         plan.popular
                           ? "bg-[#FA5B16] text-white hover:bg-[#FA5B16]/90"
                           : "bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/10 hover:border-[#FA5B16]"
@@ -607,49 +617,23 @@ export default function WarehouseOrderManagementServicePage() {
                       <span>In-Office System Supervision</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike remote freelancers who work unsupervised from home, our team operates under physical floor managers in Lahore with secure fiber internet and strict operational protocols.
+                      Unlike unmanaged remote freelancers, our WMS coordinators operate in a secure facility with continuous supervision, strict data protocols, and reliable infrastructure.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* SECTION 7: HOW WE WORK */}
-            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
-              <HowItWorks />
-            </div>
-
           </div>
 
         </div>
       </section>
 
-      {/* FINAL CTA BANNER */}
-      <section className="py-16 px-4 sm:px-6 lg:px-12 bg-[#0F0C09] text-white">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16] bg-[#FA5B16]/10 px-3 py-1 rounded-[6px] border border-[#FA5B16]/20 inline-block">
-            Start Your WMS Operations Today
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">
-            Ready To Eliminate Fulfillment Backlogs & Stock Discrepancies?
-          </h2>
-
-          <p className="text-xs sm:text-sm text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Book a discovery call with our operations team. We will match you with a dedicated in-office WMS specialist trained in your exact software stack and shift schedule.
-          </p>
-
-          <div className="pt-2 flex items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="px-8 py-3.5 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
-            >
-              <span>Get Started Now</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
+      {/* HOW IT WORKS IMPORTED COMPONENT */}
+      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10 scroll-mt-8">
+        <HowItWorks />
+      </div>
+      
     </main>
   );
 }
