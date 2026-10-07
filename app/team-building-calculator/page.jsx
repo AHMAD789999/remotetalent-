@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Calculator, Plus, Trash2, ArrowRight, ShieldCheck, Users, TrendingUp, CheckCircle2 } from "lucide-react";
+import { Calculator, Plus, Trash2, ArrowRight, ShieldCheck, Users, TrendingUp, X, Loader2, CheckCircle2 } from "lucide-react";
 
 // Official launch rate card (160 hours / month per dedicated professional)
 const availableRoles = [
@@ -101,6 +101,15 @@ export default function TeamBuildingCalculatorPage() {
   const [selectedExperience, setSelectedExperience] = useState("Junior");
   const [teamMembers, setTeamMembers] = useState([]);
 
+  // Popup Modal States
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [clientName, setClientName] = useState("");
+  const [clientPhone, setClientPhone] = useState("");
+  const [clientEmail, setClientEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
   // Get pricing based on selection
   const currentRoleObj = availableRoles.find((r) => r.name === selectedRole) || availableRoles[0];
   const currentPricing = currentRoleObj.tiers[selectedExperience] || { onshore: 3200, offshore: 699 };
@@ -126,6 +135,61 @@ export default function TeamBuildingCalculatorPage() {
   const totalOffshore = teamMembers.reduce((acc, curr) => acc + curr.offshore, 0);
   const totalSavings = teamMembers.reduce((acc, curr) => acc + curr.savings, 0);
   const savingsPercentage = totalOnshore > 0 ? ((totalSavings / totalOnshore) * 100).toFixed(1) : "0.0";
+
+  // Handle Popup Submission to Web3Forms
+  const handlePopupSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMsg("");
+
+    // Format team breakdown list into text
+    const teamSummaryText = teamMembers.length > 0
+      ? teamMembers.map((m, idx) => `${idx + 1}. Role: ${m.role} (${m.experience}) | Onshore: $${m.onshore} | Talent Harbor: $$
+{m.offshore} | Savings: $${m.savings}`).join("\n")
+      : "No specific roles pre-selected from calculator.";
+
+    const fullMessage = `
+CLIENT CONTACT INFORMATION:
+- Name: ${clientName}
+- Phone: ${clientPhone}
+- Email: ${clientEmail}
+
+CALCULATED TEAM CONFIGURATION:
+${teamSummaryText}
+
+FINANCIAL SUMMARY:
+- Total Monthly Onshore Cost: $${totalOnshore.toLocaleString()}
+- Total Estimated Talent Harbor Cost: $${totalOffshore.toLocaleString()}
+- Total Monthly Savings: $${totalSavings.toLocaleString()} (${savingsPercentage}%)
+    `;
+
+    const formData = new FormData();
+    formData.append("access_key", "1e848b27-4309-40de-a104-5697a4c266f4");
+    formData.append("subject", `New Team Calculator Inquiry - ${clientName}`);
+    formData.append("name", clientName);
+    formData.append("email", clientEmail);
+    formData.append("phone", clientPhone);
+    formData.append("message", fullMessage);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        throw new Error(data.message || "Failed to submit calculator data.");
+      }
+    } catch (err) {
+      setErrorMsg(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FAF6F2] text-[#0F0C09] font-sans select-none flex flex-col justify-between">
@@ -217,7 +281,7 @@ export default function TeamBuildingCalculatorPage() {
             <div>
               <button
                 onClick={handleAddToTeam}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow hover:bg-[#e04f0f] transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow hover:bg-[#e04f0f] transition-all cursor-pointer"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Role to Team</span>
@@ -253,7 +317,7 @@ export default function TeamBuildingCalculatorPage() {
                         <span className="text-[#FA5B16] font-extrabold">${member.offshore.toLocaleString()}</span>
                         <button
                           onClick={() => handleRemoveMember(member.id)}
-                          className="text-red-500 hover:text-red-700 p-1 transition-colors"
+                          className="text-red-500 hover:text-red-700 p-1 transition-colors cursor-pointer"
                           title="Remove"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -285,18 +349,21 @@ export default function TeamBuildingCalculatorPage() {
               </div>
             </div>
 
-            {/* Action CTA */}
+            {/* Action CTA Triggering Popup */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-xs text-[#0F0C09]/70">
                 Ready to deploy your customized remote team within 48 hours?
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow hover:bg-[#e04f0f] transition-all"
+              <button
+                onClick={() => {
+                  setSubmitted(false);
+                  setIsModalOpen(true);
+                }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow hover:bg-[#e04f0f] transition-all cursor-pointer"
               >
                 <span>Hire Your Custom Team</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              </button>
             </div>
 
           </div>
@@ -348,17 +415,135 @@ export default function TeamBuildingCalculatorPage() {
                 Avoid lengthy recruiting cycles and overhead. Speak with our specialists to match the exact skills, tools, and experience level your business needs.
               </p>
             </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow-md hover:bg-[#e04f0f] transition-all shrink-0"
+            <button
+              onClick={() => {
+                setSubmitted(false);
+                setIsModalOpen(true);
+              }}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow-md hover:bg-[#e04f0f] transition-all shrink-0 cursor-pointer"
             >
               <span>Schedule a Consultation</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
           </div>
         </section>
 
       </div>
+
+      {/* POPUP MODAL FOR CALCULATOR SUBMISSION */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 select-none animate-in fade-in duration-200">
+          <div className="bg-white rounded-[10px] border border-[#0F0C09]/15 shadow-2xl max-w-md w-full p-6 sm:p-8 relative space-y-6">
+            
+            {/* Close Button */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-[#FAF6F2] text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {submitted ? (
+              <div className="py-8 text-center space-y-3">
+                <CheckCircle2 className="w-12 h-12 text-[#FA5B16] mx-auto" />
+                <h3 className="text-lg font-bold text-[#0F0C09]">
+                  Team Inquiry Received!
+                </h3>
+                <p className="text-xs text-[#0F0C09]/70 max-w-xs mx-auto leading-relaxed">
+                  Thank you! Your custom calculator configuration and contact details have been successfully sent to business@talentharbor.net.
+                </p>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="mt-4 px-5 py-2.5 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow hover:bg-[#e04f0f] transition-all cursor-pointer"
+                >
+                  Close Window
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handlePopupSubmit} className="space-y-4">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#FA5B16]">
+                    Finalize Your Setup
+                  </span>
+                  <h3 className="text-xl font-extrabold text-[#0F0C09]">
+                    Where should we send your team estimate?
+                  </h3>
+                  <p className="text-xs text-[#0F0C09]/60">
+                    Enter your details below and our team will reach out within 2 hours.
+                  </p>
+                </div>
+
+                {errorMsg && (
+                  <div className="p-3 rounded-[7px] bg-red-50 border border-red-200 text-red-600 text-xs font-semibold">
+                    {errorMsg}
+                  </div>
+                )}
+
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-[#0F0C09]/80 block">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="John Doe"
+                    value={clientName}
+                    onChange={(e) => setClientName(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-[#0F0C09]/80 block">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+1 (555) 000-0000"
+                    value={clientPhone}
+                    onChange={(e) => setClientPhone(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-[#0F0C09]/80 block">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="john@company.com"
+                    value={clientEmail}
+                    onChange={(e) => setClientEmail(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-3.5 px-6 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99] disabled:opacity-70 cursor-pointer mt-2"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Sending Details...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit & Send to Team</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+
+          </div>
+        </div>
+      )}
 
     </div>
   );
