@@ -333,25 +333,35 @@ export default function Header() {
               </button>
 
               {mobileServicesOpen && (
-                <div className="pl-3 py-2 space-y-4 bg-[#FAF6F2] mt-2 rounded-[7px] p-3">
+                <div className="pl-2 py-2 space-y-4 bg-[#FAF6F2] mt-2 rounded-[7px] p-3">
                   {serviceCategories.map((cat, idx) => (
                     <div key={idx} className="space-y-2">
                       <div className="text-[10px] font-bold uppercase tracking-wider text-[#FA5B16]">
                         {cat.category}
                       </div>
-                      {cat.items.map((item, itemIdx) => (
-                        <Link
-                          key={itemIdx}
-                          href={item.link}
-                          onClick={() => {
-                            setIsMobileMenuOpen(false);
-                            setMobileServicesOpen(false);
-                          }}
-                          className="block text-xs font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] py-1"
-                        >
-                          {item.title}
-                        </Link>
-                      ))}
+                      <div className="space-y-1.5">
+                        {cat.items.map((item, itemIdx) => {
+                          const Icon = item.icon;
+                          return (
+                            <Link
+                              key={itemIdx}
+                              href={item.link}
+                              onClick={() => {
+                                setIsMobileMenuOpen(false);
+                                setMobileServicesOpen(false);
+                              }}
+                              className="flex items-center gap-2 p-1.5 rounded-[6px] hover:bg-white transition-colors group/mob"
+                            >
+                              <div className="w-5 h-5 rounded-[5px] bg-white text-[#0F0C09] border border-[#0F0C09]/10 flex items-center justify-center shrink-0 group-hover/mob:bg-[#FA5B16] group-hover/mob:text-white group-hover/mob:border-[#FA5B16] transition-colors">
+                                <Icon className="w-3 h-3" />
+                              </div>
+                              <span className="text-xs font-semibold text-[#0F0C09]/80 group-hover/mob:text-[#FA5B16] transition-colors leading-tight">
+                                {item.title}
+                              </span>
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </div>
                   ))}
                 </div>
