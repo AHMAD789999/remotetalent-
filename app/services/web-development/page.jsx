@@ -97,11 +97,12 @@ export default function WebDevelopmentServicePage() {
   const tierPricingPlans = [
     {
       level: "Junior Developer",
-      badge: "Cost-Effective Execution",
+      badge: "6M - 1 Year Experience",
       price: "$799",
       period: "/ month",
       desc: "Ideal for routine website updates, basic Elementor/WordPress edits, product uploads, bug fixing, and continuous site maintenance.",
       features: [
+        "Experience: At least 6 months to 1 year",
         "Full-time (160 Hours / Month)",
         "Seated in Our Physical Office HQ",
         "Operates During Your Business Hours",
@@ -113,11 +114,12 @@ export default function WebDevelopmentServicePage() {
     },
     {
       level: "Mid-Level Engineer",
-      badge: "Most Popular Choice",
+      badge: "2+ Years Experience",
       price: "$1,399",
       period: "/ month",
       desc: "Perfect for complex WooCommerce, Shopify Liquid theme edits, custom plugin tweaks, API setups, and custom web page builds.",
       features: [
+        "Experience: 2+ years experience",
         "Full-time (160 Hours / Month)",
         "Seated in Our Physical Office HQ",
         "Operates During Your Business Hours",
@@ -130,11 +132,12 @@ export default function WebDevelopmentServicePage() {
     },
     {
       level: "Senior Full-Stack Developer",
-      badge: "Advanced Architecture",
+      badge: "5+ Years Experience",
       price: "$1,999",
       period: "/ month",
       desc: "Experienced engineer for heavy web app engineering, Next.js, Laravel, complex databases, custom AI integrations, and multi-store setups.",
       features: [
+        "Experience: At least 5+ years",
         "Full-time (160 Hours / Month)",
         "Seated in Our Physical Office HQ",
         "Operates During Your Business Hours",
@@ -181,13 +184,21 @@ export default function WebDevelopmentServicePage() {
             Get a full-time employee who physically works inside our supervised Lahore headquarters. They operate live during your exact business shift, handling all websites, e-commerce stores, custom web apps, and AI chatbots with detailed progress reporting and an immediate replacement guarantee.
           </p>
 
-          <div className="pt-2 flex items-center gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
+              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
             >
               <span>Hire Your Dedicated Developer</span>
               <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/calculator"
+              className="px-6 py-3 rounded-[7px] bg-white hover:bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/15 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
+            >
+              <span>Calculate Custom Pricing</span>
+              <ArrowRight className="w-4 h-4 text-[#FA5B16]" />
             </Link>
           </div>
 
@@ -217,7 +228,7 @@ export default function WebDevelopmentServicePage() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
                       activeSection === item.id
                         ? "bg-white text-[#FA5B16] shadow-sm"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
@@ -239,7 +250,7 @@ export default function WebDevelopmentServicePage() {
 
                 <Link
                   href="/contact"
-                  className="w-full py-2.5 rounded-[6px] bg-[#0F0C09] hover:bg-[#0F0C09]/90 text-white text-xs font-bold uppercase tracking-wider text-center block transition-all"
+                  className="w-full py-2.5 rounded-[6px] bg-[#0F0C09] hover:bg-[#0F0C09]/90 text-white text-xs font-bold uppercase tracking-wider text-center block transition-all cursor-pointer"
                 >
                   Consult With Our Team
                 </Link>
@@ -438,7 +449,7 @@ export default function WebDevelopmentServicePage() {
 
                     <Link
                       href="/contact"
-                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 ${
+                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 cursor-pointer ${
                         plan.popular
                           ? "bg-[#FA5B16] text-white hover:bg-[#FA5B16]/90"
                           : "bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/10 hover:border-[#FA5B16]"
@@ -488,7 +499,7 @@ export default function WebDevelopmentServicePage() {
             </div>
 
             {/* SECTION 6: HOW WE WORK */}
-            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
+            <div id="how-we-work-section" className="space-y-6 scroll-mt-8 border-t border-[#0F0C09]/10 pt-4">
               <HowItWorks />
             </div>
 
