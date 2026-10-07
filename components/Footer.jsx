@@ -155,7 +155,7 @@ export default function Footer() {
                   </div>
                   <div className="flex flex-col min-w-0">
                     <span className="text-[9px] text-white/70 uppercase tracking-wider font-semibold">
-                      Business Email
+                      For business inquiries
                     </span>
                     <span className="text-white/90 font-medium truncate group-hover:underline">
                       business@talentharbor.net
@@ -174,7 +174,7 @@ export default function Footer() {
                   </div>
                   <div className="flex flex-col min-w-0">
                     <span className="text-[9px] text-white/70 uppercase tracking-wider font-semibold">
-                      Support Email
+                      Support
                     </span>
                     <span className="text-white/90 font-medium truncate group-hover:underline">
                       support@talentharbor.net
