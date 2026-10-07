@@ -109,8 +109,8 @@ export default function ServicesSection() {
     <section className="bg-[#FAF6F2] py-20 px-4 sm:px-6 lg:px-12 text-[#0F0C09] select-none overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-10">
         
-        {/* HEADER & SCROLL CONTROLS */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#0F0C09]/10 pb-8">
+        {/* HEADER SECTION */}
+        <div className="border-b border-[#0F0C09]/10 pb-8">
           <div className="space-y-3 max-w-2xl">
             <span className="inline-block px-3.5 py-1.5 rounded-[7px] bg-[#FA5B16]/10 text-[#FA5B16] text-[11px] font-bold uppercase tracking-wider border border-[#FA5B16]/20">
               Offshore Capabilities Slider
@@ -119,78 +119,82 @@ export default function ServicesSection() {
               Specialized Services Matrix
             </h2>
           </div>
-
-          {/* LEFT / RIGHT MANUAL SCROLL BUTTONS */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => handleScroll("left")}
-              className="w-11 h-11 rounded-[7px] bg-white border border-[#0F0C09]/15 text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white hover:border-[#FA5B16] flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
-              aria-label="Scroll Left"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            <button
-              onClick={() => handleScroll("right")}
-              className="w-11 h-11 rounded-[7px] bg-white border border-[#0F0C09]/15 text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white hover:border-[#FA5B16] flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
-              aria-label="Scroll Right"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
         </div>
 
-        {/* HORIZONTAL AUTO & MANUAL SCROLL CONTAINER */}
-        <div 
-          ref={scrollContainerRef}
-          className="flex items-center gap-6 overflow-x-auto scrollbar-hide py-4 px-2 snap-x snap-mandatory scroll-smooth"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {allServices.map((service) => {
-            const IconComponent = service.icon;
+        {/* CONTAINER WITH FLOATING LEFT / RIGHT SCROLL ARROWS */}
+        <div className="relative group/slider">
+          
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => handleScroll("left")}
+            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border border-[#0F0C09]/15 text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white hover:border-[#FA5B16] flex items-center justify-center transition-all shadow-lg active:scale-95 cursor-pointer"
+            aria-label="Scroll Left"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
 
-            return (
-              <Link
-                key={service.id}
-                href={service.link}
-                className="group relative flex-shrink-0 w-[280px] sm:w-[310px] h-[390px] rounded-t-[140px] rounded-b-[16px] bg-white border border-[#0F0C09]/10 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden snap-start flex flex-col justify-between"
-              >
-                {/* RIGHT SIDE EXPANDING BRAND COLOR STRIP OVERLAY */}
-                <div className="absolute top-0 right-0 w-[15%] h-full bg-[#FA5B16] transition-all duration-500 ease-out group-hover:w-full z-10 pointer-events-none" />
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => handleScroll("right")}
+            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border border-[#0F0C09]/15 text-[#0F0C09] hover:bg-[#FA5B16] hover:text-white hover:border-[#FA5B16] flex items-center justify-center transition-all shadow-lg active:scale-95 cursor-pointer"
+            aria-label="Scroll Right"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
 
-                {/* CARD INNER CONTENT CONTAINER */}
-                <div className="relative w-full h-full flex flex-col justify-between p-7 z-20">
-                  
-                  {/* CENTER EMBEDDED ICON CIRCLE GRAPHIC */}
-                  <div className="pt-8 pb-4">
-                    <div className="w-16 h-16 rounded-full bg-[#FAF6F2] border border-[#0F0C09]/10 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all shadow-sm">
-                      <IconComponent className="w-8 h-8 text-[#FA5B16] transition-colors" />
-                    </div>
-                  </div>
+          {/* HORIZONTAL AUTO & MANUAL SCROLL CONTAINER */}
+          <div 
+            ref={scrollContainerRef}
+            className="flex items-center gap-6 overflow-x-auto scrollbar-hide py-4 px-2 snap-x snap-mandatory scroll-smooth"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {allServices.map((service) => {
+              const IconComponent = service.icon;
 
-                  {/* BOTTOM CONTENT AREA */}
-                  <div className="space-y-3 pb-1">
-                    <h3 className="text-xl font-bold text-[#0F0C09] tracking-tight leading-snug group-hover:text-white transition-colors duration-300">
-                      {service.title}
-                    </h3>
+              return (
+                <Link
+                  key={service.id}
+                  href={service.link}
+                  className="group relative flex-shrink-0 w-[280px] sm:w-[310px] h-[390px] rounded-t-[140px] rounded-b-[16px] bg-white border border-[#0F0C09]/10 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden snap-start flex flex-col justify-between"
+                >
+                  {/* RIGHT SIDE EXPANDING BRAND COLOR STRIP OVERLAY */}
+                  <div className="absolute top-0 right-0 w-[15%] h-full bg-[#FA5B16] transition-all duration-500 ease-out group-hover:w-full z-10 pointer-events-none" />
 
-                    <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed group-hover:text-white/90 transition-colors duration-300 line-clamp-2">
-                      {service.desc}
-                    </p>
-
-                    <div className="pt-3 flex items-center justify-between text-xs font-bold text-[#FA5B16] group-hover:text-white transition-colors duration-300 border-t border-[#0F0C09]/10 group-hover:border-white/30">
-                      <span>Explore Capability</span>
-                      <div className="w-7 h-7 rounded-full bg-[#FAF6F2] text-[#0F0C09] group-hover:bg-white group-hover:text-[#FA5B16] flex items-center justify-center transition-all group-hover:rotate-45">
-                        <ArrowUpRight className="w-4 h-4" />
+                  {/* CARD INNER CONTENT CONTAINER */}
+                  <div className="relative w-full h-full flex flex-col justify-between p-7 z-20">
+                    
+                    {/* CENTER EMBEDDED ICON CIRCLE GRAPHIC */}
+                    <div className="pt-8 pb-4">
+                      <div className="w-16 h-16 rounded-full bg-[#FAF6F2] border border-[#0F0C09]/10 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all shadow-sm">
+                        <IconComponent className="w-8 h-8 text-[#FA5B16] transition-colors" />
                       </div>
                     </div>
+
+                    {/* BOTTOM CONTENT AREA */}
+                    <div className="space-y-3 pb-1">
+                      <h3 className="text-xl font-bold text-[#0F0C09] tracking-tight leading-snug group-hover:text-white transition-colors duration-300">
+                        {service.title}
+                      </h3>
+
+                      <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed group-hover:text-white/90 transition-colors duration-300 line-clamp-2">
+                        {service.desc}
+                      </p>
+
+                      <div className="pt-3 flex items-center justify-between text-xs font-bold text-[#FA5B16] group-hover:text-white transition-colors duration-300 border-t border-[#0F0C09]/10 group-hover:border-white/30">
+                        <span>Explore Capability</span>
+                        <div className="w-7 h-7 rounded-full bg-[#FAF6F2] text-[#0F0C09] group-hover:bg-white group-hover:text-[#FA5B16] flex items-center justify-center transition-all group-hover:rotate-45">
+                          <ArrowUpRight className="w-4 h-4" />
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
 
-                </div>
+                </Link>
+              );
+            })}
+          </div>
 
-              </Link>
-            );
-          })}
         </div>
 
       </div>
