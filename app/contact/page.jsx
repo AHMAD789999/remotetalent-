@@ -13,38 +13,31 @@ import {
 } from "lucide-react";
 
 export default function ContactHero() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    service: "Web Development & Maintenance",
-    message: "",
-  });
-
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (event) => {
+    event.preventDefault();
     setLoading(true);
     setErrorMsg("");
 
+    const formData = new FormData(event.target);
+    formData.append("access_key", "1e848b27-4309-40de-a104-5697a4c266f4");
+
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        body: formData,
       });
 
-      const result = await response.json();
+      const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to send message.");
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        throw new Error(data.message || "Failed to send inquiry.");
       }
-
-      setSubmitted(true);
     } catch (err) {
       setErrorMsg(err.message || "Something went wrong. Please try again.");
     } finally {
@@ -138,22 +131,14 @@ export default function ContactHero() {
                 </p>
                 <button
                   type="button"
-                  onClick={() => {
-                    setSubmitted(false);
-                    setFormData({
-                      fullName: "",
-                      email: "",
-                      service: "Web Development & Maintenance",
-                      message: "",
-                    });
-                  }}
+                  onClick={() => setSubmitted(false)}
                   className="mt-3 text-xs font-bold text-[#FA5B16] hover:underline cursor-pointer"
                 >
                   Send Another Inquiry
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={onSubmit} className="space-y-4">
                 {errorMsg && (
                   <div className="p-3 rounded-[7px] bg-red-50 border border-red-200 text-red-600 text-xs font-semibold flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 shrink-0" />
@@ -167,12 +152,9 @@ export default function ContactHero() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     placeholder="John Doe"
-                    value={formData.fullName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, fullName: e.target.value })
-                    }
                     className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all"
                   />
                 </div>
@@ -183,12 +165,9 @@ export default function ContactHero() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="john@company.com"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
                     className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all"
                   />
                 </div>
@@ -198,10 +177,7 @@ export default function ContactHero() {
                     Service Required
                   </label>
                   <select
-                    value={formData.service}
-                    onChange={(e) =>
-                      setFormData({ ...formData, service: e.target.value })
-                    }
+                    name="service"
                     className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all cursor-pointer"
                   >
                     <option>Web Development & Maintenance</option>
@@ -220,13 +196,10 @@ export default function ContactHero() {
                     Project Details *
                   </label>
                   <textarea
+                    name="message"
                     rows={4}
                     required
                     placeholder="Briefly describe your requirements or technical goals..."
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
                     className="w-full px-3.5 py-2.5 rounded-[7px] bg-[#FAF6F2] border border-[#0F0C09]/10 text-xs font-semibold text-[#0F0C09] focus:outline-none focus:border-[#FA5B16] focus:bg-white transition-all resize-none"
                   />
                 </div>
