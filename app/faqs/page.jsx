@@ -70,7 +70,7 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6F2] text-[#0F0C09] font-sans select-none flex flex-col justify-between pt-[120px]">
+    <div className="min-h-screen bg-[#FAF6F2] text-[#0F0C09] mt-[-100px] pt-[20px] font-sans select-none flex flex-col justify-between pt-[120px]">
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 pb-20 w-full">
 
