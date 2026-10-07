@@ -4,10 +4,11 @@ import React from "react";
 import Link from "next/link";
 import {
   Sparkles,
-  Mail,
   ShieldCheck,
   Clock,
   Users,
+  ArrowRight,
+  Calculator,
 } from "lucide-react";
 
 export default function CTASection() {
@@ -78,21 +79,22 @@ export default function CTASection() {
             {/* Right Action Buttons Area */}
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4 justify-start lg:justify-center">
               
-              {/* Primary Action Button - Email */}
-              <a
-                href="mailto:business@talentharbor.net"
-                className="group relative inline-flex items-center justify-center gap-3 px-7 py-4 rounded-[7px] bg-[#FA5B16] text-white text-sm font-bold shadow-lg hover:bg-[#e04f0f] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Let's Talk</span>
-              </a>
-
-              {/* Secondary Action Button - Contact Page */}
+              {/* Primary Action Button - Contact Us */}
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-[7px] bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold backdrop-blur-md transition-all duration-300"
+                className="group relative inline-flex items-center justify-center gap-3 px-7 py-4 rounded-[7px] bg-[#FA5B16] text-white text-sm font-bold shadow-lg hover:bg-[#e04f0f] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <span>Schedule Consultation</span>
+                <span>Contact Us</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+
+              {/* Secondary Action Button - Team Building Calculator */}
+              <Link
+                href="/team-building-calculator"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-[7px] bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold backdrop-blur-md transition-all duration-300 cursor-pointer"
+              >
+                <Calculator className="w-4 h-4 text-[#FA5B16]" />
+                <span>Team Building Calculator</span>
               </Link>
             </div>
           </div>
