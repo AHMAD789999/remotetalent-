@@ -324,7 +324,7 @@ export default function PrivacyPolicy() {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <a
-                    href="mailto:business@talentharbor.net"
+                    href="mailto:support@talentharbor.net"
                     className="flex items-center gap-3 p-4 rounded-[9px] bg-[#FAF6F2] border border-[#EBE6E0] hover:border-[#FA5B16] transition"
                   >
                     <div className="w-9 h-9 rounded-[7px] bg-[#FA5B16] text-white flex items-center justify-center">
@@ -336,7 +336,7 @@ export default function PrivacyPolicy() {
                         Email
                       </p>
                       <p className="text-sm font-semibold">
-                        business@talentharbor.net
+                       support@talentharbor.net
                       </p>
                     </div>
                   </a>
