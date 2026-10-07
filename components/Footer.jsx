@@ -284,13 +284,22 @@ export default function Footer() {
         {/* BOTTOM DIVIDER */}
         <div className="border-t border-white/20" />
 
-        {/* BOTTOM COPYRIGHT & LEGAL LINKS */}
+        {/* BOTTOM COPYRIGHT & LEGAL / FAQ LINKS */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p className="text-[11px] text-white/80 font-normal text-center sm:text-left">
             © {new Date().getFullYear()} RemoteTalent. All rights reserved.
           </p>
 
           <div className="flex items-center gap-5 font-semibold text-white/90">
+            <Link
+              href="/faqs"
+              className="hover:underline hover:text-white transition-all"
+            >
+              FAQs
+            </Link>
+
+            <span className="opacity-40">•</span>
+
             <Link
               href="/terms"
               className="hover:underline hover:text-white transition-all"
