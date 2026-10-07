@@ -136,11 +136,12 @@ export default function ExecutiveAssistantCSuiteServicePage() {
   const tierPricingPlans = [
     {
       level: "Junior Executive Assistant",
-      badge: "Administrative Assistant",
+      badge: "6M - 1 Year Experience",
       price: "$799",
       period: "/ month",
       desc: "Ideal for daily email categorization, basic calendar management, setting appointment reminders, simple document preparation, and routine admin tasks.",
       features: [
+        "Experience: At least 6 months to 1 year",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Shift Hours",
         "Seated in Our Physical Operations HQ Floor",
@@ -153,11 +154,12 @@ export default function ExecutiveAssistantCSuiteServicePage() {
     },
     {
       level: "Mid-Level C-Suite Executive Assistant",
-      badge: "Most Popular Choice",
+      badge: "2+ Years (CEO & Director Support)",
       price: "$1,399",
       period: "/ month",
       desc: "Best for high-stakes C-suite support, complex multi-timezone calendar control, executive travel itineraries, board meeting minutes, and project management tracking.",
       features: [
+        "Experience: 2+ years (includes CEO/C-suite & director support)",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Shift Hours",
         "Seated in Our Physical Operations HQ Floor",
@@ -165,18 +167,18 @@ export default function ExecutiveAssistantCSuiteServicePage() {
         "Comprehensive Travel Logistics & Itineraries",
         "Meeting Minutes, Slide Decks & Task Tracking",
         "DocuSign & Expense Reconciliation (QuickBooks)",
-        "Daily Morning Briefings & Priority Logins",
-        "Immediate Assistant Replacement Protection"
+        "Daily Morning Briefings & Priority Logins"
       ],
       popular: true,
     },
     {
       level: "Senior Chief of Staff / EA Lead",
-      badge: "Executive Operations",
+      badge: "5+ Years Experience",
       price: "$1,899",
       period: "/ month",
       desc: "Experienced operational leader capable of acting as a right-hand liaison for Founders and Board Members, driving cross-departmental accountability, and managing leadership workflows.",
       features: [
+        "Experience: At least 5+ years",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Shift Hours",
         "Seated in Our Physical Operations HQ Floor",
@@ -224,13 +226,21 @@ export default function ExecutiveAssistantCSuiteServicePage() {
             Whichever plan or candidate you select, your dedicated executive assistant will physically sit inside our supervised office in Lahore, Pakistan and operate live during your exact shift—handling calendar control, inbox triage, travel logistics, meeting minutes, and daily operational priorities with utmost discretion.
           </p>
 
-          <div className="pt-2 flex items-center gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95"
+              className="px-6 py-3 rounded-[7px] bg-[#FA5B16] hover:bg-[#FA5B16]/90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
             >
               <span>Hire Your Executive Assistant</span>
               <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/calculator"
+              className="px-6 py-3 rounded-[7px] bg-white hover:bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/15 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
+            >
+              <span>Calculate Custom Pricing</span>
+              <ArrowRight className="w-4 h-4 text-[#FA5B16]" />
             </Link>
           </div>
 
@@ -260,7 +270,7 @@ export default function ExecutiveAssistantCSuiteServicePage() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-[6px] text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
                       activeSection === item.id
                         ? "bg-white text-[#FA5B16] shadow-sm"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
@@ -558,7 +568,7 @@ export default function ExecutiveAssistantCSuiteServicePage() {
 
                     <Link
                       href="/contact"
-                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 ${
+                      className={`w-full py-2 rounded-[6px] text-xs font-bold uppercase tracking-wider text-center block transition-all mt-4 cursor-pointer ${
                         plan.popular
                           ? "bg-[#FA5B16] text-white hover:bg-[#FA5B16]/90"
                           : "bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/10 hover:border-[#FA5B16]"
@@ -600,32 +610,23 @@ export default function ExecutiveAssistantCSuiteServicePage() {
                       <span>In-Office Supervision & Data Security</span>
                     </h3>
                     <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike remote freelancers working from unsupervised home connections, our team works within a secure physical office facility with mandatory compliance policies, monitored attendance, and reliable power infrastructure.
+                      Unlike unmanaged remote freelancers working from home, our assistants operate inside a secure facility with continuous monitoring, strict NDAs, and reliable infrastructure.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* SECTION 7: HOW WE WORK */}
-            <div id="how-we-work-section" className="space-y-6 scroll-mt-8">
-              <div className="space-y-2 border-b border-[#0F0C09]/10 pb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#FA5B16]">
-                  07. Engagement Process
-                </span>
-                <h2 className="text-2xl font-bold text-[#0F0C09]">
-                  How We Work With Your Leadership Team
-                </h2>
-              </div>
-
-              {/* Imported Component Execution */}
-              <HowItWorks />
-            </div>
-
           </div>
+
         </div>
       </section>
 
+      {/* HOW IT WORKS IMPORTED COMPONENT */}
+      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10 scroll-mt-8">
+        <HowItWorks />
+      </div>
+      
     </main>
   );
 }
