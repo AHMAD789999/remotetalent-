@@ -391,10 +391,10 @@ export default function TermsPage() {
               <p className="font-bold text-lg">TalentHarbor</p>
 
               <a
-                href="mailto:business@talentharbor.net"
+                href="mailto:support@talentharbor.net"
                 className="inline-block mt-3 text-[#FA5B16] font-semibold hover:underline"
               >
-                business@talentharbor.net
+              support@talentharbor.net
               </a>
 
               <p className="mt-2 text-sm text-[#0F0C09]/60">
