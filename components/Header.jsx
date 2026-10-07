@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   ChevronDown,
@@ -17,6 +17,9 @@ import {
   RotateCcw,
   ArrowRight,
   FileText,
+  TrendingUp,
+  Share2,
+  Calculator,
 } from "lucide-react";
 
 const serviceCategories = [
@@ -41,22 +44,44 @@ const serviceCategories = [
     category: "Customer Support",
     items: [
       {
-        title: "Live Chat & Social Inbox Support",
-        desc: "Web chat, Instagram, Facebook & WhatsApp.",
-        link: "/services/live-chat-support",
+        title: "Customer Support Representative",
+        desc: "Live chat, social inbox, phone & email support.",
+        link: "/services/customer-support-representative",
         icon: MessageSquare,
       },
+    ],
+  },
+  {
+    category: "Business & Sales",
+    items: [
       {
-        title: "Customer Phone Support",
-        desc: "Inbound & outbound voice customer agents.",
-        link: "/services/customer-call-support",
-        icon: PhoneCall,
+        title: "Business Development",
+        desc: "Lead generation, outreach & pipeline growth.",
+        link: "/services/business-development",
+        icon: TrendingUp,
       },
       {
-        title: "Email & Helpdesk Support",
-        desc: "Structured ticketing, email & refund workflows.",
-        link: "/services/customer-email-support",
-        icon: Mail,
+        title: "Account Executive",
+        desc: "Client acquisition, closing & account management.",
+        link: "/services/account-executive",
+        icon: UserCheck,
+      },
+    ],
+  },
+  {
+    category: "Marketing & Management",
+    items: [
+      {
+        title: "Marketing & Social Media Manager",
+        desc: "Campaign management, social growth & branding.",
+        link: "/services/marketing-social-media-manager",
+        icon: Share2,
+      },
+      {
+        title: "Executive Assistant",
+        desc: "Calendar, inbox, meetings & C-suite support.",
+        link: "/services/executive-assistant",
+        icon: FileText,
       },
     ],
   },
@@ -89,41 +114,33 @@ const serviceCategories = [
       },
     ],
   },
-  {
-    category: "Executive & Administrative Support",
-    items: [
-      {
-        title: "Executive Assistant Services",
-        desc: "Calendar, inbox, meetings & travel management.",
-        link: "/services/executive-assistant-c-suite",
-        icon: UserCheck,
-      },
-      {
-        title: "General Virtual Assistance",
-        desc: "Routine docs, research, CRM updates & data entry.",
-        link: "/services/general-virtual-assistance",
-        icon: FileText,
-      },
-    ],
-  },
 ];
-
-const hireEmail =
-  "mailto:business@talentharbor.net?subject=Hire%20Dedicated%20Talent&body=Hello%20TalentHarbor%2C%0A%0AI%20am%20interested%20in%20hiring%20dedicated%20talent.%0A%0AThank%20you.";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsMegaMenuOpen(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   return (
@@ -144,7 +161,7 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7">
             <Link
               href="/"
               className="text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors"
@@ -152,40 +169,40 @@ export default function Header() {
               Home
             </Link>
 
-            <div
-              className="py-2"
-              onMouseEnter={() => setIsMegaMenuOpen(true)}
-              onMouseLeave={() => setIsMegaMenuOpen(false)}
-            >
-              <button className="flex items-center gap-1.5 text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors">
+            <div className="py-2 relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
+                className="flex items-center gap-1.5 text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors focus:outline-none"
+              >
                 <span>Services</span>
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
+                  className={`w-4 h-4 transition-transform duration-300 ${
                     isMegaMenuOpen ? "rotate-180 text-[#FA5B16]" : ""
                   }`}
                 />
               </button>
 
               {isMegaMenuOpen && (
-                <div className="absolute top-full left-0 right-0 pt-3 w-full z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[900px] z-50">
                   <div className="bg-white rounded-[7px] border border-[#0F0C09]/10 shadow-2xl p-8 grid grid-cols-12 gap-8 animate-in fade-in slide-in-from-top-2 duration-150">
-                    <div className="col-span-9 grid grid-cols-2 gap-8">
+                    <div className="col-span-9 grid grid-cols-2 gap-6">
                       {serviceCategories.map((cat, idx) => (
-                        <div key={idx} className="space-y-4">
+                        <div key={idx} className="space-y-3">
                           <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#FA5B16] border-b border-[#0F0C09]/10 pb-2">
                             {cat.category}
                           </h4>
 
-                          <div className="space-y-2">
+                          <div className="space-y-1.5">
                             {cat.items.map((item, itemIdx) => {
                               const Icon = item.icon;
                               return (
                                 <Link
                                   key={itemIdx}
                                   href={item.link}
-                                  className="group/item flex items-start gap-3 p-2 rounded-[7px] hover:bg-[#FAF6F2] transition-colors min-w-0"
+                                  onClick={() => setIsMegaMenuOpen(false)}
+                                  className="group/item flex items-start gap-2.5 p-2 rounded-[7px] hover:bg-[#FAF6F2] transition-colors min-w-0"
                                 >
-                                  <div className="w-7 h-7 rounded-[7px] bg-[#FAF6F2] text-[#0F0C09] flex items-center justify-center shrink-0 group-hover/item:bg-[#FA5B16] group-hover/item:text-white transition-colors mt-0.5">
+                                  <div className="w-6 h-6 rounded-[7px] bg-[#FAF6F2] text-[#0F0C09] flex items-center justify-center shrink-0 group-hover/item:bg-[#FA5B16] group-hover/item:text-white transition-colors mt-0.5">
                                     <Icon className="w-3.5 h-3.5" />
                                   </div>
                                   <div className="min-w-0 flex-1">
@@ -213,23 +230,31 @@ export default function Header() {
                           Scale Operations in 48 Hours
                         </h5>
                         <p className="text-xs text-[#0F0C09]/70 leading-relaxed pt-1">
-                          Vetted remote experts working directly from our office
-                          in Pakistan on your time zone.
+                          Vetted remote experts working directly from our office in Pakistan on your time zone.
                         </p>
                       </div>
 
-                      <a
-                        href={hireEmail}
+                      <Link
+                        href="/contact"
+                        onClick={() => setIsMegaMenuOpen(false)}
                         className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow-sm hover:bg-[#e04f0f] transition-all mt-4"
                       >
                         <span>Talk to Specialist</span>
                         <ArrowRight className="w-3.5 h-3.5" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
               )}
             </div>
+
+            <Link
+              href="/team-building-calculator"
+              className="text-sm font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] transition-colors flex items-center gap-1.5"
+            >
+              <Calculator className="w-4 h-4 text-[#FA5B16]" />
+              <span>Calculator</span>
+            </Link>
 
             <Link
               href="/about"
@@ -247,13 +272,13 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <a
-              href={hireEmail}
+            <Link
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow-md hover:bg-[#e04f0f] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Hire Dedicated Talent</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
 
           <button
@@ -282,7 +307,7 @@ export default function Header() {
               >
                 <span>Services</span>
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform ${
+                  className={`w-4 h-4 transition-transform duration-300 ${
                     mobileServicesOpen ? "rotate-180 text-[#FA5B16]" : ""
                   }`}
                 />
@@ -299,7 +324,10 @@ export default function Header() {
                         <Link
                           key={itemIdx}
                           href={item.link}
-                          onClick={() => setIsMobileMenuOpen(false)}
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            setMobileServicesOpen(false);
+                          }}
                           className="block text-xs font-semibold text-[#0F0C09]/80 hover:text-[#FA5B16] py-1"
                         >
                           {item.title}
@@ -310,6 +338,15 @@ export default function Header() {
                 </div>
               )}
             </div>
+
+            <Link
+              href="/team-building-calculator"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2 text-sm font-bold text-[#0F0C09] py-1 border-b border-[#0F0C09]/5"
+            >
+              <Calculator className="w-4 h-4 text-[#FA5B16]" />
+              <span>Team Building Calculator</span>
+            </Link>
 
             <Link
               href="/about"
@@ -327,13 +364,14 @@ export default function Header() {
               Contact Us
             </Link>
 
-            <a
-              href={hireEmail}
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 w-full py-3 rounded-[7px] bg-[#FA5B16] text-white text-xs font-bold shadow-md mt-2"
             >
               <span>Hire Dedicated Talent</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
         )}
       </div>
