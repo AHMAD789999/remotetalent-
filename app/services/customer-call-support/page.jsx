@@ -70,7 +70,6 @@ export default function CustomerCallSupportServicePage() {
     }
   ];
 
-  // INBOUND & OUTBOUND CALL TYPES DETAILED
   const callSupportTypes = [
     {
       icon: PhoneIncoming,
@@ -143,11 +142,12 @@ export default function CustomerCallSupportServicePage() {
   const tierPricingPlans = [
     {
       level: "Junior Call Agent",
-      badge: "Inbound & FAQs",
+      badge: "6M - 1 Year Experience",
       price: "$799",
       period: "/ month",
       desc: "Ideal for handling routine inbound customer calls, order status lookups, basic telephone queries, and logging call notes into your CRM.",
       features: [
+        "Experience: At least 6 months to 1 year",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Call Center HQ",
@@ -160,29 +160,30 @@ export default function CustomerCallSupportServicePage() {
     },
     {
       level: "Mid-Level Phone Specialist",
-      badge: "Most Popular Choice",
+      badge: "2+ Years (CEO & Director Support)",
       price: "$1,299",
       period: "/ month",
-      desc: "Best for complex inbound escalations, outbound lead generation, abandoned cart recovery calls, and phone dispute de-escalations.",
+      desc: "Best for complex inbound escalations, outbound lead generation, abandoned cart recovery, and executive/director assistance.",
       features: [
+        "Experience: 2+ years (includes CEO/C-suite & director support)",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Call Center HQ",
         "Inbound & Outbound Phone Campaigns",
         "Abandoned Cart Recovery & Sales Appointments",
         "RingCentral, Aircall & CRM Power Dialing",
-        "Daily, Weekly & Monthly CSAT & Call Recording Audits",
-        "Immediate Agent Replacement Protection"
+        "Daily, Weekly & Monthly CSAT & Call Recording Audits"
       ],
       popular: true,
     },
     {
       level: "Senior Call Center Lead",
-      badge: "Team Lead & Sales Ops",
+      badge: "5+ Years Experience",
       price: "$1,799",
       period: "/ month",
       desc: "Experienced calling team lead responsible for cold calling scripts, handling high-stakes B2B calls, training phone agents, and auditing voice quality.",
       features: [
+        "Experience: At least 5+ years",
         "Full-Time Dedicated (160 Hours / Month)",
         "Works 100% During Your Selected Working Hours",
         "Seated in Our Physical Call Center HQ",
@@ -616,11 +617,6 @@ export default function CustomerCallSupportServicePage() {
 
         </div>
       </section>
-
-      {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10">
-        <HowItWorks />
-      </div>
 
     </main>
   );
