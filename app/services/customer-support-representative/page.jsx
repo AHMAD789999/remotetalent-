@@ -140,7 +140,7 @@ export default function CustomerSupportServicePage() {
     {
       level: "Junior Support Representative",
       badge: "6M - 1 Year Experience",
-      price: "$699",
+      price: "$799",
       period: "/ month",
       desc: "Ideal for managing email tickets, basic live chat inquiries, order tracking lookups, and routine customer FAQ responses.",
       features: [
@@ -157,7 +157,7 @@ export default function CustomerSupportServicePage() {
     },
     {
       level: "Mid-Level Omnichannel Support Specialist",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,199",
       period: "/ month",
       desc: "Best for handling live chat, email helpdesks, phone support, order refunds, chargeback evidence, and maintaining high CSAT scores.",
@@ -194,7 +194,7 @@ export default function CustomerSupportServicePage() {
     },
   ];
 
-  const scrollTo = (id) => {
+  const scrollTo = (id: string) => {
     setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
@@ -605,30 +605,14 @@ export default function CustomerSupportServicePage() {
                       US/UK support agents cost $3,000–$4,500/month plus benefits. Talentharbor provides elite, vetted support professionals with immaculate English communication for a fraction of that cost.
                     </p>
                   </div>
-
-                  <div className="p-4 bg-[#FAF6F2] rounded-[8px] border border-[#0F0C09]/10 space-y-2">
-                    <h3 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider flex items-center gap-1.5">
-                      <Users className="w-4 h-4 text-[#FA5B16]" />
-                      <span>Managed Office Support Floor Supervision</span>
-                    </h3>
-                    <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
-                      Unlike unmanaged remote freelancers, our support agents operate in a supervised facility with strict security protocols, fiber connectivity, power backups, and continuous QA auditing.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
 
           </div>
-
         </div>
       </section>
 
-      {/* HOW IT WORKS IMPORTED COMPONENT */}
-      <div id="how-we-work-section" className="border-t border-[#0F0C09]/10 scroll-mt-8">
-        <HowItWorks />
-      </div>
-      
     </main>
   );
 }
