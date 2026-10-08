@@ -143,7 +143,7 @@ export default function CustomerCallSupportServicePage() {
     {
       level: "Junior Call Agent",
       badge: "6M - 1 Year Experience",
-      price: "$799",
+      price: "$699",
       period: "/ month",
       desc: "Ideal for handling routine inbound customer calls, order status lookups, basic telephone queries, and logging call notes into your CRM.",
       features: [
@@ -160,7 +160,7 @@ export default function CustomerCallSupportServicePage() {
     },
     {
       level: "Mid-Level Phone Specialist",
-      badge: "2+ Years (CEO & Director Support)",
+      badge: "Most Popular Choice",
       price: "$1,299",
       period: "/ month",
       desc: "Best for complex inbound escalations, outbound lead generation, abandoned cart recovery, and executive/director assistance.",
