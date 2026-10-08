@@ -155,7 +155,7 @@ export default function AccountExecutiveServicePage() {
     },
     {
       level: "Mid-Level Account Executive (Closer)",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,399",
       period: "/ month",
       desc: "Best for running full-cycle sales: discovery calls, product demos, handling objections, proposal writing, and closing B2B deals.",
