@@ -157,7 +157,7 @@ export default function ExecutiveAssistantServicePage() {
     },
     {
       level: "Mid-Level Executive Assistant",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,299",
       period: "/ month",
       desc: "Best for advanced executive gatekeeping, presentation deck creation, project management tracking, expense reports, and cross-department coordination.",
