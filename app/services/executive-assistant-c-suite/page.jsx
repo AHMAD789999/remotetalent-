@@ -154,7 +154,7 @@ export default function ExecutiveAssistantCSuiteServicePage() {
     },
     {
       level: "Mid-Level C-Suite Executive Assistant",
-      badge: "2+ Years (CEO & Director Support)",
+      badge: "Most Popular Choice",
       price: "$1,399",
       period: "/ month",
       desc: "Best for high-stakes C-suite support, complex multi-timezone calendar control, executive travel itineraries, board meeting minutes, and project management tracking.",
