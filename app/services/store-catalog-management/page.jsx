@@ -157,7 +157,7 @@ export default function StoreCatalogManagementServicePage() {
     },
     {
       level: "Mid-Level Catalog & Inventory Manager",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,249",
       period: "/ month",
       desc: "Best for complex variable product creation, bulk CSV spreadsheet mapping, multi-channel catalog sync, and SEO meta optimization.",
