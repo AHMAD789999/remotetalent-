@@ -114,7 +114,7 @@ export default function WebDevelopmentServicePage() {
     },
     {
       level: "Mid-Level Engineer",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,399",
       period: "/ month",
       desc: "Perfect for complex WooCommerce, Shopify Liquid theme edits, custom plugin tweaks, API setups, and custom web page builds.",
