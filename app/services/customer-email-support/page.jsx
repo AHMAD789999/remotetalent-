@@ -160,7 +160,7 @@ export default function CustomerEmailSupportServicePage() {
     },
     {
       level: "Mid-Level Ticket Specialist",
-      badge: "2+ Years (CEO & Director Support)",
+      badge: "Most Popular Choice",
       price: "$1,199",
       period: "/ month",
       desc: "Best for complex refund approvals, order modifications, chargeback dispute prevention, pre-sale sales emails, and director assistance.",
