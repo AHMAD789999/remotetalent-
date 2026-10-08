@@ -157,7 +157,7 @@ export default function MarketingSocialMediaManagerServicePage() {
     },
     {
       level: "Mid-Level Digital Marketer & Content Creator",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,349",
       period: "/ month",
       desc: "Best for short-form video editing (Reels/TikTok), paid ads management (Meta/TikTok), email marketing flows, and comprehensive growth tracking.",
