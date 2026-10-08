@@ -130,19 +130,24 @@ export default function Footer() {
 
             <ul className="space-y-3 text-xs">
               <li>
-                <div className="flex items-start gap-2.5 group">
-                  <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5">
+                <a
+                  href="https://maps.google.com/?cid=17968419050004101636"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 group"
+                >
+                  <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
                     <MapPin className="w-3.5 h-3.5 text-white" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[9px] text-white/70 uppercase tracking-wider font-semibold">
                       Location
                     </span>
-                    <span className="text-white/90 font-medium">
-                      Lahore, Pakistan
+                    <span className="text-white/90 font-medium group-hover:underline">
+                      Daftarkhwan | Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan
                     </span>
                   </div>
-                </div>
+                </a>
               </li>
 
               <li>
