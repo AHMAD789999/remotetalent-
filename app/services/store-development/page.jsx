@@ -161,7 +161,7 @@ export default function StoreDevelopmentServicePage() {
     },
     {
       level: "Mid-Level Full-Stack Engineer",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,399",
       period: "/ month",
       desc: "Best for building custom e-commerce features, integrating third-party APIs, database management, and developing full-stack store architecture.",
