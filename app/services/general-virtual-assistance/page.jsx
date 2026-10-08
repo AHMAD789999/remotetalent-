@@ -155,7 +155,7 @@ export default function GeneralVirtualAssistanceServicePage() {
     },
     {
       level: "Mid-Level Executive Assistant",
-      badge: "2+ Years (CEO & Director Support)",
+      badge: "Most Popular Choice",
       price: "$899",
       period: "/ month",
       desc: "Best for executive calendar coordination, customer support, lead generation, and complex multi-tool workflow management.",
