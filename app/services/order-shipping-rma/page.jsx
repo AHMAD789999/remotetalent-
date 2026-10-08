@@ -160,7 +160,7 @@ export default function OrderShippingRMAServicePage() {
     },
     {
       level: "Mid-Level Logistics & RMA Coordinator",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,299",
       period: "/ month",
       desc: "Best for full return lifecycle management, warehouse inspection grading, carrier claim filing, rate shopping optimization, and Loop/Returnly workflow administration.",
