@@ -160,7 +160,10 @@ export default function LiveChatSupportPage() {
                   </p>
                 </div>
 
-                <div className="p-5 rounded-[7px] border border-[#0F0C09]/10 bg-[#FAF6F2]/50 space-y-2">
+                <div className="p-5 rounded-[7px] border border-[#FA5B16] bg-[#FA5B16]/5 space-y-2 relative">
+                  <span className="absolute -top-3 left-4 px-2.5 py-0.5 rounded-full bg-[#FA5B16] text-white text-[10px] font-bold uppercase tracking-wider">
+                    Most Popular
+                  </span>
                   <div className="flex justify-between items-center flex-wrap gap-2">
                     <h3 className="text-sm font-bold text-[#0F0C09]">Mid Level</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-[7px] bg-[#FA5B16]/10 text-[#FA5B16]">
