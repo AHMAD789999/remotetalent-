@@ -194,7 +194,7 @@ export default function CustomerSupportServicePage() {
     },
   ];
 
-  const scrollTo = (id: string) => {
+  const scrollTo = (id) => {
     setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
