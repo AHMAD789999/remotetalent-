@@ -155,7 +155,7 @@ export default function BusinessDevelopmentServicePage() {
     },
     {
       level: "Mid-Level Business Development Manager",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,399",
       period: "/ month",
       desc: "Best for running strategic partnership pitches, channel partner recruitment, co-marketing negotiations, and pipeline management.",
