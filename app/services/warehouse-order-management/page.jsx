@@ -161,7 +161,7 @@ export default function WarehouseOrderManagementServicePage() {
     },
     {
       level: "Mid-Level WMS & Inventory Coordinator",
-      badge: "2+ Years Experience",
+      badge: "Most Popular Choice",
       price: "$1,299",
       period: "/ month",
       desc: "Best for full WMS administration, multi-warehouse routing, inventory cycle reconciliation, inbound supplier PO tracking, and 3PL communication.",
