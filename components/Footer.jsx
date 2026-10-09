@@ -144,7 +144,7 @@ export default function Footer() {
                       Location
                     </span>
                     <span className="text-white/90 font-medium group-hover:underline">
-                      Daftarkhwan | Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan
+Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan
                     </span>
                   </div>
                 </a>
