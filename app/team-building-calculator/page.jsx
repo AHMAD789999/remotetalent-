@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Calculator, Plus, Trash2, ArrowRight, ShieldCheck, Users, TrendingUp, X, Loader2, CheckCircle2, Calendar, DollarSign, Award } from "lucide-react";
 
-// Official launch rate card (160 hours / month per dedicated professional)
+// ============================================================
+// OFFICIAL RATE CARD — Aligned with Live Service Pages
+// 160 hrs / month, 1 dedicated person, USD
+// ============================================================
 const availableRoles = [
   {
     name: "Customer Support Representative",
     tiers: {
-      Junior: { onshore: 3200, offshore: 699 },
+      Junior: { onshore: 3200, offshore: 799 },
       Mid: { onshore: 4200, offshore: 1199 },
       Senior: { onshore: 5800, offshore: 1699 },
     },
@@ -17,13 +20,13 @@ const availableRoles = [
   {
     name: "Customer Phone Support",
     tiers: {
-      Junior: { onshore: 3500, offshore: 799 },
+      Junior: { onshore: 3500, offshore: 699 },
       Mid: { onshore: 4500, offshore: 1299 },
       Senior: { onshore: 6200, offshore: 1799 },
     },
   },
   {
-    name: "Email & Helpdesk Support",
+    name: "Email / Helpdesk Support",
     tiers: {
       Junior: { onshore: 3200, offshore: 699 },
       Mid: { onshore: 4200, offshore: 1199 },
@@ -31,31 +34,31 @@ const availableRoles = [
     },
   },
   {
-    name: "Business Development",
+    name: "Driver / Dispatch Support",
     tiers: {
-      Junior: { onshore: 4000, offshore: 1500 },
-      Mid: { onshore: 5500, offshore: 2100 },
-      Senior: { onshore: 7500, offshore: 3000 },
+      Junior: { onshore: 3600, offshore: 799 },
+      Mid: { onshore: 4800, offshore: 1399 },
+      Senior: { onshore: 6500, offshore: 1899 },
     },
   },
   {
-    name: "Account Executive",
+    name: "Order / Inventory Coordination",
     tiers: {
-      Junior: { onshore: 4500, offshore: 1700 },
-      Mid: { onshore: 6000, offshore: 2400 },
-      Senior: { onshore: 8500, offshore: 3500 },
+      Junior: { onshore: 3400, offshore: 749 },
+      Mid: { onshore: 4600, offshore: 1299 },
+      Senior: { onshore: 6200, offshore: 1799 },
     },
   },
   {
-    name: "Marketing & Social Media Manager",
+    name: "Shipping / RMA Support",
     tiers: {
-      Junior: { onshore: 3800, offshore: 1400 },
-      Mid: { onshore: 5200, offshore: 2000 },
-      Senior: { onshore: 7000, offshore: 2800 },
+      Junior: { onshore: 3400, offshore: 749 },
+      Mid: { onshore: 4600, offshore: 1299 },
+      Senior: { onshore: 6200, offshore: 1799 },
     },
   },
   {
-    name: "Executive Assistant Services",
+    name: "Executive Assistance",
     tiers: {
       Junior: { onshore: 3500, offshore: 799 },
       Mid: { onshore: 4800, offshore: 1399 },
@@ -63,7 +66,7 @@ const availableRoles = [
     },
   },
   {
-    name: "Website Development & Maintenance",
+    name: "Web Development",
     tiers: {
       Junior: { onshore: 4500, offshore: 799 },
       Mid: { onshore: 6500, offshore: 1399 },
@@ -71,27 +74,35 @@ const availableRoles = [
     },
   },
   {
-    name: "Order Processing & Inventory Coordination",
+    name: "E-Commerce Store Setup (Shared Scope)",
     tiers: {
-      Junior: { onshore: 3400, offshore: 749 },
-      Mid: { onshore: 4600, offshore: 1299 },
-      Senior: { onshore: 6200, offshore: 1799 },
+      Junior: { onshore: 4500, offshore: 799 },
+      Mid: { onshore: 6500, offshore: 1399 },
+      Senior: { onshore: 9000, offshore: 1999 },
     },
   },
   {
-    name: "Shipping, Returns & RMA Support",
+    name: "Account Executive",
     tiers: {
-      Junior: { onshore: 3400, offshore: 749 },
-      Mid: { onshore: 4600, offshore: 1299 },
-      Senior: { onshore: 6200, offshore: 1799 },
+      Junior: { onshore: 4500, offshore: 799 },
+      Mid: { onshore: 6000, offshore: 1399 },
+      Senior: { onshore: 8500, offshore: 1999 },
     },
   },
   {
-    name: "Driver Support & Dispatch Coordination",
+    name: "Business Development",
     tiers: {
-      Junior: { onshore: 3600, offshore: 799 },
-      Mid: { onshore: 4800, offshore: 1399 },
-      Senior: { onshore: 6500, offshore: 1899 },
+      Junior: { onshore: 4000, offshore: 799 },
+      Mid: { onshore: 5500, offshore: 1399 },
+      Senior: { onshore: 7500, offshore: 1999 },
+    },
+  },
+  {
+    name: "Marketing & Social Media Manager",
+    tiers: {
+      Junior: { onshore: 3800, offshore: 799 },
+      Mid: { onshore: 5200, offshore: 1349 },
+      Senior: { onshore: 7000, offshore: 1899 },
     },
   },
 ];
@@ -361,7 +372,7 @@ FINANCIAL SUMMARY:
               </div>
             </div>
 
-            {/* 🌟 NEW: ANNUAL & MULTI-YEAR SAVINGS SECTION 🌟 */}
+            {/* 🌟 ANNUAL & MULTI-YEAR SAVINGS SECTION 🌟 */}
             {teamMembers.length > 0 && (
               <div className="space-y-5 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 
