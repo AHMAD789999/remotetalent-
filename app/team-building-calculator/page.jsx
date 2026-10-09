@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Calculator, Plus, Trash2, ArrowRight, ShieldCheck, Users, TrendingUp, X, Loader2, CheckCircle2 } from "lucide-react";
+import { Calculator, Plus, Trash2, ArrowRight, ShieldCheck, Users, TrendingUp, X, Loader2, CheckCircle2, Calendar, DollarSign, Award } from "lucide-react";
 
 // Official launch rate card (160 hours / month per dedicated professional)
 const availableRoles = [
@@ -136,6 +136,16 @@ export default function TeamBuildingCalculatorPage() {
   const totalSavings = teamMembers.reduce((acc, curr) => acc + curr.savings, 0);
   const savingsPercentage = totalOnshore > 0 ? ((totalSavings / totalOnshore) * 100).toFixed(1) : "0.0";
 
+  // ANNUAL & MULTI-YEAR SAVINGS CALCULATIONS
+  const monthlySavings = totalSavings;
+  const annualSavings = totalSavings * 12;
+  const threeYearSavings = totalSavings * 36;
+  const fiveYearSavings = totalSavings * 60;
+
+  // Annual Onshore vs Offshore
+  const annualOnshore = totalOnshore * 12;
+  const annualOffshore = totalOffshore * 12;
+
   // Handle Popup Submission to Web3Forms
   const handlePopupSubmit = async (e) => {
     e.preventDefault();
@@ -144,8 +154,7 @@ export default function TeamBuildingCalculatorPage() {
 
     // Format team breakdown list into text
     const teamSummaryText = teamMembers.length > 0
-      ? teamMembers.map((m, idx) => `${idx + 1}. Role: ${m.role} (${m.experience}) | Onshore: $${m.onshore} | Talent Harbor: $$
-{m.offshore} | Savings: $${m.savings}`).join("\n")
+      ? teamMembers.map((m, idx) => `${idx + 1}. Role: ${m.role} (${m.experience}) | Onshore: $${m.onshore} | Talent Harbor: $${m.offshore} | Savings: $${m.savings}`).join("\n")
       : "No specific roles pre-selected from calculator.";
 
     const fullMessage = `
@@ -161,6 +170,9 @@ FINANCIAL SUMMARY:
 - Total Monthly Onshore Cost: $${totalOnshore.toLocaleString()}
 - Total Estimated Talent Harbor Cost: $${totalOffshore.toLocaleString()}
 - Total Monthly Savings: $${totalSavings.toLocaleString()} (${savingsPercentage}%)
+- Total Annual Savings: $${annualSavings.toLocaleString()}
+- Total 3-Year Savings: $${threeYearSavings.toLocaleString()}
+- Total 5-Year Savings: $${fiveYearSavings.toLocaleString()}
     `;
 
     const formData = new FormData();
@@ -348,6 +360,169 @@ FINANCIAL SUMMARY:
                 <span className="font-extrabold text-lg text-[#FA5B16]">${totalOffshore.toLocaleString()}</span>
               </div>
             </div>
+
+            {/* 🌟 NEW: ANNUAL & MULTI-YEAR SAVINGS SECTION 🌟 */}
+            {teamMembers.length > 0 && (
+              <div className="space-y-5 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                
+                {/* Section Header */}
+                <div className="flex items-center gap-3 border-b border-[#0F0C09]/10 pb-3">
+                  <div className="w-9 h-9 rounded-[7px] bg-gradient-to-br from-[#FA5B16] to-[#ff8a4d] text-white flex items-center justify-center shadow-md">
+                    <Award className="w-4.5 h-4.5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-extrabold text-[#0F0C09] tracking-tight">
+                      Your Long-Term Savings Breakdown
+                    </h3>
+                    <p className="text-[11px] text-[#0F0C09]/60 font-medium">
+                      See how much your business saves over time with Talent Harbor
+                    </p>
+                  </div>
+                </div>
+
+                {/* Beautiful Savings Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  
+                  {/* Monthly Savings Card */}
+                  <div className="relative overflow-hidden bg-gradient-to-br from-[#FAF6F2] to-white rounded-[10px] p-5 border border-[#0F0C09]/10 shadow-sm hover:shadow-md hover:border-[#FA5B16]/40 transition-all group">
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-[#FA5B16]/5 rounded-full -mr-10 -mt-10 group-hover:scale-125 transition-transform duration-500"></div>
+                    <div className="relative space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-[7px] bg-[#FA5B16]/10 text-[#FA5B16] flex items-center justify-center">
+                          <Calendar className="w-4 h-4" />
+                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#0F0C09]/60">
+                          Monthly Savings
+                        </span>
+                      </div>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-2xl font-extrabold text-[#0F0C09]">
+                          ${monthlySavings.toLocaleString()}
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-[#0F0C09]/60 font-medium leading-relaxed">
+                        Saved every single month
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Annual Savings Card - HIGHLIGHTED */}
+                  <div className="relative overflow-hidden bg-gradient-to-br from-[#FA5B16] to-[#e04f0f] rounded-[10px] p-5 shadow-lg hover:shadow-xl transition-all group">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12 group-hover:scale-125 transition-transform duration-500"></div>
+                    <div className="absolute -top-2 -left-2 w-16 h-16 bg-white/5 rounded-full"></div>
+                    <div className="relative space-y-2 text-white">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-[7px] bg-white/20 text-white flex items-center justify-center backdrop-blur-sm">
+                            <TrendingUp className="w-4 h-4" />
+                          </div>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-white/90">
+                            Annual Savings
+                          </span>
+                        </div>
+                        <span className="text-[9px] font-bold uppercase tracking-wider bg-white text-[#FA5B16] px-2 py-0.5 rounded-full">
+                          Most Loved
+                        </span>
+                      </div>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-3xl font-extrabold text-white">
+                          ${annualSavings.toLocaleString()}
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-white/80 font-medium leading-relaxed">
+                        Saved over a full 12-month year
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 3-Year Savings Card */}
+                  <div className="relative overflow-hidden bg-gradient-to-br from-[#FAF6F2] to-white rounded-[10px] p-5 border border-[#0F0C09]/10 shadow-sm hover:shadow-md hover:border-[#FA5B16]/40 transition-all group">
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-[#FA5B16]/5 rounded-full -mr-10 -mt-10 group-hover:scale-125 transition-transform duration-500"></div>
+                    <div className="relative space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-[7px] bg-[#FA5B16]/10 text-[#FA5B16] flex items-center justify-center">
+                          <Award className="w-4 h-4" />
+                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#0F0C09]/60">
+                          3-Year Savings
+                        </span>
+                      </div>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-2xl font-extrabold text-[#0F0C09]">
+                          ${threeYearSavings.toLocaleString()}
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-[#0F0C09]/60 font-medium leading-relaxed">
+                        Compounded over 36 months
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Detailed Annual Comparison Bar */}
+                <div className="bg-white rounded-[10px] border border-[#0F0C09]/10 p-5 space-y-4 shadow-sm">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <h4 className="text-xs font-bold text-[#0F0C09] uppercase tracking-wider flex items-center gap-2">
+                      <DollarSign className="w-4 h-4 text-[#FA5B16]" />
+                      <span>Annual Cost Comparison</span>
+                    </h4>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#FA5B16] bg-[#FA5B16]/10 px-2.5 py-1 rounded-full">
+                      You Save {savingsPercentage}%
+                    </span>
+                  </div>
+
+                  {/* Onshore Bar */}
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between items-center text-xs">
+                      <span className="font-bold text-[#0F0C09]/70 uppercase tracking-wider text-[10px]">Onshore Hiring (Annual)</span>
+                      <span className="font-extrabold text-[#0F0C09]">${annualOnshore.toLocaleString()}</span>
+                    </div>
+                    <div className="w-full h-3 bg-[#FAF6F2] rounded-full overflow-hidden border border-[#0F0C09]/5">
+                      <div 
+                        className="h-full bg-gradient-to-r from-[#0F0C09] to-[#3a3532] rounded-full transition-all duration-1000"
+                        style={{ width: "100%" }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  {/* Offshore Bar */}
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between items-center text-xs">
+                      <span className="font-bold text-[#FA5B16] uppercase tracking-wider text-[10px]">Talent Harbor (Annual)</span>
+                      <span className="font-extrabold text-[#FA5B16]">${annualOffshore.toLocaleString()}</span>
+                    </div>
+                    <div className="w-full h-3 bg-[#FAF6F2] rounded-full overflow-hidden border border-[#0F0C09]/5">
+                      <div 
+                        className="h-full bg-gradient-to-r from-[#FA5B16] to-[#ff8a4d] rounded-full transition-all duration-1000"
+                        style={{ width: `${(annualOffshore / annualOnshore) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  {/* Savings Highlight */}
+                  <div className="pt-3 border-t border-[#0F0C09]/10 flex items-center justify-between flex-wrap gap-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-[#FA5B16]/10 text-[#FA5B16] flex items-center justify-center">
+                        <TrendingUp className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F0C09]/60">Net Annual Savings</p>
+                        <p className="text-lg font-extrabold text-[#FA5B16] leading-tight">
+                          ${annualSavings.toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F0C09]/60">5-Year Projection</p>
+                      <p className="text-lg font-extrabold text-[#0F0C09] leading-tight">
+                        ${fiveYearSavings.toLocaleString()}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            )}
 
             {/* Action CTA Triggering Popup */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
