@@ -61,29 +61,30 @@ export default function AboutPage() {
     },
   ];
 
- const teamMembers = [
-  {
-    name: "Ali Raja",
-    role: "Chief Executive Officer (CEO)",
-    experience: 8+ Years Exp",
-    desc: "Leads overall strategy, growth, and vision for Remote Talent / Talent Harbor — managing global client partnerships and scaling offshore operations across 12+ countries.",
-    icon: Award,
-  },
-  {
-    name: "Muhammad Shahwaiz",
-    role: "Head of Internal Operations & Talent Recruitment",
-    experience: "5+ Years Exp",
-    desc: "Manages internal operations alignment, team resource allocation, and end-to-end talent recruitment — ensuring every client is matched with the right vetted professional.",
-    icon: Users,
-  },
-  {
-    name: "Ahmad",
-    role: "Lead Systems Architect & Internal Operations Handler",
-    experience: "3+ Years Exp",
-    desc: "Specializing in Next.js, Laravel, WordPress, and enterprise web architecture — also managing internal technical operations, system uptime, and team infrastructure.",
-    icon: Code2,
-  },
-];
+  const teamMembers = [
+    {
+      name: "Ali Raja",
+      role: "Chief Executive Officer (CEO)",
+      experience: "8+ Years Exp",
+      desc: "Leads overall strategy, growth, and vision for Remote Talent / Talent Harbor — managing global client partnerships and scaling offshore operations across 12+ countries.",
+      icon: Award,
+    },
+    {
+      name: "Muhammad Shahwaiz",
+      role: "Head of Internal Operations & Talent Recruitment",
+      experience: "5+ Years Exp",
+      desc: "Manages internal operations alignment, team resource allocation, and end-to-end talent recruitment — ensuring every client is matched with the right vetted professional.",
+      icon: Users,
+    },
+    {
+      name: "Ahmad",
+      role: "Lead Systems Architect & Internal Operations Handler",
+      experience: "3+ Years Exp",
+      desc: "Specializing in Next.js, Laravel, WordPress, and enterprise web architecture — also managing internal technical operations, system uptime, and team infrastructure.",
+      icon: Code2,
+    },
+  ];
+
   const serviceCategories = [
     {
       icon: Headphones,
@@ -173,7 +174,6 @@ export default function AboutPage() {
               <span>Partner With Us</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-
           </div>
         </div>
       </section>
@@ -335,60 +335,59 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. TEAM SECTION */}
-    {/* 6. LEADERSHIP / TEAM SECTION */}
-<section className="py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
-  <div className="max-w-6xl mx-auto space-y-10">
-    
-    <div className="space-y-3 text-left">
-      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#FA5B16]/10 text-[#FA5B16] text-xs font-bold uppercase tracking-wider border border-[#FA5B16]/20">
-        <Users className="w-3.5 h-3.5" />
-        <span>Leadership Team</span>
-      </div>
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F0C09]">
-        Meet the People Behind Your Teams
-      </h2>
-      <p className="text-xs sm:text-sm text-[#0F0C09]/70 font-medium max-w-2xl leading-relaxed">
-        Our leadership brings 29+ combined years of offshore operations, engineering, recruitment, and client management experience — running every department from our Lahore headquarters.
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-      {teamMembers.map((member, idx) => {
-        const IconComp = member.icon;
-        return (
-          <div 
-            key={idx}
-            className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm hover:border-[#FA5B16] hover:shadow-md transition-all space-y-4"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FA5B16] to-[#ff8a4d] text-white flex items-center justify-center text-xl font-bold shadow-md">
-                {member.name.charAt(0)}
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-bold text-[#0F0C09] truncate">{member.name}</h3>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#FA5B16] mt-1">
-                  <Star className="w-3 h-3" />
-                  {member.experience}
-                </span>
-              </div>
+      {/* 6. LEADERSHIP / TEAM SECTION */}
+      <section className="py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
+        <div className="max-w-6xl mx-auto space-y-10">
+          
+          <div className="space-y-3 text-left">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#FA5B16]/10 text-[#FA5B16] text-xs font-bold uppercase tracking-wider border border-[#FA5B16]/20">
+              <Users className="w-3.5 h-3.5" />
+              <span>Leadership Team</span>
             </div>
-            <div className="space-y-2 pt-3 border-t border-[#0F0C09]/10">
-              <div className="flex items-start gap-2">
-                <IconComp className="w-4 h-4 text-[#FA5B16] shrink-0 mt-0.5" />
-                <h4 className="text-xs font-bold text-[#0F0C09]">{member.role}</h4>
-              </div>
-              <p className="text-[11px] text-[#0F0C09]/70 font-medium leading-relaxed pl-6">
-                {member.desc}
-              </p>
-            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F0C09]">
+              Meet the People Behind Your Teams
+            </h2>
+            <p className="text-xs sm:text-sm text-[#0F0C09]/70 font-medium max-w-2xl leading-relaxed">
+              Our leadership brings 16+ combined years of offshore operations, engineering, recruitment, and client management experience — running every department from our Lahore headquarters.
+            </p>
           </div>
-        );
-      })}
-    </div>
 
-  </div>
-</section>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {teamMembers.map((member, idx) => {
+              const IconComp = member.icon;
+              return (
+                <div 
+                  key={idx}
+                  className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm hover:border-[#FA5B16] hover:shadow-md transition-all space-y-4"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FA5B16] to-[#ff8a4d] text-white flex items-center justify-center text-xl font-bold shadow-md">
+                      {member.name.charAt(0)}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-bold text-[#0F0C09] truncate">{member.name}</h3>
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#FA5B16] mt-1">
+                        <Star className="w-3 h-3" />
+                        {member.experience}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="space-y-2 pt-3 border-t border-[#0F0C09]/10">
+                    <div className="flex items-start gap-2">
+                      <IconComp className="w-4 h-4 text-[#FA5B16] shrink-0 mt-0.5" />
+                      <h4 className="text-xs font-bold text-[#0F0C09]">{member.role}</h4>
+                    </div>
+                    <p className="text-[11px] text-[#0F0C09]/70 font-medium leading-relaxed pl-6">
+                      {member.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
 
       {/* 7. WHY CHOOSE US / DIFFERENTIATORS */}
       <section className="py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
