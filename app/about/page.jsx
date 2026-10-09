@@ -63,26 +63,26 @@ export default function AboutPage() {
 
   const teamMembers = [
     {
-      name: "Ali Raja",
+      name: "Muhammad Ali Raja",
       role: "Chief Executive Officer (CEO)",
       experience: "8+ Years Exp",
-      desc: "Leads overall strategy, growth, and vision for Remote Talent / Talent Harbor — managing global client partnerships and scaling offshore operations across 12+ countries.",
+      desc: "Leads overall strategy, growth, and vision for  Talent Harbor  managing global client partnerships and scaling offshore operations across 12+ countries.",
       icon: Award,
     },
     {
       name: "Muhammad Shahwaiz",
       role: "Head of Internal Operations & Talent Recruitment",
       experience: "5+ Years Exp",
-      desc: "Manages internal operations alignment, team resource allocation, and end-to-end talent recruitment — ensuring every client is matched with the right vetted professional.",
+      desc: "Manages internal operations alignment, team resource allocation, and end-to-end talent recruitment ensuring every client is matched with the right vetted professional.",
       icon: Users,
     },
-    {
-      name: "Ahmad",
-      role: "Lead Systems Architect & Internal Operations Handler",
-      experience: "3+ Years Exp",
-      desc: "Specializing in Next.js, Laravel, WordPress, and enterprise web architecture — also managing internal technical operations, system uptime, and team infrastructure.",
-      icon: Code2,
-    },
+  {
+  name: "Ahmad Ali",
+  role: "Chief Operating Officer (COO) & Lead Systems Architect",
+  experience: "3+ Years Exp",
+  desc: "Oversees internal operations, team infrastructure, and system uptime across all departments while also leading enterprise web architecture in Next.js, Laravel, and WordPress.",
+  icon: Code2,
+},
   ];
 
   const serviceCategories = [
