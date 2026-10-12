@@ -130,12 +130,7 @@ export default function Footer() {
 
             <ul className="space-y-3 text-xs">
               <li>
-                <a
-                  href="#
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-2.5 group"
-                >
+                
                   <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
                     <MapPin className="w-3.5 h-3.5 text-white" />
                   </div>
@@ -147,7 +142,6 @@ export default function Footer() {
 Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan
                     </span>
                   </div>
-                </a>
               </li>
 
               <li>
