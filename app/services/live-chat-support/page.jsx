@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { 
   MessageSquare, 
   CheckCircle2, 
@@ -36,7 +34,6 @@ export default function LiveChatSupportPage() {
 
   return (
     <div className="min-h-screen bg-[#FAF6F2] text-[#0F0C09] flex flex-col font-sans select-none">
-      <Header />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Breadcrumb / Top Header */}
@@ -253,7 +250,6 @@ export default function LiveChatSupportPage() {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 }
