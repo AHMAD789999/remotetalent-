@@ -145,12 +145,11 @@ export default function Footer() {
                     </span>
                     <span className="text-white/90 font-medium truncate group-hover:underline">
 Boulevard, 34-S Main Blvd,
-Block K Gulberg, Lahore,
-Pakistan                    </span>
+                 </span>
                      <span className="text-white/90 font-medium truncate group-hover:underline">
 
 Block K Gulberg, Lahore,
-Pakistan                    </span>
+               </span>
                      <span className="text-white/90 font-medium truncate group-hover:underline">
 
 Pakistan                    </span>
