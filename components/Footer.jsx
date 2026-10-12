@@ -129,21 +129,26 @@ export default function Footer() {
             </div>
 
             <ul className="space-y-3 text-xs">
-              <li>
-                                <a href=""  className="flex items-start gap-2.5 group"
+             
 
+              <li>
+                <a
+                  href="mailto:business@talentharbor.net"
+                  className="flex items-start gap-2.5 group"
+                >
                   <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
                     <MapPin className="w-3.5 h-3.5 text-white" />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col min-w-0">
                     <span className="text-[9px] text-white/70 uppercase tracking-wider font-semibold">
                       Location
                     </span>
-                    <span className="text-white/90 font-medium group-hover:underline">
-Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan
-                    </span>
+                    <span className="text-white/90 font-medium truncate group-hover:underline">
+Boulevard, 34-S Main Blvd,
+Block K Gulberg, Lahore,
+Pakistan                    </span>
                   </div>
-              </a>
+                </a>
               </li>
 
               <li>
