@@ -133,7 +133,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="mailto:business@talentharbor.net"
+                  href="#"
                   className="flex items-start gap-2.5 group"
                 >
                   <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
@@ -146,6 +146,13 @@ export default function Footer() {
                     <span className="text-white/90 font-medium truncate group-hover:underline">
 Boulevard, 34-S Main Blvd,
 Block K Gulberg, Lahore,
+Pakistan                    </span>
+                     <span className="text-white/90 font-medium truncate group-hover:underline">
+
+Block K Gulberg, Lahore,
+Pakistan                    </span>
+                     <span className="text-white/90 font-medium truncate group-hover:underline">
+
 Pakistan                    </span>
                   </div>
                 </a>
