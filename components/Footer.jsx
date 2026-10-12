@@ -132,7 +132,7 @@ export default function Footer() {
              
 
               <li>
-               
+                 <span> 
                   <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
                     <MapPin className="w-3.5 h-3.5 text-white" />
                   </div>
@@ -151,6 +151,7 @@ Block K Gulberg, Lahore,
 
 Pakistan                    </span>
                   </div>
+                   </span>
               </li>
 
               <li>
