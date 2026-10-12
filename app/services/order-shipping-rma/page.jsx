@@ -242,7 +242,7 @@ export default function OrderShippingRMAServicePage() {
             </Link>
 
             <Link
-              href="/calculator"
+              href="/team-building-calculator"
               className="px-6 py-3 rounded-[7px] bg-white hover:bg-[#FAF6F2] text-[#0F0C09] border border-[#0F0C09]/15 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all active:scale-95 cursor-pointer"
             >
               <span>Calculate Custom Pricing</span>
