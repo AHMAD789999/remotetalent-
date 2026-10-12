@@ -204,7 +204,7 @@ export default function Header() {
               </button>
 
               {isMegaMenuOpen && (
-                <div className="absolute top-full left-1/4 -translate-x-1/2 pt-3 w-[1130px] z-50">
+                <div className="absolute top-full left-[100px] -translate-x-1/2 pt-3 w-[1130px] z-50">
                   <div className="bg-white rounded-[7px] border border-[#0F0C09]/10 shadow-2xl p-8 grid grid-cols-12 gap-6 animate-in fade-in slide-in-from-top-2 duration-150">
                     
                     {/* Categories Section arranged in 4 columns for perfect row alignment */}
