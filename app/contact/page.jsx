@@ -98,7 +98,7 @@ export default function ContactHero() {
                   Headquarters
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-[#0F0C09]">
-Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan
+Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan.
                 </span>
               </div>
             </div>
