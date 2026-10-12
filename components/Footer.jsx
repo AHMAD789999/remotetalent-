@@ -131,7 +131,7 @@ export default function Footer() {
             <ul className="space-y-3 text-xs">
               <li>
                 <a
-                  href="https://maps.google.com/?cid=17968419050004101636"
+                  href="#
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2.5 group"
