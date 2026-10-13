@@ -289,7 +289,7 @@ export default function Footer() {
         {/* BOTTOM COPYRIGHT & LEGAL / FAQ LINKS */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p className="text-[11px] text-white/80 font-normal text-center sm:text-left">
-            © {new Date().getFullYear()} RemoteTalent. All rights reserved.
+            © {new Date().getFullYear()} TalentHarbor. All rights reserved.
           </p>
 
           <div className="flex items-center gap-5 font-semibold text-white/90">
