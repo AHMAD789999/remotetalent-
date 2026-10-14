@@ -70,7 +70,7 @@ export default function AboutPage() {
       icon: Award,
     },
     {
-      name: "Muhammad Shahwaiz",
+      name: "Shahwaiz Naz",
       role: "Head of Internal Operations & Talent Recruitment",
       experience: "5+ Years Exp",
       desc: "Manages internal operations alignment, team resource allocation, and end-to-end talent recruitment ensuring every client is matched with the right vetted professional.",
