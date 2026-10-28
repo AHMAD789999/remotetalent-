@@ -28,8 +28,29 @@ import {
 import TalentShowcaseMarquee from "@/components/TalentShowcaseMarquee";
 import HowItWorks from "@/components/HowItWorks";
 
+// ============================================================
+// CURRENCY CONFIGURATION
+// Base prices are in USD. Adjust conversion rates as needed.
+// ============================================================
+const currencies = {
+  USD: { code: "USD", symbol: "$", label: "US Dollar", rate: 1 },
+  CAD: { code: "CAD", symbol: "C$", label: "Canadian Dollar", rate: 1.36 },
+  EUR: { code: "EUR", symbol: "€", label: "Euro", rate: 0.92 },
+  AUD: { code: "AUD", symbol: "A$", label: "Australian Dollar", rate: 1.52 },
+};
+
 export default function BusinessDevelopmentServicePage() {
   const [activeSection, setActiveSection] = useState("in-office-model");
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+
+  const currency = currencies[selectedCurrency];
+
+  // Convert USD base price string like "$1,399" into selected currency
+  const convertPriceString = (usdString) => {
+    const numeric = Number(usdString.replace(/[^0-9.]/g, ""));
+    const converted = Math.round(numeric * currency.rate);
+    return `${currency.symbol}${converted.toLocaleString()}`;
+  };
 
   const sidebarNav = [
     { id: "in-office-model", label: "In-Office BD Desk Model" },
@@ -526,6 +547,31 @@ export default function BusinessDevelopmentServicePage() {
                 </p>
               </div>
 
+              {/* ✅ HORIZONTAL CURRENCY BAR AT TOP OF PRICING CARDS */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-[#FA5B16]/5 border border-[#FA5B16]/20 rounded-[7px] p-4">
+                <div className="flex items-center gap-2">
+                  <Globe className="w-4 h-4 text-[#FA5B16]" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#0F0C09]">
+                    Select Your Currency
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {Object.values(currencies).map((cur) => (
+                    <button
+                      key={cur.code}
+                      onClick={() => setSelectedCurrency(cur.code)}
+                      className={`px-3 py-1.5 rounded-[7px] text-xs font-bold transition-all cursor-pointer border ${
+                        selectedCurrency === cur.code
+                          ? "bg-[#FA5B16] text-white border-[#FA5B16] shadow"
+                          : "bg-white text-[#0F0C09] border-[#0F0C09]/15 hover:border-[#FA5B16]"
+                      }`}
+                    >
+                      {cur.symbol} {cur.code}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {tierPricingPlans.map((plan, idx) => (
                   <div 
@@ -548,7 +594,7 @@ export default function BusinessDevelopmentServicePage() {
                           {plan.level}
                         </span>
                         <div className="flex items-baseline gap-1">
-                          <span className="text-2xl font-bold text-[#0F0C09]">{plan.price}</span>
+                          <span className="text-2xl font-bold text-[#0F0C09]">{convertPriceString(plan.price)}</span>
                           <span className="text-xs font-bold text-[#0F0C09]/50">{plan.period}</span>
                         </div>
                         <p className="text-[11px] text-[#0F0C09]/60 font-medium leading-normal pt-1">
