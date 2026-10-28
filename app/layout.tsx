@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "TalentHarbor | Dedicated Remote Talent & Offshore Teams",
   description:
     "Scale your business with pre-screened developers, 24/7 customer support agents, and logistics managers hosted in our office in Pakistan.",
+  verification: {
+    google: "LC2htaxtWxudBkNlypYHp0Xx7SaXKW-ad99k3Hxi0KU",
+  },
 };
 
 export default function RootLayout({
