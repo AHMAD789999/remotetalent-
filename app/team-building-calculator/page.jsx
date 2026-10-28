@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Calculator, Plus, Trash2, ArrowRight, ShieldCheck, Users, TrendingUp, X, Loader2, CheckCircle2, Calendar, DollarSign, Award } from "lucide-react";
+import { Calculator, Plus, Trash2, ArrowRight, ShieldCheck, Users, TrendingUp, X, Loader2, CheckCircle2, Calendar, DollarSign, Award, Globe } from "lucide-react";
 
 // ============================================================
 // OFFICIAL RATE CARD — Aligned with Live Service Pages
@@ -107,10 +107,30 @@ const availableRoles = [
   },
 ];
 
+// ============================================================
+// CURRENCY CONFIGURATION
+// Base rates are in USD. Adjust conversion rates as needed.
+// ============================================================
+const currencies = {
+  USD: { code: "USD", symbol: "$", label: "US Dollar", rate: 1 },
+  CAD: { code: "CAD", symbol: "C$", label: "Canadian Dollar", rate: 1.36 },
+  EUR: { code: "EUR", symbol: "€", label: "Euro", rate: 0.92 },
+  AUD: { code: "AUD", symbol: "A$", label: "Australian Dollar", rate: 1.52 },
+};
+
 export default function TeamBuildingCalculatorPage() {
   const [selectedRole, setSelectedRole] = useState(availableRoles[0].name);
   const [selectedExperience, setSelectedExperience] = useState("Junior");
   const [teamMembers, setTeamMembers] = useState([]);
+
+  // Currency state
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+  const currency = currencies[selectedCurrency];
+
+  // Convert a USD amount into the selected currency
+  const convert = (usdAmount) => Math.round(usdAmount * currency.rate);
+  const format = (usdAmount) =>
+    `${currency.symbol}${convert(usdAmount).toLocaleString()}`;
 
   // Popup Modal States
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -121,7 +141,7 @@ export default function TeamBuildingCalculatorPage() {
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  // Get pricing based on selection
+  // Get pricing based on selection (always stored in USD base)
   const currentRoleObj = availableRoles.find((r) => r.name === selectedRole) || availableRoles[0];
   const currentPricing = currentRoleObj.tiers[selectedExperience] || { onshore: 3200, offshore: 699 };
   const currentSavings = currentPricing.onshore - currentPricing.offshore;
@@ -131,6 +151,7 @@ export default function TeamBuildingCalculatorPage() {
       id: Date.now(),
       role: selectedRole,
       experience: selectedExperience,
+      // Store base USD values internally so totals stay consistent
       onshore: currentPricing.onshore,
       offshore: currentPricing.offshore,
       savings: currentSavings,
@@ -163,9 +184,9 @@ export default function TeamBuildingCalculatorPage() {
     setLoading(true);
     setErrorMsg("");
 
-    // Format team breakdown list into text
+    // Format team breakdown list into text (using selected currency)
     const teamSummaryText = teamMembers.length > 0
-      ? teamMembers.map((m, idx) => `${idx + 1}. Role: ${m.role} (${m.experience}) | Onshore: $${m.onshore} | Talent Harbor: $${m.offshore} | Savings: $${m.savings}`).join("\n")
+      ? teamMembers.map((m, idx) => `${idx + 1}. Role: ${m.role} (${m.experience}) | Onshore: ${format(m.onshore)} | Talent Harbor: ${format(m.offshore)} | Savings: ${format(m.savings)}`).join("\n")
       : "No specific roles pre-selected from calculator.";
 
     const fullMessage = `
@@ -174,16 +195,18 @@ CLIENT CONTACT INFORMATION:
 - Phone: ${clientPhone}
 - Email: ${clientEmail}
 
+SELECTED CURRENCY: ${currency.label} (${currency.code})
+
 CALCULATED TEAM CONFIGURATION:
 ${teamSummaryText}
 
-FINANCIAL SUMMARY:
-- Total Monthly Onshore Cost: $${totalOnshore.toLocaleString()}
-- Total Estimated Talent Harbor Cost: $${totalOffshore.toLocaleString()}
-- Total Monthly Savings: $${totalSavings.toLocaleString()} (${savingsPercentage}%)
-- Total Annual Savings: $${annualSavings.toLocaleString()}
-- Total 3-Year Savings: $${threeYearSavings.toLocaleString()}
-- Total 5-Year Savings: $${fiveYearSavings.toLocaleString()}
+FINANCIAL SUMMARY (${currency.code}):
+- Total Monthly Onshore Cost: ${format(totalOnshore)}
+- Total Estimated Talent Harbor Cost: ${format(totalOffshore)}
+- Total Monthly Savings: ${format(totalSavings)} (${savingsPercentage}%)
+- Total Annual Savings: ${format(annualSavings)}
+- Total 3-Year Savings: ${format(threeYearSavings)}
+- Total 5-Year Savings: ${format(fiveYearSavings)}
     `;
 
     const formData = new FormData();
@@ -239,6 +262,31 @@ FINANCIAL SUMMARY:
         <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-[10px] p-6 sm:p-8 border border-[#0F0C09]/15 shadow-xl space-y-8">
             
+            {/* Currency Selector */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-[#FA5B16]/5 border border-[#FA5B16]/20 rounded-[7px] p-4">
+              <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4 text-[#FA5B16]" />
+                <span className="text-xs font-bold uppercase tracking-wider text-[#0F0C09]">
+                  Select Your Currency
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {Object.values(currencies).map((cur) => (
+                  <button
+                    key={cur.code}
+                    onClick={() => setSelectedCurrency(cur.code)}
+                    className={`px-3 py-1.5 rounded-[7px] text-xs font-bold transition-all cursor-pointer border ${
+                      selectedCurrency === cur.code
+                        ? "bg-[#FA5B16] text-white border-[#FA5B16] shadow"
+                        : "bg-white text-[#0F0C09] border-[#0F0C09]/15 hover:border-[#FA5B16]"
+                    }`}
+                  >
+                    {cur.symbol} {cur.code}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Top Selector Card */}
             <div className="bg-[#FAF6F2] rounded-[7px] border border-[#0F0C09]/10 p-5 sm:p-6 space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 text-xs font-bold tracking-wider text-[#FA5B16] uppercase pb-2 border-b border-[#0F0C09]/10 hidden sm:grid">
@@ -283,19 +331,19 @@ FINANCIAL SUMMARY:
                 {/* Savings Preview */}
                 <div className="text-sm font-bold text-[#0F0C09]/90">
                   <span className="block sm:hidden text-[10px] text-[#FA5B16] font-bold uppercase">Your Savings</span>
-                  ${currentSavings.toLocaleString()}
+                  {format(currentSavings)}
                 </div>
 
                 {/* Onshore Preview */}
                 <div className="text-sm font-bold text-[#0F0C09]/90">
                   <span className="block sm:hidden text-[10px] text-[#FA5B16] font-bold uppercase">Hire Onshore</span>
-                  ${currentPricing.onshore.toLocaleString()}
+                  {format(currentPricing.onshore)}
                 </div>
 
                 {/* Offshore Preview */}
                 <div className="text-sm font-extrabold text-[#FA5B16]">
                   <span className="block sm:hidden text-[10px] text-[#FA5B16] font-bold uppercase">Hire With Talent Harbor</span>
-                  ${currentPricing.offshore.toLocaleString()}
+                  {format(currentPricing.offshore)}
                 </div>
               </div>
             </div>
@@ -334,10 +382,10 @@ FINANCIAL SUMMARY:
                     <div key={member.id} className="grid grid-cols-1 sm:grid-cols-6 gap-2 p-4 items-center text-xs">
                       <div className="col-span-2 font-bold text-[#0F0C09]">{member.role}</div>
                       <div className="text-[#0F0C09]/80">{member.experience}</div>
-                      <div className="text-[#0F0C09] font-bold">${member.savings.toLocaleString()}</div>
-                      <div className="text-[#0F0C09]/80">${member.onshore.toLocaleString()}</div>
+                      <div className="text-[#0F0C09] font-bold">{format(member.savings)}</div>
+                      <div className="text-[#0F0C09]/80">{format(member.onshore)}</div>
                       <div className="flex justify-between items-center">
-                        <span className="text-[#FA5B16] font-extrabold">${member.offshore.toLocaleString()}</span>
+                        <span className="text-[#FA5B16] font-extrabold">{format(member.offshore)}</span>
                         <button
                           onClick={() => handleRemoveMember(member.id)}
                           className="text-red-500 hover:text-red-700 p-1 transition-colors cursor-pointer"
@@ -356,11 +404,11 @@ FINANCIAL SUMMARY:
             <div className="bg-[#0F0C09] text-white rounded-[7px] p-6 space-y-3 shadow-md">
               <div className="text-xs text-white/80 flex justify-between border-b border-white/10 pb-2.5">
                 <span>Monthly cost of onshore hiring:</span>
-                <span className="font-bold text-white">${totalOnshore.toLocaleString()}</span>
+                <span className="font-bold text-white">{format(totalOnshore)}</span>
               </div>
               <div className="text-xs text-white/80 flex justify-between border-b border-white/10 pb-2.5">
                 <span>Monthly savings with Talent Harbor:</span>
-                <span className="font-bold text-[#FA5B16]">${totalSavings.toLocaleString()}</span>
+                <span className="font-bold text-[#FA5B16]">{format(totalSavings)}</span>
               </div>
               <div className="text-xs text-white/80 flex justify-between border-b border-white/10 pb-2.5">
                 <span>You could be Saving:</span>
@@ -368,7 +416,7 @@ FINANCIAL SUMMARY:
               </div>
               <div className="text-sm text-white flex justify-between pt-1">
                 <span className="font-bold">Estimated Monthly Cost:</span>
-                <span className="font-extrabold text-lg text-[#FA5B16]">${totalOffshore.toLocaleString()}</span>
+                <span className="font-extrabold text-lg text-[#FA5B16]">{format(totalOffshore)}</span>
               </div>
             </div>
 
@@ -408,7 +456,7 @@ FINANCIAL SUMMARY:
                       </div>
                       <div className="flex items-baseline gap-1">
                         <span className="text-2xl font-extrabold text-[#0F0C09]">
-                          ${monthlySavings.toLocaleString()}
+                          {format(monthlySavings)}
                         </span>
                       </div>
                       <p className="text-[10px] text-[#0F0C09]/60 font-medium leading-relaxed">
@@ -437,7 +485,7 @@ FINANCIAL SUMMARY:
                       </div>
                       <div className="flex items-baseline gap-1">
                         <span className="text-3xl font-extrabold text-white">
-                          ${annualSavings.toLocaleString()}
+                          {format(annualSavings)}
                         </span>
                       </div>
                       <p className="text-[10px] text-white/80 font-medium leading-relaxed">
@@ -460,7 +508,7 @@ FINANCIAL SUMMARY:
                       </div>
                       <div className="flex items-baseline gap-1">
                         <span className="text-2xl font-extrabold text-[#0F0C09]">
-                          ${threeYearSavings.toLocaleString()}
+                          {format(threeYearSavings)}
                         </span>
                       </div>
                       <p className="text-[10px] text-[#0F0C09]/60 font-medium leading-relaxed">
@@ -486,7 +534,7 @@ FINANCIAL SUMMARY:
                   <div className="space-y-1.5">
                     <div className="flex justify-between items-center text-xs">
                       <span className="font-bold text-[#0F0C09]/70 uppercase tracking-wider text-[10px]">Onshore Hiring (Annual)</span>
-                      <span className="font-extrabold text-[#0F0C09]">${annualOnshore.toLocaleString()}</span>
+                      <span className="font-extrabold text-[#0F0C09]">{format(annualOnshore)}</span>
                     </div>
                     <div className="w-full h-3 bg-[#FAF6F2] rounded-full overflow-hidden border border-[#0F0C09]/5">
                       <div 
@@ -500,7 +548,7 @@ FINANCIAL SUMMARY:
                   <div className="space-y-1.5">
                     <div className="flex justify-between items-center text-xs">
                       <span className="font-bold text-[#FA5B16] uppercase tracking-wider text-[10px]">Talent Harbor (Annual)</span>
-                      <span className="font-extrabold text-[#FA5B16]">${annualOffshore.toLocaleString()}</span>
+                      <span className="font-extrabold text-[#FA5B16]">{format(annualOffshore)}</span>
                     </div>
                     <div className="w-full h-3 bg-[#FAF6F2] rounded-full overflow-hidden border border-[#0F0C09]/5">
                       <div 
@@ -519,14 +567,14 @@ FINANCIAL SUMMARY:
                       <div>
                         <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F0C09]/60">Net Annual Savings</p>
                         <p className="text-lg font-extrabold text-[#FA5B16] leading-tight">
-                          ${annualSavings.toLocaleString()}
+                          {format(annualSavings)}
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F0C09]/60">5-Year Projection</p>
                       <p className="text-lg font-extrabold text-[#0F0C09] leading-tight">
-                        ${fiveYearSavings.toLocaleString()}
+                        {format(fiveYearSavings)}
                       </p>
                     </div>
                   </div>
