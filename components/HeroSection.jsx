@@ -20,21 +20,21 @@ export default function HeroSection() {
         {/* TOP BADGE / PILL */}
         <div>
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[7px] bg-[#FA5B16]/10 text-[#FA5B16] text-[11px] font-extrabold uppercase tracking-widest border border-[#FA5B16]/20">
-            <span>US Market Launch Ready</span>
+            <span>YOUR TEAM. YOUR TIME ZONE.</span>
           </span>
         </div>
 
         {/* MAIN DISPLAY HEADLINE */}
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] text-[#0F0C09] leading-[1.05] max-w-4xl">
-          Scale Your US Operations With Dedicated
+          Your Next Stage Of Growth
           <span className="block mt-2 text-[#FA5B16]">
-            Office-Based Professionals
+            Start With The Right Team Buil Around Your Business.
           </span>
         </h1>
 
         {/* PARAGRAPH */}
         <p className="text-base sm:text-lg text-[#0F0C09]/80 max-w-2xl font-medium leading-[1.5] tracking-[-0.01em] pt-1">
-          Deploy vetted, full-time specialists operating on your time zone with 160 hours/month included. Cut overhead by up to 70% without compromising on quality or control.
+         Build your team with vetted, dedicated professionals working from our managed office and on your schedule. Cut staffing costs by up to 70%, with working hours tailored to your workload and business requirements
         </p>
 
         {/* ACTION BUTTONS */}
