@@ -28,8 +28,9 @@ export default function HeroSection() {
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] text-[#0F0C09] leading-[1.05] max-w-4xl">
           Your Next Stage Of Growth
           <span className="block mt-2 text-[#FA5B16]">
-            Start With The Right Team Buil Around Your Business.
+            Start With The Right Team
           </span>
+           Built Around Your Business.
         </h1>
 
         {/* PARAGRAPH */}
