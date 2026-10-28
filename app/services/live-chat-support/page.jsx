@@ -11,8 +11,20 @@ import {
   ShieldCheck, 
   Users, 
   Sparkles,
-  ChevronRight
+  ChevronRight,
+  Globe
 } from "lucide-react";
+
+// ============================================================
+// CURRENCY CONFIGURATION
+// Base prices are in USD. Adjust conversion rates as needed.
+// ============================================================
+const currencies = {
+  USD: { code: "USD", symbol: "$", label: "US Dollar", rate: 1 },
+  CAD: { code: "CAD", symbol: "C$", label: "Canadian Dollar", rate: 1.36 },
+  EUR: { code: "EUR", symbol: "€", label: "Euro", rate: 0.92 },
+  AUD: { code: "AUD", symbol: "A$", label: "Australian Dollar", rate: 1.52 },
+};
 
 const sections = [
   { id: "overview", label: "Overview" },
@@ -21,8 +33,23 @@ const sections = [
   { id: "faq", label: "FAQs" },
 ];
 
+// Example monthly base prices (USD) shown per experience tier
+const tierBasePrices = {
+  Junior: 799,
+  Mid: 1199,
+  Senior: 1699,
+};
+
 export default function LiveChatSupportPage() {
   const [activeSection, setActiveSection] = useState("overview");
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+
+  const currency = currencies[selectedCurrency];
+
+  const convertPrice = (usdAmount) => {
+    const converted = Math.round(usdAmount * currency.rate);
+    return `${currency.symbol}${converted.toLocaleString()}`;
+  };
 
   const scrollToSection = (id) => {
     setActiveSection(id);
@@ -144,6 +171,31 @@ export default function LiveChatSupportPage() {
                 Choose the right seniority tier based on your support volume, escalation complexity, and leadership requirements:
               </p>
 
+              {/* ✅ HORIZONTAL CURRENCY BAR AT TOP OF EXPERIENCE TIERS */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-[#FA5B16]/5 border border-[#FA5B16]/20 rounded-[7px] p-4">
+                <div className="flex items-center gap-2">
+                  <Globe className="w-4 h-4 text-[#FA5B16]" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#0F0C09]">
+                    Select Your Currency
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {Object.values(currencies).map((cur) => (
+                    <button
+                      key={cur.code}
+                      onClick={() => setSelectedCurrency(cur.code)}
+                      className={`px-3 py-1.5 rounded-[7px] text-xs font-bold transition-all cursor-pointer border ${
+                        selectedCurrency === cur.code
+                          ? "bg-[#FA5B16] text-white border-[#FA5B16] shadow"
+                          : "bg-white text-[#0F0C09] border-[#0F0C09]/15 hover:border-[#FA5B16]"
+                      }`}
+                    >
+                      {cur.symbol} {cur.code}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <div className="space-y-4">
                 <div className="p-5 rounded-[7px] border border-[#0F0C09]/10 bg-[#FAF6F2]/50 space-y-2">
                   <div className="flex justify-between items-center flex-wrap gap-2">
@@ -155,6 +207,12 @@ export default function LiveChatSupportPage() {
                   <p className="text-xs text-[#0F0C09]/70 leading-relaxed">
                     Ideal for standard ticketing, chat queries, social media inbox management, and junior level support assistance.
                   </p>
+                  <div className="pt-2 border-t border-[#0F0C09]/10 flex items-baseline gap-1">
+                    <span className="text-lg font-extrabold text-[#0F0C09]">
+                      {convertPrice(tierBasePrices.Junior)}
+                    </span>
+                    <span className="text-[11px] font-bold text-[#0F0C09]/50">/ month</span>
+                  </div>
                 </div>
 
                 <div className="p-5 rounded-[7px] border border-[#FA5B16] bg-[#FA5B16]/5 space-y-2 relative">
@@ -170,6 +228,12 @@ export default function LiveChatSupportPage() {
                   <p className="text-xs text-[#0F0C09]/70 leading-relaxed">
                     Handles complex customer escalations, billing inquiries, refund processing, and mid-level customer support workflows.
                   </p>
+                  <div className="pt-2 border-t border-[#0F0C09]/10 flex items-baseline gap-1">
+                    <span className="text-lg font-extrabold text-[#FA5B16]">
+                      {convertPrice(tierBasePrices.Mid)}
+                    </span>
+                    <span className="text-[11px] font-bold text-[#0F0C09]/50">/ month</span>
+                  </div>
                 </div>
 
                 <div className="p-5 rounded-[7px] border border-[#0F0C09]/10 bg-[#FAF6F2]/50 space-y-2">
@@ -182,6 +246,12 @@ export default function LiveChatSupportPage() {
                   <p className="text-xs text-[#0F0C09]/70 leading-relaxed">
                     Advanced leadership, team training, KPI management, QA oversight, and high-level enterprise customer support strategy.
                   </p>
+                  <div className="pt-2 border-t border-[#0F0C09]/10 flex items-baseline gap-1">
+                    <span className="text-lg font-extrabold text-[#0F0C09]">
+                      {convertPrice(tierBasePrices.Senior)}
+                    </span>
+                    <span className="text-[11px] font-bold text-[#0F0C09]/50">/ month</span>
+                  </div>
                 </div>
               </div>
             </section>
