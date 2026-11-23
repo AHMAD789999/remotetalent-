@@ -5,15 +5,14 @@ import Link from "next/link";
 import TalentShowcaseMarquee from "@/components/TalentShowcaseMarquee";
 import HowItWorks from "@/components/HowItWorks";
 
-import { 
-  Building2, 
-  Target, 
-  Users, 
-  ShieldCheck, 
-  Award, 
-  ArrowRight, 
-  CheckCircle2, 
-  Globe2, 
+import {
+  Building2,
+  Target,
+  ShieldCheck,
+  Award,
+  ArrowRight,
+  CheckCircle2,
+  Globe2,
   Sparkles,
   Zap,
   Eye,
@@ -26,8 +25,7 @@ import {
   Truck,
   Megaphone,
   Briefcase,
-  Star,
-  Rocket
+  Rocket,
 } from "lucide-react";
 
 export default function AboutPage() {
@@ -59,30 +57,6 @@ export default function AboutPage() {
       desc: "Our specialists integrate seamlessly into your current workflows, tools (Zendesk, Shopify, HubSpot), and communication channels.",
       icon: Target,
     },
-  ];
-
-  const teamMembers = [
-    {
-      name: "Muhammad Ali Raja",
-      role: "Chief Executive Officer (CEO)",
-      experience: "8+ Years Exp",
-      desc: "Leads overall strategy, growth, and vision for  Talent Harbor  managing global client partnerships and scaling offshore operations across 12+ countries.",
-      icon: Award,
-    },
-    {
-      name: "Shahwaiz Naz",
-      role: "Head of Internal Operations & Talent Recruitment",
-      experience: "5+ Years Exp",
-      desc: "Manages internal operations alignment, team resource allocation, and end-to-end talent recruitment ensuring every client is matched with the right vetted professional.",
-      icon: Users,
-    },
-  {
-  name: "Ahmad Ali",
-  role: "Chief Operating Officer (COO) & Lead Systems Architect",
-  experience: "3+ Years Exp",
-  desc: "Oversees internal operations, team infrastructure, and system uptime across all departments while also leading enterprise web architecture in Next.js, Laravel, and WordPress.",
-  icon: Code2,
-},
   ];
 
   const serviceCategories = [
@@ -149,7 +123,6 @@ export default function AboutPage() {
 
   return (
     <main className="bg-[#FAF6F2] text-[#0F0C09] mt-[-100px] pt-16 select-none min-h-screen">
-      
       {/* 1. HERO SECTION */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
         <div className="max-w-6xl mx-auto space-y-5 text-left">
@@ -200,7 +173,6 @@ export default function AboutPage() {
       {/* 3. MISSION & VISION SECTION */}
       <section className="py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          
           {/* Mission Card */}
           <div className="bg-white rounded-[10px] p-7 border border-[#0F0C09]/10 shadow-sm hover:border-[#FA5B16] transition-all space-y-4">
             <div className="w-12 h-12 rounded-[10px] bg-[#FA5B16]/10 text-[#FA5B16] flex items-center justify-center">
@@ -214,9 +186,12 @@ export default function AboutPage() {
               {[
                 "Reliable 160 hours/month dedicated specialists",
                 "Managed physical office infrastructure",
-                "Zero time-zone friction operations"
+                "Zero time-zone friction operations",
               ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-xs font-semibold text-[#0F0C09]/80">
+                <li
+                  key={idx}
+                  className="flex items-start gap-2 text-xs font-semibold text-[#0F0C09]/80"
+                >
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#FA5B16] shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
@@ -237,23 +212,24 @@ export default function AboutPage() {
               {[
                 "1,000+ active offshore professionals by 2027",
                 "Serving clients across 30+ countries",
-                "Best-in-class SLA performance benchmarks"
+                "Best-in-class SLA performance benchmarks",
               ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-xs font-semibold text-white/90">
+                <li
+                  key={idx}
+                  className="flex items-start gap-2 text-xs font-semibold text-white/90"
+                >
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#FA5B16] shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-
         </div>
       </section>
 
       {/* 4. CORE VALUES SECTION */}
       <section className="py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
         <div className="max-w-6xl mx-auto space-y-10">
-          
           <div className="space-y-3 text-left">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#FA5B16]/10 text-[#FA5B16] text-xs font-bold uppercase tracking-wider border border-[#FA5B16]/20">
               <Heart className="w-3.5 h-3.5" />
@@ -271,14 +247,16 @@ export default function AboutPage() {
             {coreValues.map((value, idx) => {
               const IconComp = value.icon;
               return (
-                <div 
+                <div
                   key={idx}
                   className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm hover:border-[#FA5B16] hover:shadow-md transition-all space-y-3"
                 >
                   <div className="w-11 h-11 rounded-[8px] bg-[#FAF6F2] text-[#FA5B16] border border-[#0F0C09]/10 flex items-center justify-center">
                     <IconComp className="w-5 h-5" />
                   </div>
-                  <h3 className="text-sm font-bold text-[#0F0C09]">{value.title}</h3>
+                  <h3 className="text-sm font-bold text-[#0F0C09]">
+                    {value.title}
+                  </h3>
                   <p className="text-xs text-[#0F0C09]/70 font-medium leading-relaxed">
                     {value.desc}
                   </p>
@@ -286,14 +264,12 @@ export default function AboutPage() {
               );
             })}
           </div>
-
         </div>
       </section>
 
       {/* 5. SERVICE CATEGORIES WE MANAGE */}
       <section className="py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
         <div className="max-w-6xl mx-auto space-y-10">
-          
           <div className="space-y-3 text-left">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#FA5B16]/10 text-[#FA5B16] text-xs font-bold uppercase tracking-wider border border-[#FA5B16]/20">
               <Globe2 className="w-3.5 h-3.5" />
@@ -311,7 +287,7 @@ export default function AboutPage() {
             {serviceCategories.map((srv, idx) => {
               const IconComp = srv.icon;
               return (
-                <div 
+                <div
                   key={idx}
                   className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm hover:border-[#FA5B16] hover:shadow-md transition-all space-y-3 group"
                 >
@@ -331,68 +307,12 @@ export default function AboutPage() {
               );
             })}
           </div>
-
         </div>
       </section>
 
-      {/* 6. LEADERSHIP / TEAM SECTION */}
+      {/* 6. WHY CHOOSE US / DIFFERENTIATORS */}
       <section className="py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
         <div className="max-w-6xl mx-auto space-y-10">
-          
-          <div className="space-y-3 text-left">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#FA5B16]/10 text-[#FA5B16] text-xs font-bold uppercase tracking-wider border border-[#FA5B16]/20">
-              <Users className="w-3.5 h-3.5" />
-              <span>Leadership Team</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F0C09]">
-              Meet the People Behind Your Teams
-            </h2>
-            <p className="text-xs sm:text-sm text-[#0F0C09]/70 font-medium max-w-2xl leading-relaxed">
-              Our leadership brings 16+ combined years of offshore operations, engineering, recruitment, and client management experience — running every department from our Lahore headquarters.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {teamMembers.map((member, idx) => {
-              const IconComp = member.icon;
-              return (
-                <div 
-                  key={idx}
-                  className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm hover:border-[#FA5B16] hover:shadow-md transition-all space-y-4"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FA5B16] to-[#ff8a4d] text-white flex items-center justify-center text-xl font-bold shadow-md">
-                      {member.name.charAt(0)}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-bold text-[#0F0C09] truncate">{member.name}</h3>
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#FA5B16] mt-1">
-                        <Star className="w-3 h-3" />
-                        {member.experience}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="space-y-2 pt-3 border-t border-[#0F0C09]/10">
-                    <div className="flex items-start gap-2">
-                      <IconComp className="w-4 h-4 text-[#FA5B16] shrink-0 mt-0.5" />
-                      <h4 className="text-xs font-bold text-[#0F0C09]">{member.role}</h4>
-                    </div>
-                    <p className="text-[11px] text-[#0F0C09]/70 font-medium leading-relaxed pl-6">
-                      {member.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 7. WHY CHOOSE US / DIFFERENTIATORS */}
-      <section className="py-16 px-4 sm:px-6 lg:px-12 border-b border-[#0F0C09]/10">
-        <div className="max-w-6xl mx-auto space-y-10">
-          
           <div className="space-y-3 text-left">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#FA5B16]/10 text-[#FA5B16] text-xs font-bold uppercase tracking-wider border border-[#FA5B16]/20">
               <Award className="w-3.5 h-3.5" />
@@ -410,7 +330,7 @@ export default function AboutPage() {
             {differentiators.map((item, idx) => {
               const IconComp = item.icon;
               return (
-                <div 
+                <div
                   key={idx}
                   className="bg-white rounded-[10px] p-6 border border-[#0F0C09]/10 shadow-sm hover:border-[#FA5B16] hover:shadow-md transition-all space-y-3"
                 >
@@ -425,18 +345,16 @@ export default function AboutPage() {
               );
             })}
           </div>
-
         </div>
       </section>
 
-      {/* 8. HOW WE WORK */}
+      {/* 7. HOW WE WORK */}
       <HowItWorks />
 
-      {/* 9. FINAL CTA SECTION */}
+      {/* 8. FINAL CTA SECTION */}
       <section className="py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="bg-gradient-to-br from-[#FA5B16] to-[#e04f0f] rounded-[12px] p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
-            
             {/* Decorative circles */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-24 -mb-24"></div>
@@ -488,12 +406,10 @@ export default function AboutPage() {
                   <span>48-Hour Onboarding</span>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
-
     </main>
   );
 }
