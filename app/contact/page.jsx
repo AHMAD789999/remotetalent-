@@ -98,7 +98,21 @@ export default function ContactHero() {
                   Headquarters
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-[#0F0C09]">
-Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan.
+                  2403 Woodward Ave, Saskatoon, SK S7J 2E4, Canada.
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5 p-4 rounded-[7px] bg-white border border-[#0F0C09]/10 shadow-sm">
+              <div className="w-10 h-10 rounded-[6px] bg-[#FAF6F2] text-[#FA5B16] flex items-center justify-center shrink-0 border border-[#0F0C09]/5">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold text-[#0F0C09]/50 uppercase tracking-wider block">
+                  Office
+                </span>
+                <span className="text-xs sm:text-sm font-bold text-[#0F0C09]">
+                  Boulevard, 34-S Main Blvd, Block K Gulberg, Lahore, Pakistan.
                 </span>
               </div>
             </div>
