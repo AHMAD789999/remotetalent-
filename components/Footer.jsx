@@ -88,10 +88,8 @@ export default function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto space-y-10 relative z-10">
-        
         {/* 5-COLUMN SINGLE ROW GRID AT DESKTOP */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 items-start">
-          
           {/* COLUMN 1: BRAND / ABOUT */}
           <div className="space-y-4">
             <div className="min-h-[32px] flex items-center">
@@ -116,7 +114,7 @@ export default function Footer() {
             <p className="text-xs text-white/90 leading-relaxed font-normal">
               Connecting global businesses with dedicated, pre-vetted remote
               talent and full-scale operational support managed directly from
-              our office in Pakistan.
+              our offices in Canada and Pakistan.
             </p>
           </div>
 
@@ -129,19 +127,39 @@ export default function Footer() {
             </div>
 
             <ul className="space-y-3 text-xs">
-              
-              {/* NON-CLICKABLE PROPERLY ALIGNED LOCATION */}
+              {/* HEADQUARTERS / CANADA OFFICE */}
               <li className="flex items-start gap-2.5 cursor-default">
                 <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5">
                   <MapPin className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div className="flex flex-col min-w-0">
                   <span className="text-[9px] text-white/70 uppercase tracking-wider font-semibold">
-                    Location
+                    Headquarters
                   </span>
                   <span className="text-white/90 font-medium text-xs leading-snug">
-                    Boulevard, 34-S Main Blvd,<br />
-                    Block K Gulberg, Lahore,<br />
+                    2403 Woodward Ave,
+                    <br />
+                    Saskatoon, SK S7J 2E4,
+                    <br />
+                    Canada
+                  </span>
+                </div>
+              </li>
+
+              {/* LAHORE OFFICE */}
+              <li className="flex items-start gap-2.5 cursor-default">
+                <div className="p-1.5 rounded bg-white/10 border border-white/15 shrink-0 mt-0.5">
+                  <MapPin className="w-3.5 h-3.5 text-white" />
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[9px] text-white/70 uppercase tracking-wider font-semibold">
+                    Office
+                  </span>
+                  <span className="text-white/90 font-medium text-xs leading-snug">
+                    Boulevard, 34-S Main Blvd,
+                    <br />
+                    Block K Gulberg, Lahore,
+                    <br />
                     Pakistan
                   </span>
                 </div>
@@ -280,7 +298,6 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-
         </div>
 
         {/* BOTTOM DIVIDER */}
@@ -319,7 +336,6 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-
       </div>
     </footer>
   );
